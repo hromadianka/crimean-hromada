@@ -1,0 +1,15 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+
+<h2>Видалення новини "{{ news.title }}"</h2>
+
+<p>Ти точно хочеш видалити новину: "{{ news.title }}"?</p>
+
+<form method="post" action="{% url 'delete_news' project_id=project_id news_id=news_id %}" class="form">
+    {% csrf_token %}
+    <button type="submit" class="form-button">Видалити</button>
+</form>
+
+<p><a href="{% url 'news_detail' project_id=project_id news_id=news_id %}">Скасувати</a></p>
+
+{% endblock %}

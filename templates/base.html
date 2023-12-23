@@ -1,0 +1,149 @@
+﻿﻿{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Кримська Громада</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="language-switcher">
+            <select id="language-select">
+                <option value="ua">🌐 UA</option>
+                <option value="en">🌐 EN</option>
+                <option value="ct">🌐 CT</option>
+                <option value="ru">🌐 RU</option>
+            </select>
+        </div>
+        <div class="burger-menu">
+            <div class="burger-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="menu">
+                <li><a href="/">Головна</a></li>
+                <li><a href="search">Пошук</a></li>
+                <li><a href="publish">Опублікувати</a></li>
+                <li><a href="wiki">Вікі</a></li>
+                <li><a href="self-government">Самоврядування</a></li>
+            </ul>
+        </div>
+        <div class="header-div">
+            <a href="/"><img src="{% static 'img/map.png' %}" alt="" /></a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'account' user.id %}"><img src="{% static 'img/account.png' %}" alt="" /></a>
+            {% else %}
+            <a href="{% url 'login' %}"><img src="{% static 'img/account.png' %}" alt="Вхід" /></a>
+            {% endif %}
+        </div>
+    </header>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const burgerIcon = document.querySelector(".burger-icon");
+            const menu = document.querySelector(".menu");
+
+            burgerIcon.addEventListener("click", function () {
+                menu.classList.toggle("active");
+            });
+        });
+    </script>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <a href="/"><img class="logo" src="{% static 'img/logo.jpg' %}" alt="" /></a>
+        <a href="mailto:go-hromada@proton.me">go-hromada@proton.me</a>
+        <div class="footer-div">
+            <a href="/"><img src="{% static 'img/footer-telegram.png' %}" alt="" /></a>
+            <a href="/"><img src="{% static 'img/footer-instagram.png' %}" alt="" /></a>
+            <a href="/"><img src="{% static 'img/footer-twitter.png' %}" alt="" /></a>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center">
+            <p style="margin: 0">Від твоєї Громади в Україні</p>
+            <img src="{% static 'img/ukraine.png' %}" />
+        </div>
+    </footer>
+    <script>
+        // Отримайте поточну URL сторінки
+        var currentURL = window.location.href;
+
+        // Отримайте усі посилання в меню
+        var menuLinks = document.querySelectorAll('.menu a');
+
+        // Перевірте кожне посилання в меню
+        menuLinks.forEach(function (link) {
+            if (link.href === currentURL) {
+                // Якщо посилання відповідає поточній сторінці, додайте клас 'active'
+                link.classList.add('active');
+            }
+        });
+
+    </script>
+
+    <!-- Додайте jQuery, якщо ви його ще не додали -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.like-button').on('click', function () {
+                var projectId = $(this).data('project-id');
+                var button = $(this);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/toggle_favorite/' + projectId + '/',
+                    success: function (data) {
+                        $('.like-count').text(data.likes);
+
+                        // Зміна стилів кнопки
+                        if (data.favorited) {
+                            button.css({
+                                'background-color': 'red',
+                                'color': 'white'
+                            });
+                        } else {
+                            button.css({
+                                'background-color': 'white',
+                                'color': 'black'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        function saveIdea(ideaId) {
+            $.ajax({
+                type: 'POST',
+                url: '/save_idea/' + ideaId + '/',
+                data: {
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    if (data.success) {
+                        alert(data.message);
+                        // Опціонально: змінити стиль кнопки або вивести іншу інформацію користувачеві
+                    } else {
+                        alert('Failed to save idea.');
+                    }
+                }
+            });
+        }
+
+    </script>
+
+
+</body>
+</html>

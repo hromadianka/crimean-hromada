@@ -1,0 +1,271 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ project.name }}</h1>
+<p>{{ project.description }}</p>
+<div class="project-action">
+    <button class="like-button" data-project-id="{{ project.id }}">
+        <span class="like-icon">👊</span>
+        <span class="like-count">{{ project.likes }}</span>
+    </button>
+</div>
+<p><a href="{{ project.chat_element }}">Посилання на відкритий чат проєкту</a></p>
+{% if is_author %}
+<p><a href="{% url 'edit' %}">Редагувати проєкт</a></p>
+<p><a href="{% url 'delete' %}" style="text-decoration: none; color: red">Видалити проєкт</a></p>
+{% endif %}
+<h3>Пов'язані ідеї</h3>
+{% for idea in related_ideas %}
+<div class="idea-card">
+    <div class="idea-info">
+        <h2><a href="{% url 'idea_detail' idea.id %}" style="text-decoration: none">{{ idea.name }}</a></h2>
+        <p>{{ idea.description }}</p>
+    </div>
+    <div class="idea-action">
+        <form method="post" action="{% url 'save_idea' idea_id=idea.id %}">
+            {% csrf_token %}
+            <button type="submit" class="idea-button">
+                <span class="idea-icon">📑</span>
+            </button>
+        </form>
+    </div>
+</div><p>Координатор цього проєкту не зазначав, що він надихався якоюсь із ідей на платформі.</p>
+{% endfor %}
+
+
+<h3>Які ресурси потрібні?</h3>
+{% if is_author %}
+<form method="POST" id="resourceForm" class="form">
+    {% csrf_token %}
+    <input type="text" id="resource_name" name="resource_name" class="input" required>
+    <button type="button" onclick="addResource()">Додати ресурс</button>
+</form>
+{% endif %}
+<ul id="resourceList">
+    {% for resource in project.resources.all %}
+    <li>
+        <span class="resource-name">{{ resource.name }}</span>
+        {% if is_author %}
+        <button type="button" onclick="editResource('{{ resource.id }}')">Редагувати</button>
+        <button type="button" onclick="deleteResource('{{ resource.id }}')">Видалити</button>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% if is_author == False %}
+<p>Ви можете запропонувати свою допомогу проєкту, написавши його координатору. Вкажіть, будь ласка, щодо якого конкретно проєкту і ресурсу ви звертаєтесь.</p>
+<button><a href="{{ project.author.profile.chat_element }}">Запропонувати допомогу</a></button>
+{% endif %}
+<h3>Завдання</h3>
+{% if is_author %}
+<form method="POST" id="taskForm" class="form">
+    {% csrf_token %}
+    <input class="input" />
+    <button type="button" onclick="addTask()">Додати нове завдання</button>
+</form>
+{% endif %}
+<ul id="taskList">
+    {% for task in project.tasks.all %}
+    <li>
+        <span class="task-id" style="display: none;">{{ task.id }}</span>
+        <span class="task-name">{{ task.name }}</span>
+        <span class="task-description">{{ task.description }}</span>
+        <span class="task-risk-level">{{ task.risk_level }}</span>
+        <span class="task-activity-sphere">{{ task.activity_sphere }}</span>
+        {% if is_author %}
+        <button type="button" onclick="editTask('{{ task.id }}')">Редагувати</button>
+        <button type="button" onclick="deleteTask('{{ task.id }}')">Видалити</button>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+<h3>Новини проєкту</h3>
+{% if is_author %}
+<form action="">
+    <button type="submit" class="form-button"><a href="url 'add_news' project_id=project.id" style="text-decoration: none">Додати новину</a></button>
+</form>
+{% endif %}
+<div class="news">
+    {% for news in project.news.all %}
+    <h2><a style="text-decoration: underline" href="{% url 'news_detail' project_id=project.id news_id=news.id %}">{{ news.title }}</a></h2>
+    {% if news.image %}
+    <img src="{{ news.image.url }}" alt="{{ news.title }}">
+    {% endif %}
+    <p>{{ news.content|truncatechars:200|linebreaksbr }}</p>
+    {% if is_author %}
+    <p><a href="{% url 'edit_news' project_id=project.id news_id=news.id %}">Редагувати новину</a></p>
+    <p><a href="{% url 'delete_news' project_id=project.id news_id=news.id %}" style="text-decoration: none; color: red">Видалити новину</a></p>
+    {% endif %}
+    {% endfor %}
+</div>
+
+
+
+
+<!-- Додайте цей JavaScript код під ваший шаблон або у відповідний файл -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function addResource() {
+        var resourceName = $('#resource_name').val();
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url "add_resource_to_project" project.id %}',
+            data: {
+                'resource_name': resourceName,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function (data) {
+                // Оновіть список ресурсів
+                $('#resourceList').append('<li>' +
+                    '<span class="resource-name">' + resourceName + '</span>' +
+                    '<button type="button" onclick="editResource(' + data.resource_id + ')">Редагувати</button>' +
+                    '<button type="button" onclick="deleteResource(' + data.resource_id + ')">Видалити</button>' +
+                    '</li>');
+                // Очистіть поле вводу
+                $('#resource_name').val('');
+            }
+        });
+    }
+
+    function editResource(resourceId) {
+        var newName = prompt('Введи нове ім\'я ресурсу:');
+        if (newName !== null) {
+            $.ajax({
+                type: 'POST',
+                url: '{% url "edit_resource" %}',
+                data: {
+                    'resource_id': resourceId,
+                    'new_name': newName,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function () {
+                    // Оновіть ім'я ресурсу на сторінці
+                    $('#resourceList li span.resource-name').filter(function () {
+                        return $(this).text() === resourceId.toString();
+                    }).text(newName);
+                }
+            });
+        }
+    }
+
+    function deleteResource(resourceId) {
+        var confirmation = confirm('Ти впевнений, що хочеш видалити цей ресурс з переліку?');
+        if (confirmation) {
+            $.ajax({
+                type: 'POST',
+                url: '{% url "delete_resource" %}',
+                data: {
+                    'resource_id': resourceId,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function () {
+                    // Видаліть елемент зі списку ресурсів на сторінці
+                    $('#resourceList li span.resource-name').filter(function () {
+                        return $(this).text() === resourceId.toString();
+                    }).closest('li').remove();
+                }
+            });
+        }
+    }
+
+    function addTask() {
+        var taskName = $('#task_name').val();
+        var taskDescription = $('#task_description').val();
+        var taskRiskLevel = $('#task_risk_level').val();
+        var taskActivitySphere = $('#task_activity_sphere').val();
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url "add_task_to_project" project.id %}',
+            data: {
+                'task_name': taskName,
+                'task_description': taskDescription,
+                'task_risk_level': taskRiskLevel,
+                'task_activity_sphere': taskActivitySphere,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function (data) {
+                // Оновіть список завдань
+                $('#taskList').append('<li>' +
+                    '<span class="task-id" style="display: none;">' + data.task_id + '</span>' +
+                    '<span class="task-name">' + taskName + '</span>' +
+                    '<span class="task-description">' + taskDescription + '</span>' +
+                    '<span class="task-risk-level">' + taskRiskLevel + '</span>' +
+                    '<span class="task-activity-sphere">' + taskActivitySphere + '</span>' +
+                    '<button type="button" onclick="editTask(' + data.task_id + ')">Редагувати</button>' +
+                    '<button type="button" onclick="deleteTask(' + data.task_id + ')">Видалити</button>' +
+                    '</li>');
+                // Очистіть поля вводу
+                $('#task_name').val('');
+                $('#task_description').val('');
+                $('#task_risk_level').val('');
+                $('#task_activity_sphere').val('');
+            }
+        });
+    }
+
+
+    function editTask(taskId) {
+        var newName = prompt('Введіть нову назву завдання:');
+        var newDescription = prompt('Введіть новий опис завдання:');
+        var newRiskLevel = prompt('Введіть новий рівень ризику:');
+        var newActivitySphere = prompt('Введіть нову сферу діяльності:');
+
+        if (newName !== null) {
+            $.ajax({
+                type: 'POST',
+                url: '{% url "edit_task" %}',
+                data: {
+                    'task_id': taskId,
+                    'new_name': newName,
+                    'new_description': newDescription,
+                    'new_risk_level': newRiskLevel,
+                    'new_activity_sphere': newActivitySphere,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function () {
+                    // Оновіть назву та інші поля завдання на сторінці
+                    var taskItem = $('#taskList li').filter(function () {
+                        return $(this).find('span.task-id').text() === taskId.toString();
+                    });
+
+                    taskItem.find('span.task-name').text(newName);
+                    taskItem.find('span.task-description').text(newDescription);
+                    taskItem.find('span.task-risk-level').text(newRiskLevel);
+                    taskItem.find('span.task-activity-sphere').text(newActivitySphere);
+                }
+            });
+        }
+    }
+
+
+    function deleteTask(taskId) {
+        var confirmation = confirm('Ти впевнений, що хочеш видалити це завдання з переліку?');
+        if (confirmation) {
+            $.ajax({
+                type: 'POST',
+                url: '{% url "delete_task" %}',
+                data: {
+                    'task_id': taskId,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function () {
+                    // Видаліть елемент зі списку завдань на сторінці
+                    $('#taskList li span.task-name').filter(function () {
+                        return $(this).text() === taskId.toString();
+                    }).closest('li').remove();
+                }
+            });
+        }
+    }
+
+
+
+</script>
+
+
+{% endblock %}

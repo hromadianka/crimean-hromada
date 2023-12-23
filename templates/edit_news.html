@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Редагування новини "{{ news.title }}"</h2>
+
+<form method="POST" action="{% url 'edit_news' project_id=project_id news_id=news_id %}" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input placeholder="Заголовок новини" type="text" name="title" value="{{ news.title }}" class="input">
+    <textarea placeholder="Зміст новини" name="content" class="textarea">{{ news.content }}</textarea>
+    <input type="file" name="image" accept="image/*">
+    {% if news.image %}
+    <p>Поточне зображення:</p>
+    <img src="{{ news.image.url }}" alt="{{ news.title }}">
+    {% endif %}
+    <button type="submit" class="form-button">Зберегти зміни</button>
+</form>
+
+<p><a href="{% url 'news_detail' project_id=project_id news_id=news_id %}">Скасувати</a></p>
+
+{% endblock %}

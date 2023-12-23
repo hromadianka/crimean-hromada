@@ -1,0 +1,61 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+<h1>Опублікувати</h1>
+{% if idea %}
+<p>Цей проєкт створюється за цією ідеєю: <a href="{% url 'idea_detail' idea.id %}">{{ idea.name }}</a></p>
+{% endif %}
+<form method="post" class="form filter-group">
+    {% csrf_token %}
+    <label>
+        <input type="radio" name="choice" value="project" id="project-radio"> Проєкт
+    </label>
+    <label>
+        <input type="radio" name="choice" value="idea" id="idea-radio"> Ідея
+    </label>
+    <input type="text" placeholder="Назва" class="input" id="id_name" name="name" required />
+    <textarea placeholder="Опис" class="textarea" id="editor" name="description" required></textarea>
+    {% if idea %}
+    <input type="hidden" name="idea_id" value="{{ idea.id }}">
+    {% endif %}
+    <p id="project-chat-paragraph" style="display: none">Обов'язково створи чат проєкту в приватному месенджері - ми радимо використовувати Element. У будь-якому разі не пиши в цьому чаті жодної секретної інформації - цей чат буде відкритим. Докладніше читай у нашій <a href="/wiki">інструкції</a> в розділі Безпека.</p>
+    <input type="text" placeholder="Посилання на чат проєкту" class="input" id="chat-element-project" name="chat_element_project" required style="display: none" />
+
+    <button type="submit" class="form-button">Опублікувати</button>
+</form>
+
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            toolbar: ['heading', '|', 'bold', 'italic', '|', 'link', '|', 'bulletedList', 'numberedList', 'blockQuote']
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const projectRadio = document.getElementById('project-radio');
+        const ideaRadio = document.getElementById('idea-radio');
+        const chatElementProject = document.getElementById('chat-element-project');
+        const projectChatParagraph = document.getElementById('project-chat-paragraph');
+
+        projectRadio.addEventListener('change', function () {
+            if (projectRadio.checked) {
+                chatElementProject.style.display = 'block';
+                projectChatParagraph.style.display = 'block';
+            }
+        });
+
+        ideaRadio.addEventListener('change', function () {
+            if (ideaRadio.checked) {
+                chatElementProject.style.display = 'none';
+                projectChatParagraph.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+{% endblock %}

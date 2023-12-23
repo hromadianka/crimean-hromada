@@ -1,0 +1,16 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+
+<h1>Видалення проєкту {{ project.name }}</h1>
+
+<p>Ти точно хочеш видалити проєкт: "{{ project.name }}"?</p>
+
+<form method="POST" action="" class="form">
+    {% csrf_token %}
+    <button type="submit" class="form-button">Видалити</button>
+</form>
+
+<p><a href="{% url 'project' project.id %}">Скасувати</a></p>
+
+
+{% endblock %}

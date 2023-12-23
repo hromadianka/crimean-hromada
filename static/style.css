@@ -1,0 +1,580 @@
+﻿::-moz-selection {
+    background: red;
+    color: white;
+}
+
+::selection {
+    background: red;
+    color: white;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+#language-select {
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+    #language-select:hover {
+        border-color: red; /* Колір рамки при наведенні */
+    }
+
+    #language-select:focus {
+        outline: none;
+        box-shadow: 0 0 4px red; /* Ефект виділення при виборі опції */
+    }
+
+
+
+header ul li a {
+    text-decoration: none;
+    position: relative;
+}
+
+    header ul li a::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, black 0%, black 100%);
+        transition: width 0.5s ease-in-out;
+    }
+
+    header ul li a.active::before,
+    header ul li a:hover::before {
+        width: 100%;
+    }
+
+p, a, .filter-group, label, summary, input {
+    font-family: 'PT Sans', sans-serif;
+    line-height: normal;
+    color: black;
+}
+
+h1, h2 {
+    font-family: 'PT Sans', sans-serif;
+    line-height: normal;
+    color: black;
+    text-decoration: none;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+button {
+    padding: 12px 20px;
+    color: white;
+    background-color: red;
+    border: none;
+    font-family: 'PT Sans', sans-serif;
+    cursor: pointer;
+}
+
+@media (min-width: 1000px) {
+
+    h1, .border {
+        border-left: 5px solid red; /* Розмір і колір бордера можна змінити */
+        padding-left: 10px; /* Додайте відступ від тексту до бордера */
+    }
+
+    #language-select {
+        width: 100%;
+        font-size: 16px;
+        border: 1px solid #fff;
+        padding: 8px;
+    }
+
+    p, a, .filter-group, label {
+        font-size: 16px;
+    }
+
+    header img, footer img {
+        width: 30px;
+    }
+
+    .logo {
+        width: 50px;
+    }
+
+    button, button a {
+        font-size: 17px;
+    }
+
+
+    h1 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+
+    main {
+        padding-left: 150px;
+        padding-right: 150px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        padding-left: 150px;
+        padding-right: 150px;
+        justify-content: space-between;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+        header ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 30px;
+            padding: 0;
+        }
+
+
+    footer {
+        display: flex;
+        padding-left: 150px;
+        padding-right: 150px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-div {
+        display: flex;
+        gap: 20px;
+    }
+
+    .footer-div {
+        display: flex;
+        gap: 34px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    header img, footer img {
+        width: 80px;
+    }
+
+    .header-div {
+        display: flex;
+        gap: 20px;
+    }
+
+    .logo {
+        width: 110px;
+    }
+
+    button, button a {
+        font-size: 40px;
+    }
+
+    body {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    main {
+        padding-bottom: 30px;
+    }
+
+
+    p, a, label {
+        font-size: 30px;
+    }
+
+    .filter-group {
+        margin-top: 28px !important;
+    }
+
+    .filter-group label {
+        font-size: 35px;
+        margin-right: 9px;
+    }
+
+    h1 {
+        font-size: 60px;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+
+    h2 {
+        font-size: 40px;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        gap: 35px;
+    }
+
+        footer div {
+            display: flex;
+            gap: 30px;
+        }
+
+
+
+
+}
+
+body {
+    margin: 0;
+}
+
+.burger-menu {
+    display: flex;
+    align-items: center;
+}
+
+.burger-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 10vw;
+    height: 7px;
+    background-color: #333;
+    margin: 11px 0;
+    border-radius: 3px;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .burger-icon {
+        display: flex;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 250px;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        padding: 10px;
+        gap: 30px;
+        font-size: 50px;
+        padding-left: 5%;
+    }
+
+        .menu.active {
+            display: flex;
+            list-style: none;
+            height: 100%;
+            padding-top: 50px;
+        }
+
+
+}
+
+@media (max-width: 1000px) {
+
+    h1, .border {
+        border-left: 5px solid red; /* Розмір і колір бордера можна змінити */
+        padding-left: 20px; /* Додайте відступ від тексту до бордера */
+    }
+
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 2vh;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+
+    .language-switcher {
+        width: 100%;
+        margin-bottom: 2vh;
+    }
+
+    #language-select {
+        font-size: 40px;
+        width: 100%;
+        padding: 23px 15px; /* Задайте паддинги для селекту, де правий паддинг відповідає за паддинг для іконки стрілки */
+        border: 1px solid #cccccc;
+        box-sizing: border-box;
+    }
+
+    /* Стилізація блоку "callout" */
+    .callout {
+        display: flex;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        padding: 25px;
+        margin: 20px 0;
+        border-radius: 5px;
+        align-items: center;
+    }
+}
+
+
+/* Стилізація контейнера пошукового поля */
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Стилізація поля вводу */
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+/* Стилізація кнопки пошуку */
+.search-button {
+    background-color: red;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    outline: none;
+}
+
+.filter-group {
+    margin-top: 1.3vw;
+}
+
+
+.input, .textarea {
+    padding: 5px 10px;
+    border: 2px solid #ccc;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input:focus, .textarea:focus {
+    outline: 2px solid red;
+    border: none;
+}
+
+@media (min-width: 1000px) {
+
+    /* Стилізація блоку "callout" */
+    .callout {
+        display: flex;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 20px 0;
+        border-radius: 5px;
+        align-items: center;
+    }
+
+    .project-card, .idea-card {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .project-info, .idea-info {
+        flex-grow: 1;
+    }
+
+        .project-info h2, .idea-info h2 {
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .project-info p, .idea-info p {
+            font-size: 16px;
+            color: #555;
+            margin: 0;
+        }
+
+    .project-action, .idea-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .like-button, .save-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f5f5f5;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .like-icon, .save-icon {
+        font-size: 24px;
+    }
+
+    .like-count {
+        font-size: 18px;
+        margin-top: 5px;
+        color: #333;
+    }
+
+    /* Стилізація іконки "callout" */
+    .callout-icon {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .search-input {
+        font-size: 16px;
+    }
+
+    .input, .form-button, .textarea {
+        font-size: 17px;
+        width: 35%;
+        box-sizing: border-box;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .news {
+        display: flex;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .project-card, .idea-card {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 40px;
+        margin-bottom: 40px;
+    }
+
+    .project-info, .idea-info {
+        flex-grow: 1;
+    }
+
+        .project-info h2, .idea-info h2 {
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .project-info p, .idea-info p {
+            font-size: 40px;
+            color: #555;
+            margin: 0;
+        }
+
+    .project-action, .idea-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .like-button, .save-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f5f5f5;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .like-icon, .save-icon {
+        font-size: 40px;
+    }
+
+    .like-count {
+        font-size: 28px;
+        margin-top: 9px;
+        color: #333;
+    }
+
+    /* Стилізація іконки "callout" */
+    .callout-icon {
+        font-size: 40px;
+        margin-right: 25px;
+    }
+
+    .callout p {
+        font-size: 35px;
+    }
+
+    .search-input {
+        font-size: 40px;
+    }
+
+    .input, .form-button, .textarea {
+        font-size: 40px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+.toggle {
+    padding-inline-start: 0em;
+    list-style-type: none;
+}
+
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+
+        .toggle > li > details > summary {
+            margin-left: -1.1em;
+        }
+
+button a {
+    text-decoration: none;
+    color: white;
+}

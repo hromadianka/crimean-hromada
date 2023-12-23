@@ -1,0 +1,102 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+<h1>Пошук</h1>
+<form class="search-box" method="post">
+    {% csrf_token %}
+    <input type="text" class="search-input" name="search-input" placeholder="Пошук...">
+    <button class="search-button" type="submit">
+        🔍
+    </button>
+</form>
+
+<div class="filter-group">
+    <label>
+        <input type="checkbox" name="project-type" value="project" data-filter-type="type">
+        Проєкт
+    </label>
+    <label>
+        <input type="checkbox" name="project-type" value="task" data-filter-type="type">
+        Завдання
+    </label>
+    <label>
+        <input type="checkbox" name="project-type" value="idea" data-filter-type="type">
+        Ідея
+    </label>
+</div>
+
+<div class="filter-group" id="risk-filter">
+    <label>
+        <input type="checkbox" name="project-risk" value="first-level" data-filter-type="risk">
+        Мінімальний рівень ризику
+    </label>
+    <label>
+        <input type="checkbox" name="project-risk" value="second-level" data-filter-type="risk">
+        Другий рівень ризику
+    </label>
+    <label>
+        <input type="checkbox" name="project-risk" value="third-level" data-filter-type="risk">
+        Третій рівень ризику
+    </label>
+    <label>
+        <input type="checkbox" name="project-risk" value="fourth-level" data-filter-type="risk">
+        Четвертий рівень ризику
+    </label>
+    <label>
+        <input type="checkbox" name="project-risk" value="fifth-level" data-filter-type="risk">
+        П'ятий' рівень ризику
+    </label>
+</div>
+
+<div class="filter-group" id="sphere-filter">
+    <label>
+        <input type="checkbox" name="project-sphere" value="design" data-filter-type="sphere">
+        Дизайн
+    </label>
+    <label>
+        <input type="checkbox" name="project-sphere" value="dev" data-filter-type="sphere">
+        Розробка
+    </label>
+    <label>
+        <input type="checkbox" name="project-sphere" value="agitation" data-filter-type="sphere">
+        Агітація
+    </label>
+    <label>
+        <input type="checkbox" name="project-sphere" value="direct-action" data-filter-type="sphere">
+        Пряма дія
+    </label>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Отримайте посилання на елементи у фільтрах для рівнів ризику та сфер
+        const riskFilters = document.querySelector('#risk-filter');
+        const sphereFilters = document.querySelector('#sphere-filter');
+
+        // Отримайте посилання на радіокнопку "Завдання" з форми
+        const taskRadio = document.querySelector('input[name="project-type"][value="task"]');
+
+        // Функція для встановлення видимості фільтрів згідно з обраним значенням "Завдання"
+        function updateFiltersVisibility() {
+            if (taskRadio.checked) {
+                // Показати фільтри для рівнів ризику та сфер, якщо вибрано "Завдання"
+                riskFilters.style.display = 'block';
+                sphereFilters.style.display = 'block';
+            } else {
+                // Приховати фільтри для рівнів ризику та сфер, якщо не вибрано "Завдання"
+                riskFilters.style.display = 'none';
+                sphereFilters.style.display = 'none';
+            }
+        }
+
+        // Викликати функцію для встановлення початкового стану фільтрів
+        updateFiltersVisibility();
+
+        // Додайте слухача подій на радіокнопку "Завдання"
+        taskRadio.addEventListener('change', updateFiltersVisibility);
+    });
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Вхід</h1>
+<form method="post" class="form">
+    {% csrf_token %}
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <input type="text" id="id_username" name="username" placeholder="Ім'я користувача" class="input" value="{{ request.POST.username }}">
+    <input type="password" id="id_password" name="password" placeholder="Пароль" class="input">
+    <button type="submit" class="form-button">Увійти</button>
+</form>
+<p>Ще не зареєстровані? <a href="{% url 'register' %}">Зареєструватися</a></p>
+
+
+
+{% endblock %}

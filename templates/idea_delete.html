@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Видалення ідеї {{ idea.name }}?</h1>
+<p>Ти точно хочеш видалити ідею: {{ idea.name }}?</p>
+<form method="POST" class="form">
+    {% csrf_token %}
+    <button type="submit" class="form-button">Видалити</button>
+</form>
+<a href="{% url 'idea_detail' idea.id %}">Скасувати</a>
+{% endblock %}
