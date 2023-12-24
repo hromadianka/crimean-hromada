@@ -49,3 +49,4 @@ tzdata==2023.3
 urllib3==1.26.16
 whitenoise==6.5.0
 wrapt==1.15.0
+rethinkdb
