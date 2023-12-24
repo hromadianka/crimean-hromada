@@ -38,7 +38,7 @@ def custom_register(request):
         profile.save()
 
         # Автоматичний вхід після реєстрації
-        login(request, user)
+        auth.login(request, user)
 
         return redirect('/')
 
@@ -49,18 +49,19 @@ def custom_login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
+        user = auth.authenticate(request, username=username, password=password)
 
         if user is not None:
-            login(request, user)
+            auth.login(request, user)
             return redirect('/')
         else:
             return render(request, 'login.html', {'error': 'Невірний пароль або ім\'я користувача'})
 
     return render(request, 'login.html')
 
+
 def custom_logout(request):
-    logout(request)
+    auth.logout(request)
     return redirect('/')
 
 def search(request):
