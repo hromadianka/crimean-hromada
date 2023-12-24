@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_rethinkdb
+import rethinkdb
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,12 +79,10 @@ WSGI_APPLICATION = 'crimean_hromada.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_rethinkdb',
-        'NAME': 'f4b65a74-f333-41a8-996d-d2bd4c7adb72',
-        'HOST': 'f4b65a74-f333-41a8-996d-d2bd4c7adb72.db.rdb.rethinkdb.cloud',
-        'PORT': '28015', 
-        'USER': 'f4b65a74-f333-41a8-996d-d2bd4c7adb72',
-        'PASSWORD': '05539c601845964ecd37ca9f176a300a132c5e16',
+        'ENGINE': 'django.db.backends.dummy',
+        'NAME': 'f4b65a74-f333-41a8-996d-d2bd4c7adb72',         # Replace with your actual database name
+        'HOST': 'f4b65a74-f333-41a8-996d-d2bd4c7adb72.db.rdb.rethinkdb.cloud',        # Replace with your actual RethinkDB host
+        'PORT': '28015',        # Replace with your actual RethinkDB port
     }
 }
 
