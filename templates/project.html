@@ -53,8 +53,10 @@
     {% endfor %}
 </ul>
 {% if is_author == False %}
-<p>Ви можете запропонувати свою допомогу проєкту, написавши його координатору. Вкажіть, будь ласка, щодо якого конкретно проєкту і ресурсу ви звертаєтесь.</p>
-<button><a href="{{ project.author.profile.chat_element }}">Запропонувати допомогу</a></button>
+<p>Ти можеш запропонувати свою допомогу проєкту, написавши його координатору. Вкажи, будь ласка, щодо якого конкретно проєкту і ресурсу ти звертаєшся.</p>
+<form class="form">
+    <button class="form-button"><a href="{{ project.author.profile.chat_element }}">Запропонувати допомогу</a></button>
+</form>
 {% endif %}
 <h3>Завдання</h3>
 {% if is_author %}
@@ -75,7 +77,11 @@
         {% if is_author %}
         <button type="button" onclick="editTask('{{ task.id }}')">Редагувати</button>
         <button type="button" onclick="deleteTask('{{ task.id }}')">Видалити</button>
-        {% endif %}
+        {% else %}
+        <p>Ти можеш розказати, як ви виконали завдання, або надіслати результат його виконання, написавши координатору проєкту. Вкажи, будь ласка, щодо якого конкретно проєкту і завдання ти звертаєшся.</p>
+        <form class="form">
+            <button class="form-button"><a href="{{ project.author.profile.chat_element }}">Надіслати результат</a></button>
+        </form>        {% endif %}
     </li>
     {% endfor %}
 </ul>
