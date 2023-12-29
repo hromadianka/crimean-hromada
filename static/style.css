@@ -50,7 +50,7 @@ header ul li a {
         width: 100%;
     }
 
-p, a, .filter-group, label, summary, input {
+p, a, .filter-group, label, summary, input, blockquote {
     font-family: 'PT Sans', sans-serif;
     line-height: normal;
     color: black;
@@ -85,7 +85,7 @@ button {
 
 @media (min-width: 1000px) {
 
-    h1, .border {
+    h1, .border, blockquote {
         border-left: 5px solid red; /* Розмір і колір бордера можна змінити */
         padding-left: 10px; /* Додайте відступ від тексту до бордера */
     }
@@ -97,7 +97,7 @@ button {
         padding: 8px;
     }
 
-    p, a, .filter-group, label {
+    p, a, .filter-group, label, blockquote {
         font-size: 16px;
     }
 
@@ -201,7 +201,7 @@ button {
     }
 
 
-    p, a, label {
+    p, a, label, blockquote {
         font-size: 30px;
     }
 
@@ -299,7 +299,7 @@ body {
 
 @media (max-width: 1000px) {
 
-    h1, .border {
+    h1, .border, blockquote {
         border-left: 5px solid red; /* Розмір і колір бордера можна змінити */
         padding-left: 20px; /* Додайте відступ від тексту до бордера */
     }
