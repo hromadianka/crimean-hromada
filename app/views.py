@@ -20,6 +20,9 @@ from django.contrib.auth import authenticate, login, logout
 def index(request):
     return render(request, 'index.html')
 
+def map(request):
+    return render(request, 'map.html')
+
 def custom_register(request):
     if request.method == 'POST':
         username = request.POST.get('username')

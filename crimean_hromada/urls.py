@@ -24,6 +24,7 @@ from app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('map', views.map, name='map'),
     path('search', views.search, name='search'),
     path('publish', views.publish, name='publish'),
     path('wiki', views.wiki, name='wiki'),
