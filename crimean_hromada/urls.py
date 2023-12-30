@@ -52,12 +52,4 @@ urlpatterns = [
 
 
 ]
-"""
-urlpatterns += i18n_patterns(
-    path('en/', include('crimean_hromada.urls', namespace='en')),  # Додайте неймспейс, якщо потрібно
-    path('ct/', include('crimean_hromada.urls', namespace='ct')),  # Додайте неймспейс, якщо потрібно
-    path('ru/', include('crimean_hromada.urls', namespace='ru')),  # Додайте неймспейс, якщо потрібно
-    path('', include('crimean_hromada.urls', namespace='default')),  # Додайте неймспейс, якщо потрібно
-)
-"""
 
