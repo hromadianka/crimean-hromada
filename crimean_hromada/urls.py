@@ -15,11 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
 from django.conf.urls.static import static
-
 from crimean_hromada import settings
 from app import views
+from django.urls import path, re_path, include
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -52,3 +52,12 @@ urlpatterns = [
 
 
 ]
+"""
+urlpatterns += i18n_patterns(
+    path('en/', include('crimean_hromada.urls', namespace='en')),  # Додайте неймспейс, якщо потрібно
+    path('ct/', include('crimean_hromada.urls', namespace='ct')),  # Додайте неймспейс, якщо потрібно
+    path('ru/', include('crimean_hromada.urls', namespace='ru')),  # Додайте неймспейс, якщо потрібно
+    path('', include('crimean_hromada.urls', namespace='default')),  # Додайте неймспейс, якщо потрібно
+)
+"""
+

@@ -58,7 +58,7 @@ def custom_login(request):
             auth.login(request, user)
             return redirect('/')
         else:
-            return render(request, 'login.html', {'error': 'Невірний пароль або ім\'я користувача'})
+            return render(request, 'login.html', {'error': 'Wrong password or username'})
 
     return render(request, 'login.html')
 
@@ -471,7 +471,7 @@ def idea_delete(request, idea_id):
 
     if request.method == 'POST':
         idea.delete()
-        return redirect('your_redirect_url')  # Замініть 'your_redirect_url' на той URL, на який ви хочете перенаправити після видалення ідеї
+        return redirect('/')  # Замініть 'your_redirect_url' на той URL, на який ви хочете перенаправити після видалення ідеї
 
     return render(request, 'idea_delete.html', {'idea': idea})
 

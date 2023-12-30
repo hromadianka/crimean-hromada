@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
@@ -109,13 +110,27 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGE_CODE = 'uk'  # Код мови за замовчуванням
+
+LANGUAGES = [
+    ('uk', _('Ukrainian')),
+    ('en', _('English')),
+    ('ct', _('Crimean Tatar')),
+    ('ru', _('Russian')),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = True  # Включити інтернаціоналізацію
 
-USE_TZ = True
+USE_TZ = True  # Використовувати часовий пояс
+
 
 
 # Static files (CSS, JavaScript, Images)
