@@ -50,7 +50,7 @@ header ul li a {
         width: 100%;
     }
 
-p, a, .filter-group, label, summary, input, blockquote {
+p, a, .filter-group, label, summary, input, blockquote, details, li {
     font-family: 'PT Sans', sans-serif;
     line-height: normal;
     color: black;
@@ -97,7 +97,7 @@ button {
         padding: 8px;
     }
 
-    p, a, .filter-group, label, blockquote {
+    p, a, .filter-group, label, blockquote, details, li {
         font-size: 16px;
     }
 
@@ -197,16 +197,16 @@ button {
     }
 
     main {
-        padding-bottom: 30px;
+        padding-bottom: 35px;
     }
 
 
-    p, a, label, blockquote {
-        font-size: 30px;
+    p, a, label, blockquote, details, li {
+        font-size: 35px;
     }
 
     .filter-group {
-        margin-top: 28px !important;
+        margin-top: 35px !important;
     }
 
     .filter-group label {
@@ -215,14 +215,14 @@ button {
     }
 
     h1 {
-        font-size: 60px;
+        font-size: 70px;
         margin-bottom: 40px;
         margin-top: 40px;
     }
 
 
     h2 {
-        font-size: 40px;
+        font-size: 50px;
     }
 
     footer {
