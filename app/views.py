@@ -100,7 +100,7 @@ def search(request):
             'projects': projects,
             'ideas': ideas,
             'tasks': tasks,
-            'no-results'
+            'no-results': False
         }
         
         # Перевірка, чи всі списки порожні
