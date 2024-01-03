@@ -150,7 +150,7 @@ def publish(request):
                 description=description,
                 author=request.user
             )
-            return redirect('idea', idea_id=idea.id)
+            return redirect('idea_detail', idea_id=idea.id)
     
     return render(request, 'publish.html', {'ideas': ideas})
 
