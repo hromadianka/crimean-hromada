@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\app",
+    "\\app\\migrations",
     "\\crimean_hromada",
+    "\\locale",
+    "\\static",
     "\\templates"
   ],
-  "SelectedNode": "\\templates\\wiki.html",
+  "SelectedNode": "\\app\\views.py",
   "PreviewInSolutionExplorer": false
 }

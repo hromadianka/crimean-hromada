@@ -36,11 +36,14 @@
         </form>
     </div>
 </div>
+{% endfor %}
+
 <ul>
-    {% for task in tasks %}
+ {% for task in tasks %}
     <li><a href="/task/{{ task.id }}" style="text-decoration: none">{{ task.name }}</a></li>
-    {% endfor %}
+ {% endfor %}
 </ul>
+
 {% endif %}
 
 
