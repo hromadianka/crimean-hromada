@@ -5,7 +5,7 @@
 <form method="POST" class="form">
     {% csrf_token %}
     <input type="text" id="name" name="name" value="{{ idea.name }}" required class="input" placeholder="Назва ідеї">
-    <textarea id="description" name="description" placeholder="Опис ідеї" required class="textarea">{{ idea.description }}</textarea>
+    <textarea id="description" name="description" placeholder="Опис ідеї" required class="textarea">{% autoescape off %}{{ idea.description }}{% endautoescape %}</textarea>
     <button type="submit" class="form-button">Зберегти зміни</button>
 </form>
 {% endblock %}

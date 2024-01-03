@@ -6,7 +6,7 @@
 <form method="POST" action="{% url 'edit_news' project_id=project_id news_id=news_id %}" class="form" enctype="multipart/form-data">
     {% csrf_token %}
     <input placeholder="Заголовок новини" type="text" name="title" value="{{ news.title }}" class="input">
-    <textarea placeholder="Зміст новини" name="content" class="textarea">{{ news.content }}</textarea>
+    <textarea placeholder="Зміст новини" name="content" class="textarea">{% autoescape off %}{{ news.content }}{% endautoescape %}</textarea>
     <!--
     <input type="file" name="image" accept="image/*">
     {% if news.image %}

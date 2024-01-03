@@ -2,7 +2,8 @@
 
 {% block content %}
 <h1>{{ project.name }}</h1>
-<p>{{ project.description }}</p>
+<p>{% autoescape off %}{{ project.description }}{% endautoescape %}</p>
+
 <div class="project-action">
     <button class="like-button" data-project-id="{{ project.id }}">
         <span class="like-icon">👊</span>
@@ -12,14 +13,14 @@
 <p><a href="{{ project.chat_element }}">Посилання на відкритий чат проєкту</a></p>
 {% if is_author %}
 <p><a href="{% url 'edit_project' project.id %}">Редагувати проєкт</a></p>
-<p><a href="{% url 'delete_project'project.id %}" style="text-decoration: none; color: red">Видалити проєкт</a></p>
+<p><a href="{% url 'delete_project' project.id %}" style="text-decoration: none; color: red">Видалити проєкт</a></p>
 {% endif %}
 <h3>Пов'язані ідеї</h3>
 {% for idea in related_ideas %}
 <div class="idea-card">
     <div class="idea-info">
         <h2><a href="{% url 'idea_detail' idea.id %}" style="text-decoration: none">{{ idea.name }}</a></h2>
-        <p>{{ idea.description }}</p>
+        <p>{% autoescape off %}{{ idea.description }}{% endautoescape %}</p>
     </div>
     <div class="idea-action">
         <form method="post" action="{% url 'save_idea' idea_id=idea.id %}">
@@ -100,7 +101,9 @@
     {% if news.image %}
     <img src="{{ news.image.url }}" alt="{{ news.title }}">
     {% endif %}
+    {% autoescape off %}
     <p>{{ news.content|truncatechars:200|linebreaksbr }}</p>
+    {% endautoescape %}
     {% if is_author %}
     <p><a href="{% url 'edit_news' project_id=project.id news_id=news.id %}">Редагувати новину</a></p>
     <p><a href="{% url 'delete_news' project_id=project.id news_id=news.id %}" style="text-decoration: none; color: red">Видалити новину</a></p>

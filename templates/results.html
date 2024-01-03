@@ -10,7 +10,7 @@
 <div class="project-card">
     <div class="project-info">
         <h2><a href="/project/{{ project.id }}" style="text-decoration: none">{{ project.name }}</a></h2>
-        <p>{{ project.description }}</p>
+        <p>{% autoescape off %}{{ project.description }}{% endautoescape %}</p>
     </div>
     <div class="project-action">
         <button class="like-button" data-project-id="{{ project.id }}">
@@ -25,7 +25,7 @@
 <div class="idea-card">
     <div class="idea-info">
         <h2><a href="{% url 'idea_detail' idea.id %}" style="text-decoration: none">{{ idea.name }}</a></h2>
-        <p>{{ idea.description }}</p>
+        <p>{% autoescape off %}{{ idea.description }}{% endautoescape %}</p>
     </div>
     <div class="idea-action">
         <form method="post" action="{% url 'save_idea' idea_id=idea.id %}">
