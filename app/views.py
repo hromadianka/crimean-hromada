@@ -105,8 +105,6 @@ def search(request):
 
         print("Search input:", search_input)
         print("Selected types:", selected_types)
-        print("Task risk filter:", task_risk_filter)
-        print("Task sphere filter:", task_sphere_filter)
 
         
         # Перевірка, чи всі списки порожні
