@@ -66,14 +66,21 @@
     {% csrf_token %}
     <input class="input" name="task_name" placeholder="Введи текст завдання" required />
     <label for="risk-level">Рівень ризику</label>
-    <select class="input" name="task_risk_level" id="risk" required>
+    <select class="input" name="task_risk_level" id="risk-level" required>
         <option value="1">Мінімальний</option>
         <option value="2">Другий</option>
         <option value="3">Третій</option>
         <option value="4">Четвертий</option>
         <option value="5">П'ятий</option>
     </select>
-    <input class="input" name="task_activity_sphere" placeholder="Введи сферу діяльності" required />
+    <label for="sphere">Рівень ризику</label>
+    <select class="input" name="task_activity_sphere" id="sphere" required>
+        <option value="design">Дизайн</option>
+        <option value="dev">Розробка</option>
+        <option value="agitation">Агітація</option>
+        <option value="direct-action">Пряма дія</option>
+        <option value="other">Інше</option>
+    </select>
     <button class="form-button" type="button" onclick="addTask()">Додати нове завдання</button>
 </form>
 {% endif %}
