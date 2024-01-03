@@ -592,3 +592,8 @@ button a {
 blockquote {
     margin-left: 0;
 }
+
+.bulleted-list {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
