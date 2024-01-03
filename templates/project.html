@@ -4,12 +4,11 @@
 <h1>{{ project.name }}</h1>
 <p>{% autoescape off %}{{ project.description }}{% endautoescape %}</p>
 
-<div class="project-action">
-    <button class="like-button" data-project-id="{{ project.id }}">
-        <span class="like-icon">👊</span>
-        <span class="like-count">{{ project.likes }}</span>
-    </button>
-</div>
+
+<button class="like-button" data-project-id="{{ project.id }}">
+    <span class="like-icon">👊</span>
+    <span class="like-count">{{ project.likes }}</span>
+</button>
 <p><a href="{{ project.chat_element }}">Посилання на відкритий чат проєкту</a></p>
 {% if is_author %}
 <p><a href="{% url 'edit_project' project.id %}">Редагувати проєкт</a></p>
