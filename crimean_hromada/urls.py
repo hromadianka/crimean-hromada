@@ -44,6 +44,7 @@ urlpatterns = [
     path('project/<str:project_id>/news/<uuid:news_id>/delete/', views.delete_news, name='delete_news'),
     path('project/<str:project_id>/add_news/', views.add_news, name='add_news'),
     path('project/<str:project_id>/add_resource/', views.add_resource_to_project, name='add_resource_to_project'),
+    path('project/<str:project_id>/add_task/', views.add_task_to_project, name='add_task'),
     path('idea/<str:idea_id>/', views.idea_detail, name='idea_detail'),
     path('idea/<str:idea_id>/edit/', views.idea_edit, name='idea_edit'),
     path('idea/<str:idea_id>/delete/', views.idea_delete, name='idea_delete'),
@@ -53,7 +54,6 @@ urlpatterns = [
     path('delete_resource', views.delete_resource, name='delete_resource'),
     path('edit_task', views.edit_task, name='edit_task'),
     path('delete_task', views.delete_task, name='delete_task'),
-    path('add_task_to_project/<str:project_id>/', views.add_task_to_project, name='add_task_to_project'),
 
 
 ]
