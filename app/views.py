@@ -257,7 +257,7 @@ def register(request):
 def account(request, user_id):
     user = get_object_or_404(User, id=user_id)
     profile = get_object_or_404(Profile, user=user)
-    print(f"Profile User ID: {profile.user.id}")
+    print(profile)
 
     created_projects = profile.created_projects.all()
     created_ideas = Idea.objects.filter(author=user)
