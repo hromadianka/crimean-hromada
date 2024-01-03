@@ -256,8 +256,7 @@ def register(request):
 @login_required(login_url='login')
 def account(request, user_id):
     user = get_object_or_404(User, id=user_id)
-    print(user.id)
-    profile = get_object_or_404(Profile, user=user)
+    profile = get_object_or_404(Profile, user.id=user.id)
     print(profile)
 
     created_projects = profile.created_projects.all()
