@@ -65,16 +65,16 @@
 <form method="POST" id="taskForm" class="form">
     {% csrf_token %}
     <input class="input" name="task_name" placeholder="Введи текст завдання" required />
-    <label for="risk-level">Рівень ризику</label>
-    <select class="input" name="task_risk_level" id="risk-level" required>
+    <label for="task_risk_level">Рівень ризику</label>
+    <select class="input" name="task_risk_level" id="task_risk_level" required>
         <option value="1">Мінімальний</option>
         <option value="2">Другий</option>
         <option value="3">Третій</option>
         <option value="4">Четвертий</option>
         <option value="5">П'ятий</option>
     </select>
-    <label for="sphere">Рівень ризику</label>
-    <select class="input" name="task_activity_sphere" id="sphere" required>
+    <label for="task_activity_sphere">Рівень ризику</label>
+    <select class="input" name="task_activity_sphere" id="task_activity_sphere" required>
         <option value="design">Дизайн</option>
         <option value="dev">Розробка</option>
         <option value="agitation">Агітація</option>
