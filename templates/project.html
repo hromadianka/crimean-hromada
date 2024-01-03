@@ -40,7 +40,7 @@
 <form method="POST" id="resourceForm" class="form">
     {% csrf_token %}
     <input type="text" id="resource_name" name="resource_name" class="input" placeholder="Введи назву ресурсу" required>
-    <button class="form-button" type="button" onclick="addResource()">Додати ресурс</button>
+    <button class="form-button" type="submit" onclick="addResource()">Додати ресурс</button>
 </form>
 {% endif %}
 <ul id="resourceList">
@@ -62,7 +62,7 @@
 {% endif %}
 <h3>Завдання</h3>
 {% if is_author %}
-<form method="POST" id="taskForm" class="form">
+<form method="POST" action="{% url 'add_task_to_project' project.id %}" id="taskForm" class="form">
     {% csrf_token %}
     <input class="input" name="task_name" id="task_name" placeholder="Введи текст завдання" required />
     <label for="task_risk_level">Рівень ризику</label>
@@ -73,7 +73,7 @@
         <option value="4">Четвертий</option>
         <option value="5">П'ятий</option>
     </select>
-    <label for="task_activity_sphere">Рівень ризику</label>
+    <label for="task_activity_sphere">Сфера діяльності</label>
     <select class="input" name="task_activity_sphere" id="task_activity_sphere" required>
         <option value="design">Дизайн</option>
         <option value="dev">Розробка</option>
@@ -81,7 +81,7 @@
         <option value="direct-action">Пряма дія</option>
         <option value="other">Інше</option>
     </select>
-    <button class="form-button" type="button" onclick="addTask()">Додати нове завдання</button>
+    <button class="form-button" type="submit" onclick="addTask()">Додати нове завдання</button>
 </form>
 {% endif %}
 <ul id="taskList">
@@ -137,6 +137,7 @@
         var taskName = $('#task_name').val();
         var taskRiskLevel = $('#task_risk_level').val();
         var taskActivitySphere = $('#task_activity_sphere').val();
+
 
         $.ajax({
             type: 'POST',
