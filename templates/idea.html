@@ -15,10 +15,8 @@
 
 
 {% if idea.author == user %}
-<p>
-    <a href="{% url 'idea_edit' idea_id=idea.id %}">Редагувати ідею</a>
-    <a href="{% url 'idea_delete' idea_id=idea.id %}">Видалити ідею</a>
-</p>
+<p><a href="{% url 'idea_edit' idea_id=idea.id %}">Редагувати ідею</a></p>
+<p><a href="{% url 'idea_delete' idea_id=idea.id %}" style="text-decoration: none; color: red">Видалити ідею</a></p>
   {% endif %}
 
 <h3>Проєкти, створені за допомогою цієї ідеї</h3>
