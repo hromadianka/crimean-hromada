@@ -49,6 +49,8 @@ urlpatterns = [
     path('idea/<str:idea_id>/delete/', views.idea_delete, name='idea_delete'),
     path('toggle_favorite/<str:project_id>/', views.toggle_favorite, name='toggle_favorite'),
     path('save_idea/<str:idea_id>/', views.save_idea, name='save_idea'),
+    path('edit_resource', views.save_idea, name='edit_resource'),
+    path('delete_resource', views.save_idea, name='delete_resource'),
 
 
 ]
