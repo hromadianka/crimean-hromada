@@ -588,3 +588,7 @@ button a {
     text-decoration: none;
     color: white;
 }
+
+blockquote {
+    margin-left: 0;
+}
