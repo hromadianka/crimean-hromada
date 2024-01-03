@@ -259,7 +259,7 @@ def account(request, user_id):
     profile = get_object_or_404(Profile, user=user.id)
     print(profile)
 
-    created_projects = profile.created_projects.all()
+    created_projects = Project.objects.filter(author=user)
     created_ideas = Idea.objects.filter(author=user)
     saved_ideas = profile.saved_ideas.all()
 
