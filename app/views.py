@@ -441,8 +441,12 @@ def edit_profile(request, user_id):
 
     if request.method == 'POST' and request.user == user:
         new_description = request.POST.get('content')
+        new_chat_element = request.POST.get('chat_element')
+        
         profile.description = new_description
+        profile.chat_element = new_chat_element
         profile.save()
+
         return redirect('account', user_id=user.id)
 
     return render(request, 'account.html', {'profile': profile})
