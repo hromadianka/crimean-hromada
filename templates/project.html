@@ -11,8 +11,8 @@
 </div>
 <p><a href="{{ project.chat_element }}">Посилання на відкритий чат проєкту</a></p>
 {% if is_author %}
-<p><a href="{% url 'edit' %}">Редагувати проєкт</a></p>
-<p><a href="{% url 'delete' %}" style="text-decoration: none; color: red">Видалити проєкт</a></p>
+<p><a href="{% url 'edit_project' %}">Редагувати проєкт</a></p>
+<p><a href="{% url 'delete_project' %}" style="text-decoration: none; color: red">Видалити проєкт</a></p>
 {% endif %}
 <h3>Пов'язані ідеї</h3>
 {% for idea in related_ideas %}
