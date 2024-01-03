@@ -210,6 +210,8 @@
                     $('#resourceList li span.resource-name').filter(function () {
                         return $(this).text() === resourceId.toString();
                     }).text(newName);
+
+                    location.reload();
                 }
             });
         }
@@ -230,8 +232,11 @@
                     $('#resourceList li span.resource-name').filter(function () {
                         return $(this).text() === resourceId.toString();
                     }).closest('li').remove();
+
+                    location.reload();
                 }
             });
+
         }
     }
 
@@ -262,6 +267,8 @@
                     taskItem.find('span.task-name').text(newName);
                     taskItem.find('span.task-risk-level').text(newRiskLevel);
                     taskItem.find('span.task-activity-sphere').text(newActivitySphere);
+
+                    location.reload();
                 }
             });
         }
@@ -283,6 +290,8 @@
                     $('#taskList li span.task-name').filter(function () {
                         return $(this).text() === taskId.toString();
                     }).closest('li').remove();
+
+                    location.reload();
                 }
             });
         }
