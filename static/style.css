@@ -287,7 +287,7 @@ body {
         flex-direction: column;
         background-color: #fff;
         position: absolute;
-        top: 220px;
+        top: 200px;
         left: 0;
         right: 0;
         z-index: 1;
@@ -594,7 +594,7 @@ blockquote {
     margin-left: 0;
 }
 
-.bulleted-list {
+.bulleted-list, details .callout {
     margin-top: 1em;
     margin-bottom: 1em;
 }
