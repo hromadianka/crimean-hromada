@@ -257,6 +257,7 @@ def register(request):
 def account(request, user_id):
     user = get_object_or_404(User, id=user_id)
     profile = get_object_or_404(Profile, user=user)
+    
     created_projects = profile.created_projects.all()
     created_ideas = Idea.objects.filter(author=user)
     saved_ideas = profile.saved_ideas.all()
@@ -268,6 +269,7 @@ def account(request, user_id):
         'saved_ideas': saved_ideas,
     }
     return render(request, 'account.html', context)
+
 
 def news_detail(request, project_id, news_id):
     project = get_object_or_404(Project, id=project_id)
