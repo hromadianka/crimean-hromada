@@ -361,10 +361,10 @@ def add_task_to_project(request, project_id):
     project = get_object_or_404(Project, id=project_id)
 
     if request.method == 'POST':
+        print('gggggggggggggggggggggggggggggggggggggggg')
         task_name = request.POST.get('task_name')
         task_risk_level = request.POST.get('task_risk_level')
         task_activity_sphere = request.POST.get('task_activity_sphere')
-        print(task_name)
 
         task = Task.objects.create(
             name=task_name,
