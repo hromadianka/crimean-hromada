@@ -184,9 +184,11 @@
                     $('#task_name').val('');
                     $('#task_risk_level').val('');
                     $('#task_activity_sphere').val('');
-                }
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.error('Помилка при виконанні ajax запиту:', textStatus, errorThrown);
+            }
         });
-        console.log('Sending data to server:', taskName, taskRiskLevel, taskActivitySphere);
 
     }
 
