@@ -161,9 +161,6 @@
         var taskRiskLevel = $('#task_risk_level').val();
         var taskActivitySphere = $('#task_activity_sphere').val();
 
-        console.log(taskRiskLevel);
-
-
         $.ajax({
             type: 'POST',
             url: '{% url "add_task_to_project" project.id %}',
@@ -188,7 +185,6 @@
                     $('#task_risk_level').val('');
                     $('#task_activity_sphere').val('');
                 }
-            }
         });
     }
 

@@ -359,7 +359,6 @@ def add_resource_to_project(request, project_id):
 @login_required(login_url='/login')
 def add_task_to_project(request, project_id):
     project = get_object_or_404(Project, id=project_id)
-    print('gggggggggggggggggggggggggggggggggggggggg')
 
     if request.method == 'POST':
         task_name = request.POST.get('task_name')
