@@ -48,8 +48,8 @@
     <li>
         <span class="resource-name">{{ resource.name }}</span>
         {% if is_author %}
-        <button type="button" onclick="editResource('{{ resource.id }}')">Редагувати</button>
-        <button type="button" onclick="deleteResource('{{ resource.id }}')">Видалити</button>
+        <button type="submit" onclick="editResource('{{ resource.id }}')">Редагувати</button>
+        <button type="submit" onclick="deleteResource('{{ resource.id }}')">Видалити</button>
         {% endif %}
     </li>
     {% endfor %}
@@ -92,8 +92,8 @@
         <span class="task-risk-level">{{ task.risk_level }}</span>
         <span class="task-activity-sphere">{{ task.activity_sphere }}</span>
         {% if is_author %}
-        <button type="button" onclick="editTask('{{ task.id }}')">Редагувати</button>
-        <button type="button" onclick="deleteTask('{{ task.id }}')">Видалити</button>
+        <button type="submit" onclick="editTask('{{ task.id }}')">Редагувати</button>
+        <button type="submit" onclick="deleteTask('{{ task.id }}')">Видалити</button>
         {% else %}
         <p>Ти можеш розказати, як ви виконали завдання, або надіслати результат його виконання, написавши координатору проєкту. Вкажи, будь ласка, щодо якого конкретно проєкту і завдання ти звертаєшся.</p>
         <form class="form">
