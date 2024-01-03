@@ -51,7 +51,7 @@ urlpatterns = [
     path('save_idea/<str:idea_id>/', views.save_idea, name='save_idea'),
     path('edit_resource', views.edit_resource, name='edit_resource'),
     path('delete_resource', views.delete_resource, name='delete_resource'),
-    path('add_task_to_project', views.add_task_to_project, name='add_task_to_project'),
+    path('add_task_to_project/<str:project_id>/', views.add_task_to_project, name='add_task_to_project'),
 
 
 ]
