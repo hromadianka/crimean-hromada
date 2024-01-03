@@ -13,8 +13,8 @@
     <label for="idea-radio">
         <input type="radio" name="choice" value="idea" id="idea-radio"> Ідея
     </label>
-    <input type="text" placeholder="Назва" class="input" id="id_name" name="name" required />
-    <textarea placeholder="Опис" class="textarea" id="editor" name="description" required></textarea>
+    <input type="text" placeholder="Назва" class="input" id="id_name" name="name" style="display: block" required />
+    <textarea placeholder="Опис" class="textarea" id="editor" name="description"></textarea>
     {% if idea %}
     <input type="hidden" name="idea_id" value="{{ idea.id }}">
     {% endif %}
