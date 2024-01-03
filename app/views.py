@@ -102,6 +102,12 @@ def search(request):
             'tasks': tasks,
             'no_results': False
         }
+
+        print("Search input:", search_input)
+        print("Selected types:", selected_types)
+        print("Task risk filter:", task_risk_filter)
+        print("Task sphere filter:", task_sphere_filter)
+
         
         # Перевірка, чи всі списки порожні
         if not (projects or ideas or tasks):
