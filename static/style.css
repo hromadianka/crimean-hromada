@@ -287,7 +287,7 @@ body {
         flex-direction: column;
         background-color: #fff;
         position: absolute;
-        top: 250px;
+        top: 220px;
         left: 0;
         right: 0;
         z-index: 1;
@@ -302,6 +302,7 @@ body {
             list-style: none;
             height: 100%;
             padding-top: 50px;
+            margin-top: 0;
         }
 
 
