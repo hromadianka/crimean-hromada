@@ -357,6 +357,25 @@ def add_resource_to_project(request, project_id):
     return JsonResponse({'success': False})
 
 @login_required(login_url='/login')
+def add_task_to_project(request, project_id):
+    project = get_object_or_404(Project, id=project_id)
+
+    if request.method == 'POST':
+        task_name = request.POST.get('task_name')
+        task_risk_level = request.POST.get('task_risk_level')
+        task_activity_sphere = request.POST.get('task_activity_sphere')
+
+        task = Task.objects.create(
+            name=task_name,
+            risk_level=task_risk_level,
+            activity_sphere=task_activity_sphere,
+        )
+        project.tasks.add(task)
+        return JsonResponse({'success': True, 'task_id': task.id})
+
+    return JsonResponse({'success': False})
+
+@login_required(login_url='/login')
 def edit_resource(request):
     if request.method == 'POST':
         resource_id = request.POST.get('resource_id')
@@ -379,25 +398,6 @@ def delete_resource(request):
         resource.delete()
 
         return JsonResponse({'success': True})
-
-    return JsonResponse({'success': False})
-
-@login_required(login_url='/login')
-def add_task_to_project(request, project_id):
-    project = get_object_or_404(Project, id=project_id)
-
-    if request.method == 'POST':
-        task_name = request.POST.get('task_name')
-        task_risk_level = request.POST.get('task_risk_level')
-        task_activity_sphere = request.POST.get('task_activity_sphere')
-
-        task = Task.objects.create(
-            name=task_name,
-            risk_level=task_risk_level,
-            activity_sphere=task_activity_sphere,
-        )
-        project.tasks.add(task)
-        return JsonResponse({'success': True, 'task_id': task.id})
 
     return JsonResponse({'success': False})
 
