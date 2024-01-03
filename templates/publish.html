@@ -7,10 +7,10 @@
 {% endif %}
 <form method="post" class="form filter-group">
     {% csrf_token %}
-    <label>
+    <label for="project-radio">
         <input type="radio" name="choice" value="project" id="project-radio"> Проєкт
     </label>
-    <label>
+    <label for="idea-radio">
         <input type="radio" name="choice" value="idea" id="idea-radio"> Ідея
     </label>
     <input type="text" placeholder="Назва" class="input" id="id_name" name="name" required />
