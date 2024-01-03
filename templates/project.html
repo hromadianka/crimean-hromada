@@ -174,7 +174,6 @@
                 'csrfmiddlewaretoken': '{{ csrf_token }}'
             },
             success: function (data) {
-                if (data.success) {
                     // Оновіть список завдань
                     $('#taskList').append('<li>' +
                         '<span class="task-id" style="display: none;">' + data.task_id + '</span>' +
@@ -188,8 +187,6 @@
                     $('#task_name').val('');
                     $('#task_risk_level').val('');
                     $('#task_activity_sphere').val('');
-                } else {
-                    console.error('Помилка при додаванні завдання.');
                 }
             }
         });

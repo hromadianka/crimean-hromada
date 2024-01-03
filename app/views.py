@@ -364,6 +364,7 @@ def add_task_to_project(request, project_id):
         task_name = request.POST.get('task_name')
         task_risk_level = request.POST.get('task_risk_level')
         task_activity_sphere = request.POST.get('task_activity_sphere')
+        print(task_name)
 
         task = Task.objects.create(
             name=task_name,
