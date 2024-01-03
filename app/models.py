@@ -44,7 +44,6 @@ class Project(models.Model):
 class Task(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(max_length=100)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     risk_level = models.CharField(max_length=20)
     activity_sphere = models.CharField(max_length=20)
     user_results = models.FileField(upload_to='task_results/', blank=True, null=True)
