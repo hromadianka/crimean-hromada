@@ -40,7 +40,7 @@
 {% if is_author %}
 <form method="POST" id="resourceForm" class="form">
     {% csrf_token %}
-    <input type="text" id="resource_name" name="resource_name" class="input" required>
+    <input type="text" id="resource_name" name="resource_name" class="input" placeholder="Введи назву ресурсу" required>
     <button class="form-button" type="button" onclick="addResource()">Додати ресурс</button>
 </form>
 {% endif %}
@@ -65,7 +65,7 @@
 {% if is_author %}
 <form method="POST" id="taskForm" class="form">
     {% csrf_token %}
-    <input class="input" name="task_name" required />
+    <input class="input" name="task_name" placeholder="Введи текст завдання" required />
     <button class="form-button" type="button" onclick="addTask()">Додати нове завдання</button>
 </form>
 {% endif %}
