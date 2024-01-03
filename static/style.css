@@ -50,7 +50,7 @@ header ul li a {
         width: 100%;
     }
 
-p, a, .filter-group, label, summary, input, blockquote, details, li {
+p, a, .filter-group, label, summary, input, blockquote, details, li, h3 {
     font-family: 'PT Sans', sans-serif;
     line-height: normal;
     color: black;
@@ -126,6 +126,10 @@ button {
 
     h2 {
         font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
     }
 
 
@@ -233,6 +237,10 @@ button {
 
     h2 {
         font-size: 50px;
+    }
+
+    h3 {
+        font-size: 41px;
     }
 
     footer {

@@ -6,8 +6,13 @@
 <form method="POST" action="{% url 'edit_profile' user_id=profile.user.id %}" class="form" enctype="multipart/form-data">
     {% csrf_token %}
     <textarea placeholder="Додай опис профілю" name="content" class="textarea">{{ profile.description }}</textarea>
-    <input type="url" placeholder="Посилання на месенджер" name="chat_element" value="{{ profile.chat_element }}">
+    <input class="input" type="url" placeholder="Посилання на месенджер" name="chat_element" value="{{ profile.chat_element }}">
     <button type="submit" class="form-button">Змінити профіль</button>
+</form>
+{% else %}
+<p>{{ profile.description }}</p>
+<form class="form">
+    <button class="form-button"><a href="{{ profile.chat_element }}">Зв'язатися</a></button>
 </form>
 {% endif %}
 
@@ -88,7 +93,7 @@
 {% endfor %}
 
 {% if request.user == user %}
-<p><a href="logout">Вийти з акаунту</a></p>
+<p><a href="{% url 'logout' %}">Вийти з акаунту</a></p>
 {% endif %}
 
 {% endblock %}
