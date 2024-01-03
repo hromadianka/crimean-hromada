@@ -30,7 +30,9 @@
             </button>
         </form>
     </div>
-</div><p>Координатор цього проєкту не зазначав, що він надихався якоюсь із ідей на платформі.</p>
+</div>
+{% empty %}
+<p>Координатор цього проєкту не зазначав, що він надихався якоюсь із ідей на платформі.</p>
 {% endfor %}
 
 
@@ -39,7 +41,7 @@
 <form method="POST" id="resourceForm" class="form">
     {% csrf_token %}
     <input type="text" id="resource_name" name="resource_name" class="input" required>
-    <button type="button" onclick="addResource()">Додати ресурс</button>
+    <button class="form-button" type="button" onclick="addResource()">Додати ресурс</button>
 </form>
 {% endif %}
 <ul id="resourceList">
@@ -63,8 +65,8 @@
 {% if is_author %}
 <form method="POST" id="taskForm" class="form">
     {% csrf_token %}
-    <input class="input" />
-    <button type="button" onclick="addTask()">Додати нове завдання</button>
+    <input class="input" name="task_name" required />
+    <button class="form-button" type="button" onclick="addTask()">Додати нове завдання</button>
 </form>
 {% endif %}
 <ul id="taskList">
