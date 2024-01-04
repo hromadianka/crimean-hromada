@@ -86,37 +86,37 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $('#like-form').on('submit', function (event) {
-                event.preventDefault();  // Забороняємо стандартну подію відправлення форми
+        function saveProject(projectId) {
+            $.ajax({
+                url: "{% url 'save_project' project_id=0 %}".replace('0', projectId),
+                method: "POST",
+                data: {},
+                success: function (response) {
+                    if (response.success) {
+                        // Update UI based on the response, if needed
+                        const projectButton = $(`#saveProjectForm button[data-project-id="${projectId}"]`);
 
-                var form = $(this);
-                var projectId = form.find('.like-button').data('project-id');
-                var favorited = form.find('.like-button').data('favorited');
-
-                $.ajax({
-                    type: 'POST',
-                    url: form.attr('action'),
-                    data: {
-                        csrfmiddlewaretoken: form.find('input[name=csrfmiddlewaretoken]').val(),
-                        project_id: projectId
-                    },
-                    dataType: 'json',  // Додайте цей рядок
-                    success: function (data) {
-                        $('.like-count').text(data.likes);
-                        form.find('.like-button').toggleClass('favorited', data.favorited);
-                        form.find('.like-button').data('favorited', data.favorited);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(xhr.responseText);
+                        if (response.message.includes("saved")) {
+                            // Project saved
+                            projectButton.addClass('favorited');
+                            // Update UI accordingly
+                        } else if (response.message.includes("removed")) {
+                            // Project removed from favorites
+                            projectButton.removeClass('favorited');
+                            // Update UI accordingly
+                        }
+                    } else {
+                        // Handle failure, e.g., show an error message
                     }
-                });
-
+                },
+                error: function (error) {
+                    // Handle AJAX error
+                }
             });
-        });
-
-
+        }
     </script>
+
+
     <script>
         function saveIdea(ideaId) {
             var buttonElement = $('#saveIdeaForm button');

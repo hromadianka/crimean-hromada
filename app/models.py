@@ -30,7 +30,6 @@ class Project(models.Model):
     news = models.ManyToManyField('News', related_name='project')
     ideas = models.ManyToManyField(Idea, related_name='projects')
     likes = models.IntegerField(default=0)
-    favorited_by = models.ManyToManyField(User, related_name='favorite_projects')
 
     def toggle_favorite(self, user):
         if self.favorited_by.filter(id=user.id).exists():

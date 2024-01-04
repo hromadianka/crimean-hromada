@@ -492,16 +492,33 @@ def idea_delete(request, idea_id):
     return render(request, 'idea_delete.html', {'idea': idea})
 
 @login_required(login_url='login')
-@require_POST
-def toggle_favorite(request, project_id):
+def save_project(request, project_id):
     project = get_object_or_404(Project, id=project_id)
-    project.toggle_favorite(request.user)
-    return JsonResponse({'likes': project.likes, 'favorited': request.user in project.favorited_by})
+
+    if request.method == 'POST':
+        user = request.user
+
+        if user.is_authenticated:
+            profile, created = Profile.objects.get_or_create(user=user)
+
+            if project not in profile.favorite_projects.all():
+                profile.favorite_projects.add(project)
+                project.likes += 1  # Increment like count
+                project.save()
+                return JsonResponse({'success': True, 'message': 'Project saved successfully.'})
+            else:
+                profile.favorite_projects.remove(project)
+                project.likes -= 1  # Decrement like count
+                project.save()
+                return JsonResponse({'success': True, 'message': 'Project removed from favorites.'})
+        else:
+            return JsonResponse({'success': False, 'message': 'User is not authenticated.'})
+
+    return JsonResponse({'success': False, 'message': 'Invalid request method.'})
 
 
 @login_required(login_url='/login')
 def save_idea(request, idea_id):
-    print('hhhhh')
     idea = get_object_or_404(Idea, id=idea_id)
 
     if request.method == 'POST':
