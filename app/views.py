@@ -117,6 +117,7 @@ def search(request):
 
         return render(request, 'results.html', context)
 
+    print(request.POST)
     return render(request, 'search.html')
 
 
