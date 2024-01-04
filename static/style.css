@@ -610,3 +610,8 @@ blockquote {
 .idea-action form {
     margin-bottom: 0;
 }
+
+.idea-button.saved {
+    background-color: red;
+    /* інші стилі, які вам потрібні для збережених ідей */
+}

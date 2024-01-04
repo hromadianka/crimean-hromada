@@ -500,22 +500,21 @@ def toggle_favorite(request, project_id):
 
 @login_required(login_url='/login')
 def save_idea(request, idea_id):
-     idea = get_object_or_404(Idea, id=idea_id)
+    idea = get_object_or_404(Idea, id=idea_id)
 
-     if request.method == 'POST':
-         user = request.user
+    if request.method == 'POST':
+        user = request.user
 
-         if user.is_authenticated:
-             print(f"User: {user.username}, Idea ID: {idea.id}, Saved by: {list(user.saved_ideas.all())}")
+        if user.is_authenticated:
+            profile, created = Profile.objects.get_or_create(user=user)  # Отримуємо або створюємо профіль
+            if idea not in profile.saved_ideas.all():
+                profile.saved_ideas.add(idea)
+                return JsonResponse({'success': True, 'message': 'Idea saved successfully.'})
+            else:
+                profile.saved_ideas.remove(idea)
+                return JsonResponse({'success': True, 'message': 'Idea removed from saved ideas.'})
+        else:
+            return JsonResponse({'success': False, 'message': 'User is not authenticated.'})
 
-             if idea not in user.saved_ideas.all():
-                 user.saved_ideas.add(idea)
-                 return JsonResponse({'success': True, 'message': 'Idea saved successfully.'})
-             else:
-                 user.saved_ideas.remove(idea)
-                 return JsonResponse({'success': True, 'message': 'Idea removed from saved ideas.'})
-         else:
-             return JsonResponse({'success': False, 'message': 'User is not authenticated.'})
-
-     return JsonResponse({'success': False, 'message': 'Invalid request method.'})
+    return JsonResponse({'success': False, 'message': 'Invalid request method.'})
 

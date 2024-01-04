@@ -125,20 +125,14 @@
                 },
                 success: function (data) {
                     if (data.success) {
-                        alert(data.message);
 
-                        // Зміна стилів кнопки
-                        if (data.message === 'Idea saved successfully.') {
-                            buttonElement.css('background-color', 'red');
-                        } else {
-                            buttonElement.css('background-color', '');
-                        }
-                    } else {
-                        alert('Failed to save idea.');
+                        // Додавання або видалення класу 'saved'
+                        buttonElement.toggleClass('saved', data.message === 'Idea saved successfully.');
                     }
                 }
             });
         }
+
 
 
     </script>

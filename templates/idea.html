@@ -7,7 +7,7 @@
 <div>
     <form id="saveIdeaForm" method="post" action="{% url 'save_idea' idea_id=idea.id %}">
         {% csrf_token %}
-        <button type="submit" class="idea-button" onclick="saveIdea('{{ idea.id }}')">
+        <button type="submit" class="idea-button {% if idea in request.user.profile.saved_ideas.all %}saved{% endif %}" onclick="saveIdea('{{ idea.id }}')">
             <span class="idea-icon">🔖</span>
         </button>
     </form>
