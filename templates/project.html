@@ -6,11 +6,11 @@
 
 
 
-<form id="saveProjectForm" method="post" action="{% url 'save_project' project_id=project.id %}">
+<form id="saveProjectForm" method="post" data-project-id="{{ project.id }}">
     {% csrf_token %}
     <button type="submit" class="like-button {% if project in request.user.profile.favorite_projects.all %}favorited{% endif %}" onclick="saveProject('{{ project.id }}')">
-        <span class="like-icon">👊</span>
-        <span class="like-count">{{ project.likes }}</span>
+        <span class="like-icon">✊</span>
+        <span class="like-count" id="like-count">{{ project.likes }}</span>
     </button>
 </form>
 

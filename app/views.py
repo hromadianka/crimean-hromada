@@ -503,14 +503,17 @@ def save_project(request, project_id):
 
             if project not in profile.favorite_projects.all():
                 profile.favorite_projects.add(project)
-                project.likes += 1  # Increment like count
+                project.likes += 1
                 project.save()
-                return JsonResponse({'success': True, 'message': 'Project saved successfully.'})
             else:
                 profile.favorite_projects.remove(project)
-                project.likes -= 1  # Decrement like count
+                project.likes -= 1
                 project.save()
-                return JsonResponse({'success': True, 'message': 'Project removed from favorites.'})
+
+            # Отримати оновлене значення project.likes
+            updated_likes = project.likes
+
+            return JsonResponse({'success': True, 'message': 'Project saved successfully.', 'likes': updated_likes})
         else:
             return JsonResponse({'success': False, 'message': 'User is not authenticated.'})
 

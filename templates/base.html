@@ -86,39 +86,34 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script>
-        function saveProject(projectId) {
-            $.ajax({
-                url: "{% url 'save_project' project_id=0 %}".replace('0', projectId),
-                method: "POST",
-                data: {
-                    'csrfmiddlewaretoken': '{{ csrf_token }}'
-                },
-                success: function (response) {
-                    if (response.success) {
-                        // Update UI based on the response, if needed
-                        const projectButton = $(`#saveProjectForm button[data-project-id="${projectId}"]`);
+    function saveProject(projectId) {
+        var buttonElementProject = $('#saveProjectForm button');
+        $.ajax({
+            type: 'POST',
+            url: '/save_project/' + projectId + '/',
+            data: {
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(data) {
+                if (data.success) {
+                    buttonElementProject.toggleClass('favorited', data.message === 'Project saved successfully.');
 
-                        if (response.message.includes("saved")) {
-                            // Project saved
-                            projectButton.addClass('favorited');
-                            // Update UI accordingly
-                        } else if (response.message.includes("removed")) {
-                            // Project removed from favorites
-                            projectButton.removeClass('favorited');
-                            // Update UI accordingly
-                        }
-                    }
-                },
-            });
+                    // Оновлення значення likes на сторінці
+                    $('#like-count').text(data.likes);
+                }
+            },
+        });
 
-        }
-
+        // Зупинка стандартної обробки форми
+        event.preventDefault();
+    }
     </script>
+
 
 
     <script>
         function saveIdea(ideaId) {
-            var buttonElement = $('#saveIdeaForm button');
+            var buttonElementIdea = $('#saveIdeaForm button');
             $.ajax({
                 type: 'POST',
                 url: '/save_idea/' + ideaId + '/',
@@ -128,7 +123,7 @@
                 success: function (data) {
                     if (data.success) {
                         // Додавання або видалення класу 'saved'
-                        buttonElement.toggleClass('saved', data.message === 'Idea saved successfully.');
+                        buttonElementIdea.toggleClass('saved', data.message === 'Idea saved successfully.');
                     }
                 }
             });
