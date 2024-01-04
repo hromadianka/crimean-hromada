@@ -4,10 +4,10 @@
 <h1>{{ idea.name }}</h1>
 <p>{% autoescape off %}{{ idea.description }}{% endautoescape %}</p>
 
-<div class="idea-action">
-    <form method="post" action="{% url 'save_idea' idea_id=idea.id %}">
+<div>
+    <form id="saveIdeaForm" method="post" action="{% url 'save_idea' idea_id=idea.id %}">
         {% csrf_token %}
-        <button type="submit" class="idea-button">
+        <button type="submit" class="idea-button" onclick="saveIdea('{{ idea.id }}')">
             <span class="idea-icon">🔖</span>
         </button>
     </form>

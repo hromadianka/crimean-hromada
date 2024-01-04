@@ -116,6 +116,7 @@
     </script>
     <script>
         function saveIdea(ideaId) {
+            var buttonElement = $('#saveIdeaForm button');
             $.ajax({
                 type: 'POST',
                 url: '/save_idea/' + ideaId + '/',
@@ -125,13 +126,20 @@
                 success: function (data) {
                     if (data.success) {
                         alert(data.message);
-                        // Опціонально: змінити стиль кнопки або вивести іншу інформацію користувачеві
+
+                        // Зміна стилів кнопки
+                        if (data.message === 'Idea saved successfully.') {
+                            buttonElement.css('background-color', 'red');
+                        } else {
+                            buttonElement.css('background-color', '');
+                        }
                     } else {
                         alert('Failed to save idea.');
                     }
                 }
             });
         }
+
 
     </script>
 

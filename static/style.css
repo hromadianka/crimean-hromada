@@ -606,3 +606,7 @@ blockquote {
     margin-top: 1em;
     margin-bottom: 1em;
 }
+
+.idea-action form {
+    margin-bottom: 0;
+}
