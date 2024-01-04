@@ -90,7 +90,9 @@
             $.ajax({
                 url: "{% url 'save_project' project_id=0 %}".replace('0', projectId),
                 method: "POST",
-                data: {},
+                data: {
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
                 success: function (response) {
                     if (response.success) {
                         // Update UI based on the response, if needed
@@ -105,13 +107,8 @@
                             projectButton.removeClass('favorited');
                             // Update UI accordingly
                         }
-                    } else {
-                        // Handle failure, e.g., show an error message
                     }
                 },
-                error: function (error) {
-                    // Handle AJAX error
-                }
             });
 
             event.preventDefault();
