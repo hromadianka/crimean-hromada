@@ -77,24 +77,22 @@ def search(request):
         selected_types = request.POST.getlist('project-type')
 
         if 'project' in selected_types:
-            projects = Project.objects.filter(Q(name__icontains=search_input) | Q(description__icontains=search_input))
+            projects = Project.objects.filter(name__icontains=search_input) | Project.objects.filter(description__icontains=search_input)
 
         if 'task' in selected_types:
-            tasks = Task.objects.filter(Q(name__icontains=search_input) | Q(description__icontains=search_input))
+            tasks = Task.objects.filter(name__icontains=search_input) | Task.objects.filter(description__icontains=search_input)
     
             task_risk_filter = request.POST.getlist('project-risk')
             task_sphere_filter = request.POST.getlist('project-sphere')
 
             if task_risk_filter or task_sphere_filter:
-                for filter_type in task_risk_filter + task_sphere_filter:
-                    if filter_type == 'risk':
-                        tasks = tasks.filter(risk_level__in=task_risk_filter)
-                    elif filter_type == 'sphere':
-                        tasks = tasks.filter(activity_sphere__in=task_sphere_filter)
-  
+                if 'risk' in task_risk_filter:
+                    tasks = tasks.filter(risk_level__in=task_risk_filter)
+                if 'sphere' in task_sphere_filter:
+                    tasks = tasks.filter(activity_sphere__in=task_sphere_filter)
 
         if 'idea' in selected_types:
-            ideas = Idea.objects.filter(Q(name__icontains=search_input) | Q(description__icontains=search_input))
+            ideas = Idea.objects.filter(name__icontains=search_input) | Idea.objects.filter(description__icontains=search_input)
 
         context = {
             'projects': projects,
@@ -106,7 +104,6 @@ def search(request):
         print("Search input:", search_input)
         print("Selected types:", selected_types)
 
-        
         # Перевірка, чи всі списки порожні
         if not (projects or ideas or tasks):
             context['no_results'] = True
