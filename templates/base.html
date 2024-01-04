@@ -125,13 +125,16 @@
                 },
                 success: function (data) {
                     if (data.success) {
-
                         // Додавання або видалення класу 'saved'
                         buttonElement.toggleClass('saved', data.message === 'Idea saved successfully.');
                     }
                 }
             });
+
+            // Зупинка стандартної обробки форми
+            event.preventDefault();
         }
+
 
 
 
