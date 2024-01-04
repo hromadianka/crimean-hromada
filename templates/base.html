@@ -87,26 +87,32 @@
 
     <script>
         $(document).ready(function () {
-            $('.like-button').on('click', function () {
-                var projectId = $(this).data('project-id');
-                var favorited = $(this).data('favorited');
-                var button = $(this);
+            $('#like-form').on('submit', function (event) {
+                event.preventDefault();  // Забороняємо стандартну подію відправлення форми
+
+                var form = $(this);
+                var projectId = form.find('.like-button').data('project-id');
+                var favorited = form.find('.like-button').data('favorited');
 
                 $.ajax({
                     type: 'POST',
-                    url: '/toggle_favorite/' + projectId + '/',
+                    url: form.attr('action'),
+                    data: {
+                        csrfmiddlewaretoken: form.find('input[name=csrfmiddlewaretoken]').val(),
+                        project_id: projectId
+                    },
                     success: function (data) {
                         $('.like-count').text(data.likes);
-
-                        // Зміна класів кнопки
-                        button.toggleClass('favorited', data.favorited);
-
-                        // Оновлення атрибута data-favorited
-                        button.data('favorited', data.favorited);
+                        form.find('.like-button').toggleClass('favorited', data.favorited);
+                        form.find('.like-button').data('favorited', data.favorited);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
                     }
                 });
             });
         });
+
 
     </script>
     <script>

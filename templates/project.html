@@ -6,10 +6,14 @@
 
 
 
-<button class="like-button {% if project.is_favorited_by_user %}favorited{% endif %}" data-project-id="{{ project.id }}" data-favorited="{{ project.is_favorited_by_user }}">
-    <span class="like-icon">👊</span>
-    <span class="like-count">{{ project.likes }}</span>
-</button>
+<form id="like-form" method="post" action="{% url 'toggle_favorite' project.id %}">
+    {% csrf_token %}
+    <button type="submit" class="like-button {% if project.is_favorited_by_user %}favorited{% endif %}" data-project-id="{{ project.id }}" data-favorited="{{ project.is_favorited_by_user }}">
+        <span class="like-icon">👊</span>
+        <span class="like-count">{{ project.likes }}</span>
+    </button>
+</form>
+
 
 <p><a href="{{ project.chat_element }}">Посилання на відкритий чат проєкту</a></p>
 {% if is_author %}
