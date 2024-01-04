@@ -500,6 +500,7 @@ def toggle_favorite(request, project_id):
 
 @login_required(login_url='/login')
 def save_idea(request, idea_id):
+    print('hhhhh')
     idea = get_object_or_404(Idea, id=idea_id)
 
     if request.method == 'POST':
