@@ -616,11 +616,6 @@ blockquote {
     /* інші стилі, які вам потрібні для збережених ідей */
 }
 
-.like-button {
-    background-color: white;
-    color: black;
-}
-
     .like-button.favorited {
         background-color: red;
         color: white;
