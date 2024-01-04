@@ -76,23 +76,28 @@ def search(request):
         search_input = request.POST.get('search-input')
         selected_types = request.POST.getlist('project-type')
 
-        if 'project' in selected_types:
+        if not selected_types:  # If no specific type is selected, search across all types
             projects = Project.objects.filter(name__icontains=search_input) | Project.objects.filter(description__icontains=search_input)
-
-        if 'task' in selected_types:
             tasks = Task.objects.filter(name__icontains=search_input) | Task.objects.filter(description__icontains=search_input)
-    
-            task_risk_filter = request.POST.getlist('project-risk')
-            task_sphere_filter = request.POST.getlist('project-sphere')
-
-            if task_risk_filter or task_sphere_filter:
-                if 'risk' in task_risk_filter:
-                    tasks = tasks.filter(risk_level__in=task_risk_filter)
-                if 'sphere' in task_sphere_filter:
-                    tasks = tasks.filter(activity_sphere__in=task_sphere_filter)
-
-        if 'idea' in selected_types:
             ideas = Idea.objects.filter(name__icontains=search_input) | Idea.objects.filter(description__icontains=search_input)
+        else:
+            if 'project' in selected_types:
+                projects = Project.objects.filter(name__icontains=search_input) | Project.objects.filter(description__icontains=search_input)
+
+            if 'task' in selected_types:
+                tasks = Task.objects.filter(name__icontains=search_input) | Task.objects.filter(description__icontains=search_input)
+    
+                task_risk_filter = request.POST.getlist('project-risk')
+                task_sphere_filter = request.POST.getlist('project-sphere')
+
+                if task_risk_filter or task_sphere_filter:
+                    if 'risk' in task_risk_filter:
+                        tasks = tasks.filter(risk_level__in=task_risk_filter)
+                    if 'sphere' in task_sphere_filter:
+                        tasks = tasks.filter(activity_sphere__in=task_sphere_filter)
+
+            if 'idea' in selected_types:
+                ideas = Idea.objects.filter(name__icontains=search_input) | Idea.objects.filter(description__icontains=search_input)
 
         context = {
             'projects': projects,
@@ -111,6 +116,7 @@ def search(request):
         return render(request, 'results.html', context)
 
     return render(request, 'search.html')
+
 
 
 
