@@ -101,6 +101,7 @@
                         csrfmiddlewaretoken: form.find('input[name=csrfmiddlewaretoken]').val(),
                         project_id: projectId
                     },
+                    dataType: 'json',  // Додайте цей рядок
                     success: function (data) {
                         $('.like-count').text(data.likes);
                         form.find('.like-button').toggleClass('favorited', data.favorited);
@@ -110,6 +111,7 @@
                         console.error(xhr.responseText);
                     }
                 });
+
             });
         });
 

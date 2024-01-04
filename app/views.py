@@ -494,7 +494,7 @@ def idea_delete(request, idea_id):
 @login_required(login_url='login')
 @require_POST
 def toggle_favorite(request, project_id):
-    project = Project.objects.get(id=project_id)
+    project = get_object_or_404(Project, id=project_id)
     project.toggle_favorite(request.user)
     return JsonResponse({'likes': project.likes, 'favorited': request.user in project.favorited_by})
 
