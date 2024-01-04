@@ -73,6 +73,7 @@ def search(request):
     projects = []
     ideas = []
     tasks = []
+    print(request.POST)
 
     if request.method == 'POST':
         search_input = request.POST.get('search-input')
@@ -117,7 +118,6 @@ def search(request):
 
         return render(request, 'results.html', context)
 
-    print(request.POST)
     return render(request, 'search.html')
 
 
