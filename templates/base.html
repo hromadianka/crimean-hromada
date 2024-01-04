@@ -86,27 +86,24 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script>
-        function saveProject(projectId, event) {
-            event.preventDefault();
-
+        function saveProject(projectId) {
             $.ajax({
                 url: "{% url 'save_project' project_id=0 %}".replace('0', projectId),
                 method: "POST",
                 data: {},
                 success: function (response) {
                     if (response.success) {
-                        // Update UI based on the response
+                        // Update UI based on the response, if needed
                         const projectButton = $(`#saveProjectForm button[data-project-id="${projectId}"]`);
-                        const likeCount = projectButton.find('.like-count');
 
                         if (response.message.includes("saved")) {
                             // Project saved
                             projectButton.addClass('favorited');
-                            likeCount.text(parseInt(likeCount.text()) + 1);  // Increment like count
+                            // Update UI accordingly
                         } else if (response.message.includes("removed")) {
                             // Project removed from favorites
                             projectButton.removeClass('favorited');
-                            likeCount.text(parseInt(likeCount.text()) - 1);  // Decrement like count
+                            // Update UI accordingly
                         }
                     } else {
                         // Handle failure, e.g., show an error message
@@ -117,10 +114,10 @@
                 }
             });
 
-            return false;
+            event.preventDefault();
         }
-    </script>
 
+    </script>
 
 
     <script>
