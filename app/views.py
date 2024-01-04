@@ -77,7 +77,6 @@ def search(request):
     if request.method == 'POST':
         search_input = request.POST.get('search-input')
         selected_types = request.POST.getlist('project-type')
-        print(selected_types)
 
         if not selected_types:  # If no specific type is selected, search across all types
             projects = Project.objects.filter(Q(name__icontains=search_input) | Q(description__icontains=search_input))
