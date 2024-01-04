@@ -2,70 +2,72 @@
 
 {% block content %}
 <h1>Пошук</h1>
-<form class="search-box" method="post">
+<form method="post">
     {% csrf_token %}
-    <input type="text" class="search-input" name="search-input" placeholder="Пошук...">
-    <button class="search-button" type="submit">
-        🔍
-    </button>
+    <div class="search-box">
+        <input type="text" class="search-input" name="search-input" placeholder="Пошук...">
+        <button class="search-button" type="submit">
+            🔍
+        </button>
+    </div>
+    <div class="filter-group">
+        <label>
+            <input type="checkbox" name="project-type" value="project" data-filter-type="type">
+            Проєкт
+        </label>
+        <label>
+            <input type="checkbox" name="project-type" value="task" data-filter-type="type">
+            Завдання
+        </label>
+        <label>
+            <input type="checkbox" name="project-type" value="idea" data-filter-type="type">
+            Ідея
+        </label>
+    </div>
+
+    <div class="filter-group" id="risk-filter">
+        <label>
+            <input type="checkbox" name="project-risk" value="1" data-filter-type="risk">
+            Мінімальний рівень ризику
+        </label>
+        <label>
+            <input type="checkbox" name="project-risk" value="2" data-filter-type="risk">
+            Другий рівень ризику
+        </label>
+        <label>
+            <input type="checkbox" name="project-risk" value="3" data-filter-type="risk">
+            Третій рівень ризику
+        </label>
+        <label>
+            <input type="checkbox" name="project-risk" value="4" data-filter-type="risk">
+            Четвертий рівень ризику
+        </label>
+        <label>
+            <input type="checkbox" name="project-risk" value="5" data-filter-type="risk">
+            П'ятий' рівень ризику
+        </label>
+    </div>
+
+    <div class="filter-group" id="sphere-filter">
+        <label>
+            <input type="checkbox" name="project-sphere" value="design" data-filter-type="sphere">
+            Дизайн
+        </label>
+        <label>
+            <input type="checkbox" name="project-sphere" value="dev" data-filter-type="sphere">
+            Розробка
+        </label>
+        <label>
+            <input type="checkbox" name="project-sphere" value="agitation" data-filter-type="sphere">
+            Агітація
+        </label>
+        <label>
+            <input type="checkbox" name="project-sphere" value="direct-action" data-filter-type="sphere">
+            Пряма дія
+        </label>
+    </div>
 </form>
 
-<div class="filter-group">
-    <label>
-        <input type="checkbox" name="project-type" value="project" data-filter-type="type">
-        Проєкт
-    </label>
-    <label>
-        <input type="checkbox" name="project-type" value="task" data-filter-type="type">
-        Завдання
-    </label>
-    <label>
-        <input type="checkbox" name="project-type" value="idea" data-filter-type="type">
-        Ідея
-    </label>
-</div>
-
-<div class="filter-group" id="risk-filter">
-    <label>
-        <input type="checkbox" name="project-risk" value="1" data-filter-type="risk">
-        Мінімальний рівень ризику
-    </label>
-    <label>
-        <input type="checkbox" name="project-risk" value="2" data-filter-type="risk">
-        Другий рівень ризику
-    </label>
-    <label>
-        <input type="checkbox" name="project-risk" value="3" data-filter-type="risk">
-        Третій рівень ризику
-    </label>
-    <label>
-        <input type="checkbox" name="project-risk" value="4" data-filter-type="risk">
-        Четвертий рівень ризику
-    </label>
-    <label>
-        <input type="checkbox" name="project-risk" value="5" data-filter-type="risk">
-        П'ятий' рівень ризику
-    </label>
-</div>
-
-<div class="filter-group" id="sphere-filter">
-    <label>
-        <input type="checkbox" name="project-sphere" value="design" data-filter-type="sphere">
-        Дизайн
-    </label>
-    <label>
-        <input type="checkbox" name="project-sphere" value="dev" data-filter-type="sphere">
-        Розробка
-    </label>
-    <label>
-        <input type="checkbox" name="project-sphere" value="agitation" data-filter-type="sphere">
-        Агітація
-    </label>
-    <label>
-        <input type="checkbox" name="project-sphere" value="direct-action" data-filter-type="sphere">
-        Пряма дія
-    </label>
-</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
