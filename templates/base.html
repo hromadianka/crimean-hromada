@@ -89,6 +89,7 @@
         $(document).ready(function () {
             $('.like-button').on('click', function () {
                 var projectId = $(this).data('project-id');
+                var favorited = $(this).data('favorited');
                 var button = $(this);
 
                 $.ajax({
@@ -97,22 +98,16 @@
                     success: function (data) {
                         $('.like-count').text(data.likes);
 
-                        // Зміна стилів кнопки
-                        if (data.favorited) {
-                            button.css({
-                                'background-color': 'red',
-                                'color': 'white'
-                            });
-                        } else {
-                            button.css({
-                                'background-color': 'white',
-                                'color': 'black'
-                            });
-                        }
+                        // Зміна класів кнопки
+                        button.toggleClass('favorited', data.favorited);
+
+                        // Оновлення атрибута data-favorited
+                        button.data('favorited', data.favorited);
                     }
                 });
             });
         });
+
     </script>
     <script>
         function saveIdea(ideaId) {

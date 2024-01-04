@@ -5,10 +5,12 @@
 <p>{% autoescape off %}{{ project.description }}{% endautoescape %}</p>
 
 
-<button class="like-button" data-project-id="{{ project.id }}">
+
+<button class="like-button {% if project.is_favorited_by_user %}favorited{% endif %}" data-project-id="{{ project.id }}" data-favorited="{{ project.is_favorited_by_user }}">
     <span class="like-icon">👊</span>
     <span class="like-count">{{ project.likes }}</span>
 </button>
+
 <p><a href="{{ project.chat_element }}">Посилання на відкритий чат проєкту</a></p>
 {% if is_author %}
 <p><a href="{% url 'edit_project' project.id %}">Редагувати проєкт</a></p>
@@ -22,9 +24,9 @@
         <p>{% autoescape off %}{{ idea.description }}{% endautoescape %}</p>
     </div>
     <div class="idea-action">
-        <form method="post" action="{% url 'save_idea' idea_id=idea.id %}">
+        <form id="saveIdeaForm" method="post" action="{% url 'save_idea' idea_id=idea.id %}">
             {% csrf_token %}
-            <button type="submit" class="idea-button">
+            <button type="submit" class="idea-button {% if idea in request.user.profile.saved_ideas.all %}saved{% endif %}" onclick="saveIdea('{{ idea.id }}')">
                 <span class="idea-icon">🔖</span>
             </button>
         </form>

@@ -498,6 +498,7 @@ def toggle_favorite(request, project_id):
     project.toggle_favorite(request.user)
     return JsonResponse({'likes': project.likes, 'favorited': request.user in project.favorited_by})
 
+
 @login_required(login_url='/login')
 def save_idea(request, idea_id):
     print('hhhhh')
