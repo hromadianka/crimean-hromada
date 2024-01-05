@@ -505,15 +505,16 @@ def save_project(request, project_id):
                 profile.favorite_projects.add(project)
                 project.likes += 1
                 project.save()
+                return JsonResponse({'success': True, 'message': 'Project saved successfully.', 'likes': updated_likes})
             else:
                 profile.favorite_projects.remove(project)
                 project.likes -= 1
                 project.save()
+                return JsonResponse({'success': True, 'message': 'Project removed from favorited projects.'})
 
             # Отримати оновлене значення project.likes
             updated_likes = project.likes
 
-            return JsonResponse({'success': True, 'message': 'Project saved successfully.', 'likes': updated_likes})
         else:
             return JsonResponse({'success': False, 'message': 'User is not authenticated.'})
 
