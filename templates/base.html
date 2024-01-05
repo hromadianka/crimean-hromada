@@ -103,10 +103,12 @@
 
                     // Встановлення класу на основі того, чи проєкт збережено
                     if (data.message === 'Project saved successfully.') {
-                        buttonElementProject.css('background-color', 'red');
+                        buttonElementProject.addClass('favorited');
                     } else {
-                        buttonElementProject.css('background-color', '#f5f5f5');
+                        buttonElementProject.removeClass('favorited');
                     }
+
+                location.reload();
 
 
                 }
