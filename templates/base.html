@@ -96,10 +96,15 @@
             },
             success: function(data) {
                 if (data.success) {
-
                     // Оновлення значення likes на сторінці
                     $('#like-count').text(data.likes);
-                    buttonElementProject.toggleClass('favorited', data.message === 'Project saved successfully.');
+
+                    // Встановлення класу на основі того, чи проєкт збережено
+                    if (data.message === 'Project saved successfully.') {
+                        buttonElementProject.addClass('favorited');
+                    } else {
+                        buttonElementProject.removeClass('favorited');
+                    }
                 }
             },
         });
