@@ -89,6 +89,8 @@
     function saveProject(projectId) {
         var buttonElementProject = $('#saveProjectForm button[data-project-id="' + projectId + '"]');
         var projectId = $('#saveProjectForm').data('project-id');
+        console.log(buttonElementProject)
+
 
         $.ajax({
             type: 'POST',
@@ -100,7 +102,6 @@
                 if (data.success) {
                     // Оновлення значення likes на сторінці
                     $('#like-count-' + projectId).text(data.likes);
-                    console.log(data.message)
 
                     // Встановлення класу на основі того, чи проєкт збережено
                     if (data.message === 'Project saved successfully.') {
