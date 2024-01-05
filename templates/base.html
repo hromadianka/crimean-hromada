@@ -105,12 +105,6 @@
                     } else {
                         buttonElementProject.removeClass('favorited');
                     }
-
-                    setTimeout(function () {
-                        // Оновлення значення likes на сторінці
-                        $('#like-count-' + projectId).text(data.likes);
-                    }, 100);
-                }
             },
         });
 
