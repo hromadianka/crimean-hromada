@@ -87,7 +87,7 @@
 
     <script>
     function saveProject(projectId) {
-        var buttonElementProject = $('#saveProjectForm button');
+        var buttonElementProject = $('#saveProjectForm button[data-project-id="' + projectId + '"]');
         $.ajax({
             type: 'POST',
             url: '/save_project/' + projectId + '/',
@@ -113,7 +113,7 @@
 
     <script>
         function saveIdea(ideaId) {
-            var buttonElementIdea = $('#saveIdeaForm button');
+            var buttonElementIdea = $('#saveIdeaForm[data-idea-id="' + ideaId + '"] button');
             $.ajax({
                 type: 'POST',
                 url: '/save_idea/' + ideaId + '/',
