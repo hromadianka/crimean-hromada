@@ -98,6 +98,9 @@
             },
             success: function(data) {
                 if (data.success) {
+                    // Оновлення значення likes на сторінці
+                    $('#like-count-' + projectId).text(data.likes);
+                    console.log(data.message)
 
                     // Встановлення класу на основі того, чи проєкт збережено
                     if (data.message === 'Project saved successfully.') {
@@ -105,6 +108,9 @@
                     } else {
                         buttonElementProject.removeClass('favorited');
                     }
+
+
+                }
             },
         });
 
