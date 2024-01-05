@@ -607,7 +607,7 @@ blockquote {
     margin-bottom: 1em;
 }
 
-.idea-action form {
+.idea-action form, .project-action form {
     margin-bottom: 0;
 }
 
