@@ -89,8 +89,6 @@
     function saveProject(projectId) {
         var buttonElementProject = $('#saveProjectForm button[data-project-id="' + projectId + '"]');
         var projectId = $('#saveProjectForm').data('project-id');
-        console.log(buttonElementProject)
-
 
         $.ajax({
             type: 'POST',
@@ -106,6 +104,7 @@
                     // Встановлення класу на основі того, чи проєкт збережено
                     if (data.message === 'Project saved successfully.') {
                         buttonElementProject.addClass('favorited');
+                        console.log(data.message);
                     } else {
                         buttonElementProject.removeClass('favorited');
                     }
