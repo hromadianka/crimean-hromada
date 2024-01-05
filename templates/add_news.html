@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+п»ї{% extends 'base.html' %}
 
 {% block content %}
 
-<h2>Додати новину</h2>
+<h2>Р”РѕРґР°С‚Рё РЅРѕРІРёРЅСѓ</h2>
 
 <form method="post" action="{% url 'add_news' project_id=project.id %}" class="form" enctype="multipart/form-data">
     {% csrf_token %}
@@ -10,11 +10,11 @@
     <textarea name="content" class="textarea" required></textarea>
     <!--
     <input type="file" name="image" accept="image/*" id="imageInput">
-    <label for="imageInput" class="file-input-label">Виберіть файл</label>
+    <label for="imageInput" class="file-input-label">Р’РёР±РµСЂС–С‚СЊ С„Р°Р№Р»</рџ‚label>
     -->
-    <button type="submit" class="form-button">Додати новину</button>
+    <button type="submit" class="form-button">Р”РѕРґР°С‚Рё РЅРѕРІРёРЅСѓ</button>
 </form>
 
-<p><a href="{% url 'project' project_id=project.id %}">Скасувати</a></p>
+<p><a href="{% url 'project' project_id=project.id %}">РЎРєР°СЃСѓРІР°С‚Рё</a></p>
 
 {% endblock %}

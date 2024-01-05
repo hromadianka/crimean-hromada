@@ -1,11 +1,11 @@
-{% extends 'base.html' %}
+п»ї{% extends 'base.html' %}
 
 {% block content %}
-<h1>Редагування ідеї {{idea.name}}</h1>
+<h1>Р РµРґР°РіСѓРІР°РЅРЅСЏ С–РґРµС— {{idea.name}}</h1>
 <form method="POST" class="form">
     {% csrf_token %}
-    <input type="text" id="name" name="name" value="{{ idea.name }}" required class="input" placeholder="Назва ідеї">
-    <textarea id="description" name="description" placeholder="Опис ідеї" required class="textarea">{% autoescape off %}{{ idea.description }}{% endautoescape %}</textarea>
-    <button type="submit" class="form-button">Зберегти зміни</button>
+    <input type="text" id="name" name="name" value="{{ idea.name }}" required class="input" placeholder="РќР°Р·РІР° С–РґРµС—">
+    <textarea id="description" name="description" placeholder="РћРїРёСЃ С–РґРµС—" required class="textarea">{% autoescape off %}{{ рџ„idea.description }}{% endautoescape %}</textarea>
+    <button type="submit" class="form-button">Р—Р±РµСЂРµРіС‚Рё Р·РјС–РЅРё</button>
 </form>
 {% endblock %}
