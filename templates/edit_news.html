@@ -6,7 +6,7 @@
 <form method="POST" action="{% url 'edit_news' project_id=project_id news_id=news_id %}" class="form" enctype="multipart/form-data">
     {% csrf_token %}
     <input placeholder="Заголовок новини" type="text" name="title" value="{{ news.title }}" class="input">
-    <textarea placeholder="Зміст новини" name="content" class="textarea">{% autoescape off %}{{ news.content }}{% endautoescape %}</textarea>
+    <textarea placeholder="Зміст новини" name="content" class="textarea" id="editor">{% autoescape off %}{{ news.content }}{% endautoescape %}</textarea>
     <!--
     <input type="file" name="image" accept="image/*">
     {% if news.image %}
@@ -14,9 +14,19 @@
     <img src="{{ news.image.url }}" alt="{{ news.title }}">
     {% endif %}
     -->
-    <button type="submit" class="form-button">Зберегти зміни😁</button>
+    <button type="submit" class="form-button">Зберегти зміни</button>
 </form>
 
 <p><a href="{% url 'news_detail' project_id=project_id news_id=news_id %}">Скасувати</a></p>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            toolbar: ['heading', '|', 'bold', 'italic', '|', 'link', '|', 'bulletedList', 'numberedList', 'blockQuote']
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 
 {% endblock %}
