@@ -432,7 +432,7 @@ body {
     .news-card {
         border: 1px solid #ccc;
         border-radius: 10px;
-        padding: 10px;
+        padding: 14px;
         margin-bottom: 20px;
     }
 
@@ -520,7 +520,7 @@ body {
     .news-card {
         border: 1px solid #ccc;
         border-radius: 10px;
-        padding: 40px;
+        padding: 50px;
         margin-bottom: 40px;
     }
 
