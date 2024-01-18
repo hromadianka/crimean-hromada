@@ -157,7 +157,7 @@
     {% endautoescape %}
     {% if is_author %}
     <p><a href="{% url 'edit_news' project_id=project.id news_id=news.id %}">Редагувати новину</a></p>
-    <p><a href="{% url 'delete_news' project_id=project.id news_id=news.id %}" style="text-decoration: none; color: red">Видалити новину</a></p>
+    <p style="margin: 0"><a href="{% url 'delete_news' project_id=project.id news_id=news.id %}" style="text-decoration: none; color: red">Видалити новину</a></p>
     {% endif %}
 </div>
 {% endfor %}
