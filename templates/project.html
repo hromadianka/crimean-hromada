@@ -55,8 +55,8 @@
     <li>
         <span class="resource-name">{{ resource.name }}</span>
         {% if is_author %}
-        <button style="margin-left: 10%; border-radius: 40px;" type="submit" onclick="editResource('{{ resource.id }}')">Редагувати</button>
-        <button style="border-radius: 40px;" type="submit" onclick="deleteResource('{{ resource.id }}')">Видалити</button>
+        <button style="margin-left: 10%; border-radius: 40px; padding: 6px 10px" type="submit" onclick="editResource('{{ resource.id }}')">Редагувати</button>
+        <button style="border-radius: 40px; padding: 6px 10px" type="submit" onclick="deleteResource('{{ resource.id }}')">Видалити</button>
         {% endif %}
     </li>
     {% endfor %}
@@ -94,10 +94,9 @@
 <ul id="taskList">
     {% for task in project.tasks.all %}
     <li>
-        <span class="task-id" style="display: none;">{{ task.id }}</span>
-        <span class="task-name">{{ task.name }}</span>
-        <br />
-        <span class="task-risk-level">
+        <p class="task-id" style="display: none;">{{ task.id }}</p>
+        <p class="task-name">{{ task.name }}</p>
+        <p class="task-risk-level">
             Рівень ризику:
             {% if task.risk_level == "1" %}
             Мінімальний
@@ -112,9 +111,8 @@
             {% else %}
             Невідомий рівень ризику
             {% endif %}
-        </span>
-        <br />
-        <span class="task-activity-sphere">
+        </p>
+        <p class="task-activity-sphere">
             Сфера діяльності:
             {% if task.activity_sphere == "dev" %}
             Розробка
@@ -127,10 +125,10 @@
             {% elif task.activity_sphere == "other" %}
             Інше
             {% endif %}
-        </span>
+        </p>
         {% if is_author %}
-        <button style="margin-left: 10%; border-radius: 40px;" type="submit" onclick="editTask('{{ task.id }}')">Редагувати</button>
-        <button style="border-radius: 40px;" type="submit" onclick="deleteTask('{{ task.id }}')">Видалити</button>
+        <button style="margin-left: 10%; border-radius: 40px; padding: 6px 10px" type="submit" onclick="editTask('{{ task.id }}')">Редагувати</button>
+        <button style="border-radius: 40px; padding: 6px 10px" type="submit" onclick="deleteTask('{{ task.id }}')">Видалити</button>
         {% else %}
         <p>Ти можеш розказати, як ви виконали завдання, або надіслати результат його виконання, написавши координатору проєкту. Вкажи, будь ласка, щодо якого конкретно проєкту і завдання ти звертаєшся.</p>
         <form class="form">
