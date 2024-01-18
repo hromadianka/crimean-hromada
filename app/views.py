@@ -340,15 +340,10 @@ def add_news(request, project_id):
         title = request.POST.get('title')
         content = request.POST.get('content')
 
-        # Обробка завантаження зображення
-        image = request.FILES.get('image')
-
         # Створення новини і збереження в базі даних
         news = News.objects.create(
             title=title,
             content=content,
-            image=image,
-            author=request.user
         )
 
         project.news.add(news)
