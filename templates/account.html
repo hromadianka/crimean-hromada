@@ -20,8 +20,8 @@
   {% for project in created_projects %}
 <div class="project-card">
     <div class="project-info">
-        <h2><a href="{% url 'project' project.id %}" style="text-decoration: none">{{ project.name }}</a></h2>
-        <p>{% autoescape off %}{{ project.description|truncatechars:200 }}{% endautoescape %}</p>
+        <h2 style="margin: 0"><a href="{% url 'project' project.id %}" style="text-decoration: none">{{ project.name }}</a></h2>
+        <p style="margin: 0">{% autoescape off %}{{ project.description|linebreaksbr|truncatechars:150 }}{% endautoescape %}</p>
     </div>
     <div class="project-action">
         <form id="saveProjectForm" method="post" action="{% url 'save_project' project_id=project.id %}" data-project-id="{{ project.id }}">
