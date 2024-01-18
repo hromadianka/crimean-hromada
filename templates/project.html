@@ -146,21 +146,21 @@
     <button type="submit" class="form-button"><a href="{% url 'add_news' project_id=project.id %}" style="text-decoration: none">Додати новину</a></button>
 </form>
 {% endif %}
-<div class="news">
-    {% for news in project.news.all %}
-    <h2><a style="text-decoration: underline" href="{% url 'news_detail' project_id=project.id news_id=news.id %}">{{ news.title }}</a></h2>
+{% for news in project.news.all %}
+<div class="news-card">
+    <h2>{{ news.title }}</h2>
     {% if news.image %}
     <img src="{{ news.image.url }}" alt="{{ news.title }}">
     {% endif %}
     {% autoescape off %}
-    <p>{{ news.content|truncatechars:200|linebreaksbr }}</p>
+    <p>{{ news.content }}</p>
     {% endautoescape %}
     {% if is_author %}
     <p><a href="{% url 'edit_news' project_id=project.id news_id=news.id %}">Редагувати новину</a></p>
     <p><a href="{% url 'delete_news' project_id=project.id news_id=news.id %}" style="text-decoration: none; color: red">Видалити новину</a></p>
     {% endif %}
-    {% endfor %}
 </div>
+{% endfor %}
 
 
 

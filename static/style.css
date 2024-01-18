@@ -429,6 +429,13 @@ body {
         margin-bottom: 20px;
     }
 
+    .news-card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
     .project-info, .idea-info {
         flex-grow: 1;
     }
@@ -504,6 +511,13 @@ body {
     .project-card, .idea-card {
         display: flex;
         align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 40px;
+        margin-bottom: 40px;
+    }
+
+    .news-card {
         border: 1px solid #ccc;
         border-radius: 10px;
         padding: 40px;
