@@ -1,7 +1,7 @@
 ﻿{% extends 'base.html' %}
 {% block content %}
 
-<h2>Редагування новини "{{ news.title }}"</h2>
+<h1>Редагування новини "{{ news.title }}"</h1>
 
 <form method="POST" action="{% url 'edit_news' project_id=project_id news_id=news_id %}" class="form" enctype="multipart/form-data">
     {% csrf_token %}
@@ -16,8 +16,6 @@
     -->
     <button type="submit" class="form-button">Зберегти зміни</button>
 </form>
-
-<p><a href="{% url 'news_detail' project_id=project_id news_id=news_id %}">Скасувати</a></p>
 
 <script>
     ClassicEditor

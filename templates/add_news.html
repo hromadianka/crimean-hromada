@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h2>Додати новину</h2>
+<h1>Додати новину</h1>
 
 <form method="post" action="{% url 'add_news' project_id=project.id %}" class="form" enctype="multipart/form-data">
     {% csrf_token %}
