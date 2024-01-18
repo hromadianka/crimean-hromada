@@ -174,14 +174,7 @@
                 'csrfmiddlewaretoken': '{{ csrf_token }}'
             },
             success: function (data) {
-                // Оновіть список ресурсів
-                $('#resourceList').append('<li>' +
-                    '<span class="resource-name">' + resourceName + '</span>' +
-                    '<button type="button" onclick="editResource(' + data.resource_id + ')">Редагувати</button>' +
-                    '<button type="button" onclick="deleteResource(' + data.resource_id + ')">Видалити</button>' +
-                    '</li>');
-                // Очистіть поле вводу
-                $('#resource_name').val('');
+                location.reload();
             }
         });
     }
