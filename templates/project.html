@@ -156,23 +156,9 @@
                 'csrfmiddlewaretoken': '{{ csrf_token }}'
             },
             success: function (data) {
-                // Оновіть список завдань
-                $('#taskList').append('<li>' +
-                    '<span class="task-id" style="display: none;">' + data.task_id + '</span>' +
-                    '<span class="task-name">' + taskName + '</span>' +
-                    '<span class="task-risk-level">' + taskRiskLevel + '</span>' +
-                    '<span class="task-activity-sphere">' + taskActivitySphere + '</span>' +
-                    '<button type="button" onclick="editTask(' + data.task_id + ')">Редагувати</button>' +
-                    '<button type="button" onclick="deleteTask(' + data.task_id + ')">Видалити</button>' +
-                    '</li>');
-                // Очистіть поля вводу
-                $('#task_name').val('');
-                $('#task_risk_level').val('');
-                $('#task_activity_sphere').val('');
+                location.reload();
             },
-            error: function (xhr, textStatus, errorThrown) {
-                console.error('Помилка при виконанні ajax запиту:', textStatus, errorThrown);
-            }
+
         });
 
     }
