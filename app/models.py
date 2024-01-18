@@ -41,7 +41,6 @@ class Project(models.Model):
         self.save()
 
 class Task(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(max_length=100)
     risk_level = models.CharField(max_length=20)
     activity_sphere = models.CharField(max_length=20)
