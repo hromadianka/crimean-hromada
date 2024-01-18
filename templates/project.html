@@ -220,10 +220,6 @@
                     'csrfmiddlewaretoken': '{{ csrf_token }}'
                 },
                 success: function () {
-                    // Оновіть ім'я ресурсу на сторінці
-                    $('#resourceList li span.resource-name').filter(function () {
-                        return $(this).text() === resourceId.toString();
-                    }).text(newName);
 
                     location.reload();
                 }
@@ -242,10 +238,6 @@
                     'csrfmiddlewaretoken': '{{ csrf_token }}'
                 },
                 success: function () {
-                    // Видаліть елемент зі списку ресурсів на сторінці
-                    $('#resourceList li span.resource-name').filter(function () {
-                        return $(this).text() === resourceId.toString();
-                    }).closest('li').remove();
 
                     location.reload();
                 }
@@ -258,8 +250,6 @@
 
     function editTask(taskId) {
         var newName = prompt('Введіть нову назву завдання:');
-        var newRiskLevel = prompt('Введіть новий рівень ризику:');
-        var newActivitySphere = prompt('Введіть нову сферу діяльності:');
 
         if (newName !== null) {
             $.ajax({
@@ -268,20 +258,10 @@
                 data: {
                     'task_id': taskId,
                     'new_name': newName,
-                    'new_risk_level': newRiskLevel,
-                    'new_activity_sphere': newActivitySphere,
                     'csrfmiddlewaretoken': '{{ csrf_token }}'
                 },
                 success: function () {
                     // Оновіть назву та інші поля завдання на сторінці
-                    var taskItem = $('#taskList li').filter(function () {
-                        return $(this).find('span.task-id').text() === taskId.toString();
-                    });
-
-                    taskItem.find('span.task-name').text(newName);
-                    taskItem.find('span.task-risk-level').text(newRiskLevel);
-                    taskItem.find('span.task-activity-sphere').text(newActivitySphere);
-
                     location.reload();
                 }
             });
@@ -300,10 +280,6 @@
                     'csrfmiddlewaretoken': '{{ csrf_token }}'
                 },
                 success: function () {
-                    // Видаліть елемент зі списку завдань на сторінці
-                    $('#taskList li span.task-name').filter(function () {
-                        return $(this).text() === taskId.toString();
-                    }).closest('li').remove();
 
                     location.reload();
                 }

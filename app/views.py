@@ -419,13 +419,9 @@ def edit_task(request):
     if request.method == 'POST':
         task_id = request.POST.get('task_id')
         new_name = request.POST.get('new_name')
-        new_risk_level = request.POST.get('new_risk_level')
-        new_activity_sphere = request.POST.get('new_activity_sphere')
 
         task = get_object_or_404(Task, id=task_id)
         task.name = new_name
-        task.risk_level = new_risk_level
-        task.activity_sphere = new_activity_sphere
         task.save()
 
         return JsonResponse({'success': True})
