@@ -97,9 +97,9 @@
         <span class="task-id" style="display: none;">{{ task.id }}</span>
         <span class="task-name">{{ task.name }}</span>
         <br />
-        <span class="task-risk-level">Рівень ризику: {{ task.risk_level }}</span>
+        <span class="task-risk-level">Рівень ризику: {{ activity_risk_mapping.task.risk_level" }}</span>
         <br />
-        <span class="task-activity-sphere">Сфера діяльності: {{ task.activity_sphere }}</span>
+        <span class="task-activity-sphere">Сфера діяльності: {{ activity_sphere_mapping.task.activity_sphere }}</span>
         {% if is_author %}
         <button style="margin-left: 10%" type="submit" onclick="editTask('{{ task.id }}')">Редагувати</button>
         <button type="submit" onclick="deleteTask('{{ task.id }}')">Видалити</button>
