@@ -363,7 +363,7 @@ def add_resource_to_project(request, project_id):
         resource_name = request.POST.get('resource_name')
         resource = Resource.objects.create(name=resource_name)
         project.resources.add(resource)
-        return JsonResponse({'success': True, 'resource_id': resource.id})
+        return JsonResponse({'success': True})
 
     return JsonResponse({'success': False})
 
@@ -382,7 +382,7 @@ def add_task_to_project(request, project_id):
             activity_sphere=task_activity_sphere,
         )
         project.tasks.add(task)
-        return JsonResponse({'success': True, 'task_id': task.id})
+        return JsonResponse({'success': True})
 
     return JsonResponse({'success': False})
 

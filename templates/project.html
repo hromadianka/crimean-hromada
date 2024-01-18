@@ -69,7 +69,7 @@
 {% endif %}
 <h3>Завдання</h3>
 {% if is_author %}
-<form method="POST" action="{% url 'add_task_to_project' project.id %}" id="taskForm" class="form">
+<form method="POST" id="taskForm" class="form">
     {% csrf_token %}
     <input class="input" name="task_name" id="task_name" placeholder="Введи текст завдання" required />
     <label for="task_risk_level">Рівень ризику</label>
