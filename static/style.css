@@ -27,7 +27,9 @@ a, button {
         box-shadow: 0 0 4px red; /* Ефект виділення при виборі опції */
     }
 
-
+.project-info *, .idea-info * {
+    margin: 0;
+}
 
 header ul li a {
     text-decoration: none;

@@ -6,6 +6,8 @@
 {% if no_results %}
 <p>Нічого не знайдено для вибраних критеріїв пошуку.</p>
 {% else %}
+
+<h3>Знайдені проєкти</h3>
   {% for project in projects %}
 <div class="project-card">
     <div class="project-info">
@@ -24,6 +26,7 @@
 </div>
   {% endfor %}
 
+<h3>Знайдені ідеї</h3>
   {% for idea in ideas %}
 <div class="idea-card">
     <div class="idea-info">
@@ -42,6 +45,7 @@
 </div>
 {% endfor %}
 
+<h3>Знайдені завдання</h3>
 <ul>
  {% for task in tasks %}
     <li><a href="{% url 'project' task.project.id %}" style="text-decoration: none">{{ task.name }}</a></li>
