@@ -293,6 +293,11 @@ def news_detail(request, project_id, news_id):
 
 @login_required(login_url='login')
 def edit_news(request, project_id, news_id):
+
+    project = get_object_or_404(Project, id=project_id)
+    if request.user != project.author:
+        raise PermissionDenied("You do not have permission to delete this news.")
+
     news = get_object_or_404(News, id=news_id)
 
     if request.method == 'POST':
@@ -318,6 +323,10 @@ def edit_news(request, project_id, news_id):
 
 @login_required(login_url='login')
 def delete_news(request, project_id, news_id):
+    project = get_object_or_404(Project, id=project_id)
+    if request.user != project.author:
+        raise PermissionDenied("You do not have permission to delete this news.")
+
     news = get_object_or_404(News, id=news_id)
 
     if request.method == 'POST':
@@ -329,6 +338,9 @@ def delete_news(request, project_id, news_id):
 @login_required(login_url='login')
 def add_news(request, project_id):
     project = get_object_or_404(Project, id=project_id)
+
+    if request.user != project.author:
+        raise PermissionDenied("You do not have permission to add news to this project.")
 
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -351,6 +363,9 @@ def add_news(request, project_id):
 def add_resource_to_project(request, project_id):
     project = get_object_or_404(Project, id=project_id)
 
+    if request.user != project.author:
+        raise PermissionDenied("You do not have permission to add resources to this project.")
+
     if request.method == 'POST':
         resource_name = request.POST.get('resource_name')
         resource = Resource.objects.create(name=resource_name)
@@ -362,6 +377,9 @@ def add_resource_to_project(request, project_id):
 @login_required(login_url='/login')
 def add_task_to_project(request, project_id):
     project = get_object_or_404(Project, id=project_id)
+
+    if request.user != project.author:
+        raise PermissionDenied("You do not have permission to add tasks to this project.")
 
     if request.method == 'POST':
         task_name = request.POST.get('task_name')
@@ -412,6 +430,13 @@ def edit_task(request):
         new_name = request.POST.get('new_name')
 
         task = get_object_or_404(Task, id=task_id)
+
+        projects = Project.objects.filter(tasks=task)
+
+        if not any(request.user == project.author for project in projects):
+            raise PermissionDenied("You do not have permission to edit this task.")
+
+
         task.name = new_name
         task.save()
 
@@ -426,6 +451,11 @@ def delete_task(request):
         task_id = request.POST.get('task_id')
 
         task = get_object_or_404(Task, id=task_id)
+
+        projects = Project.objects.filter(tasks=task)
+        if not any(request.user == project.author for project in projects):
+            raise PermissionDenied("You do not have permission to delete this task.")
+
         task.delete()
 
         return JsonResponse({'success': True})
