@@ -21,7 +21,7 @@
 <div class="project-card">
     <div class="project-info">
         <h2><a href="{% url 'project' project.id %}" style="text-decoration: none">{{ project.name }}</a></h2>
-        <p>{% autoescape off %}{{ project.description }}{% endautoescape %}</p>
+        <p>{% autoescape off %}{{ project.description|truncatechars:100 }}{% endautoescape %}</p>
     </div>
     <div class="project-action">
         <form id="saveProjectForm" method="post" action="{% url 'save_project' project_id=project.id %}" data-project-id="{{ project.id }}">

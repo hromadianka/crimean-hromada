@@ -210,6 +210,9 @@ def edit_project(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
 
     if request.user != project.author:
+        raise PermissionDenied("You do not have permission to edit this project.")
+
+    if request.user != project.author:
         return redirect('project', project_id=project_id)
 
     if request.method == 'POST':
@@ -226,6 +229,9 @@ def delete_project(request, pk):
     project = get_object_or_404(Project, pk=pk)
 
     if request.user != project.author:
+        raise PermissionDenied("You do not have permission to delete this project.")
+
+    if request.user != project.author:
         return redirect('project', pk=pk)
 
     if request.method == 'POST':
@@ -234,36 +240,6 @@ def delete_project(request, pk):
 
     return render(request, 'delete_project.html', {'project': project})
 
-
-def login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('profile')
-    return render(request, 'login.html')
-
-@login_required(login_url='login')
-def logout(request):
-    auth.logout(request)
-    return redirect('/')
-
-def register(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        link = request.POST.get('link')
-
-        user = Profile.objects.create_user(username=username, password=password)
-        profile = Profile(user=user, chat_element=link)
-        profile.save()
-
-        login(request, user)
-        return redirect('profile')
-
-    return render(request, 'register.html')
 
 @login_required(login_url='login')
 def account(request, user_id):
@@ -398,11 +374,19 @@ def add_task_to_project(request, project_id):
 
 @login_required(login_url='/login')
 def edit_resource(request):
+
+
     if request.method == 'POST':
         resource_id = request.POST.get('resource_id')
         new_name = request.POST.get('new_name')
 
         resource = get_object_or_404(Resource, id=resource_id)
+        projects = Project.objects.filter(resources=resource)
+
+        if not any(request.user == project.author for project in projects):
+            raise PermissionDenied("You do not have permission to edit this resource.")
+
+
         resource.name = new_name
         resource.save()
 
@@ -416,6 +400,12 @@ def delete_resource(request):
         resource_id = request.POST.get('resource_id')
 
         resource = get_object_or_404(Resource, id=resource_id)
+        projects = Project.objects.filter(resources=resource)
+
+        if not any(request.user == project.author for project in projects):
+            raise PermissionDenied("You do not have permission to delete this resource.")
+
+
         resource.delete()
 
         return JsonResponse({'success': True})
@@ -466,6 +456,9 @@ def delete_task(request):
 def edit_profile(request, user_id):
     user = User.objects.get(id=user_id)
     profile = user.profile
+
+    if request.user != user:
+        raise PermissionDenied("You do not have permission to edit this profile.")
 
     if request.method == 'POST' and request.user == user:
         new_description = request.POST.get('content')
