@@ -295,9 +295,6 @@ def news_detail(request, project_id, news_id):
 def edit_news(request, project_id, news_id):
     news = get_object_or_404(News, id=news_id)
 
-    if request.user != news.author:
-        return redirect('news_detail', project_id=project_id, news_id=news_id)
-
     if request.method == 'POST':
         news.title = request.POST.get('title')
         news.content = request.POST.get('content')
@@ -322,9 +319,6 @@ def edit_news(request, project_id, news_id):
 @login_required(login_url='login')
 def delete_news(request, project_id, news_id):
     news = get_object_or_404(News, id=news_id)
-
-    if request.user != news.author:
-        return redirect('news_detail', project_id=project_id, news_id=news_id)
 
     if request.method == 'POST':
         news.delete()
