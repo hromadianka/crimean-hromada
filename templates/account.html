@@ -42,7 +42,7 @@
 <div class="idea-card">
     <div class="idea-info">
         <h2><a href="{% url 'idea_detail' idea.id %}" style="text-decoration: none">{{ idea.name }}</a></h2>
-        <p>{% autoescape off %}{{ idea.description }}{% endautoescape %}</p>
+        <p>{% autoescape off %}{{ idea.description|linebreaks|truncatechars:200 }}{% endautoescape %}</p>
     </div>
     <div class="idea-action">
         <form id="saveIdeaForm" method="post" data-idea-id="{{ idea.id }}">
@@ -63,7 +63,7 @@
 <div class="project-card">
     <div class="project-info">
         <h2><a href="/project/{{ project.id }}" style="text-decoration: none">{{ project.name }}</a></h2>
-        <p>{% autoescape off %}{{ project.description }}{% endautoescape %}</p>
+        <p>{% autoescape off %}{{ project.description|linebreaks|truncatechars:200 }}{% endautoescape %}</p>
     </div>
     <div class="project-action">
         <form id="saveProjectForm" method="post" action="{% url 'save_project' project_id=project.id %}" data-project-id="{{ project.id }}">
@@ -85,7 +85,7 @@
 <div class="idea-card">
     <div class="idea-info">
         <h2><a href="{% url 'idea_detail' idea.id %}" style="text-decoration: none">{{ idea.name }}</a></h2>
-        <p>{% autoescape off %}{{ idea.description }}{% endautoescape %}</p>
+        <p>{% autoescape off %}{{ idea.description|linebreaks|truncatechars:200 }}{% endautoescape %}</p>
     </div>
     <div class="idea-action">
         <form id="saveIdeaForm" method="post" data-idea-id="{{ idea.id }}">
