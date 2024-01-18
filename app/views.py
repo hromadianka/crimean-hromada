@@ -348,9 +348,11 @@ def add_news(request, project_id):
             title=title,
             content=content,
             image=image,
-            project=project,
             author=request.user
         )
+
+        project.news.add(news)
+
 
         return redirect('project', project_id=project_id)
 
