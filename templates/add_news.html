@@ -6,7 +6,7 @@
 
 <form method="post" action="{% url 'add_news' project_id=project.id %}" class="form" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="text" name="title" class="input" required>
+    <input type="text" name="title" class="input" placeholder="Заголовок новини" required>
     <textarea name="content" class="textarea" id="editor"></textarea>
     <!--
     <input type="file" name="image" accept="image/*" id="imageInput">
