@@ -91,7 +91,7 @@
     <button class="form-button" type="submit" onclick="addTask()">Додати нове завдання</button>
 </form>
 {% endif %}
-<ul id="taskList">
+<ul id="taskList" style="padding-left: 0;">
     {% for task in project.tasks.all %}
     <li>
         <p class="task-id" style="display: none;">{{ task.id }}</p>
@@ -131,8 +131,8 @@
         <button style="border-radius: 40px; padding: 6px 10px" type="submit" onclick="deleteTask('{{ task.id }}')">Видалити</button>
         {% else %}
         <p>Ти можеш розказати, як ви виконали завдання, або надіслати результат його виконання, написавши координатору проєкту. Вкажи, будь ласка, щодо якого конкретно проєкту і завдання ти звертаєшся.</p>
-        <form class="form">
-            <button class="form-button"><a href="{{ project.author.profile.chat_element }}">Надіслати результат</a></button>
+        <form>
+            <button class="form-button" style="border-radius: 40px; padding: 6px 10px"><a href="{{ project.author.profile.chat_element }}">Надіслати результат</a></button>
         </form>        {% endif %}
     </li>
     {% endfor %}
