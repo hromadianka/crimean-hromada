@@ -29,6 +29,8 @@ a, button {
 
 .project-info *, .idea-info * {
     margin: 0;
+    padding: 0;
+    color: #555;
 }
 
 header ul li a {
@@ -63,7 +65,6 @@ h1, h2 {
     line-height: normal;
     color: black;
     text-decoration: none;
-    margin: 0;
 }
 
 body {
@@ -449,8 +450,6 @@ body {
 
         .project-info p, .idea-info p {
             font-size: 16px;
-            color: #555;
-            margin: 0;
         }
 
     .project-action, .idea-action {
@@ -532,14 +531,8 @@ body {
 
         .project-info h2, .idea-info h2 {
             margin-bottom: 20px;
-            margin-top: 0;
         }
 
-        .project-info p, .idea-info p {
-            font-size: 40px;
-            color: #555;
-            margin: 0;
-        }
 
     .project-action, .idea-action {
         display: flex;
