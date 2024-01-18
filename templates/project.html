@@ -97,9 +97,37 @@
         <span class="task-id" style="display: none;">{{ task.id }}</span>
         <span class="task-name">{{ task.name }}</span>
         <br />
-        <span class="task-risk-level">Рівень ризику: {{ activity_risk_mapping.get(task.risk_level, "Невідомий рівень ризику" }}</span>
+        <span class="task-risk-level">
+            Рівень ризику:
+            {% if task.risk_level == "1" %}
+            Мінімальний
+            {% elif task.risk_level == "2" %}
+            Другий
+            {% elif task.risk_level == "3" %}
+            Третій
+            {% elif task.risk_level == "4" %}
+            Четвертий
+            {% elif task.risk_level == "5" %}
+            П'ятий
+            {% else %}
+            Невідомий рівень ризику
+            {% endif %}
+        </span>
         <br />
-        <span class="task-activity-sphere">Сфера діяльності: {{ activity_sphere_mapping.task.activity_sphere }}</span>
+        <span class="task-activity-sphere">
+            Сфера діяльності:
+            {% if task.activity_sphere == "dev" %}
+            Розробка
+            {% elif task.activity_sphere == "design" %}
+            Дизайн
+            {% elif task.activity_sphere == "agitation" %}
+            Агітація
+            {% elif task.activity_sphere == "direct-action" %}
+            Пряма дія
+            {% elif task.activity_sphere == "other" %}
+            Інше
+            {% endif %}
+        </span>
         {% if is_author %}
         <button style="margin-left: 10%; border-radius: 40px;" type="submit" onclick="editTask('{{ task.id }}')">Редагувати</button>
         <button style="border-radius: 40px;" type="submit" onclick="deleteTask('{{ task.id }}')">Видалити</button>

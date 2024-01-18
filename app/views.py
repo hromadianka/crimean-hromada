@@ -202,23 +202,8 @@ def project(request, project_id):
     else:
         is_author = False
 
-    activity_sphere_mapping = {
-        "dev": "Розробка",
-        "design": "Дизайн",
-        "agitation": "Агітація",
-        "direct-action": "Пряма дія",
-        "other": "Інше",
-    }
 
-    activity_risk_mapping = {
-        "1": "Мінімальний",
-        "2": "Другий",
-        "3": "Третій",
-        "4": "Четвертий",
-        "5": "П'ятий",
-    }
-
-    return render(request, 'project.html', {'project': project, 'is_author': is_author, 'related_ideas': related_ideas, 'activity_sphere_mapping': activity_sphere_mapping, 'activity_risk_mapping': activity_risk_mapping,})
+    return render(request, 'project.html', {'project': project, 'is_author': is_author, 'related_ideas': related_ideas})
 
 @login_required(login_url='login')
 def edit_project(request, project_id):
