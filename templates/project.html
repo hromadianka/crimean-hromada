@@ -2,6 +2,8 @@
 
 {% block content %}
 <h1>{{ project.name }}</h1>
+<p><a href="{{ project.chat_element }}">Посилання на відкритий чат проєкту</a></p>
+
 
 <form id="saveProjectForm" method="post" action="{% url 'save_project' project_id=project.id %}" data-project-id="{{ project.id }}">
     {% csrf_token %}
@@ -10,7 +12,6 @@
         <span class="like-count" id="like-count-{{ project.id }}">{{ project.likes }}</span>
     </button>
 </form>
-<p><a href="{{ project.chat_element }}">Посилання на відкритий чат проєкту</a></p>
 
 
 <p>{% autoescape off %}{{ project.description }}{% endautoescape %}</p>
