@@ -7,7 +7,9 @@
 <p>Нічого не знайдено для вибраних критеріїв пошуку.</p>
 {% else %}
 
+{% if projects %}
 <h3>Знайдені проєкти</h3>
+{% endif %}
   {% for project in projects %}
 <div class="project-card">
     <div class="project-info">
@@ -26,7 +28,9 @@
 </div>
   {% endfor %}
 
+{% if ideas %}
 <h3>Знайдені ідеї</h3>
+{% endif %}
   {% for idea in ideas %}
 <div class="idea-card">
     <div class="idea-info">
@@ -45,11 +49,13 @@
 </div>
 {% endfor %}
 
+{% if tasks %}
 <h3>Знайдені завдання</h3>
+{% endif %}
 <ul>
- {% for task in tasks %}
+    {% for task in tasks %}
     <li><a href="{% url 'project' task.project.id %}" style="text-decoration: none">{{ task.name }}</a></li>
- {% endfor %}
+    {% endfor %}
 </ul>
 
 {% endif %}
