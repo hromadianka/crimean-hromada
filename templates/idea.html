@@ -2,7 +2,6 @@
 
 {% block content %}
 <h1>{{ idea.name }}</h1>
-<p>{% autoescape off %}{{ idea.description }}{% endautoescape %}</p>
 
 <div>
     <form id="saveIdeaForm" method="post" data-idea-id="{{ idea.id }}">
@@ -12,6 +11,8 @@
         </button>
     </form>
 </div>
+
+<p>{% autoescape off %}{{ idea.description }}{% endautoescape %}</p>
 
 
 {% if idea.author == user %}
