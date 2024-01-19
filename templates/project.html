@@ -56,8 +56,8 @@
     <li>
         <span class="resource-name">{{ resource.name }}</span>
         {% if is_author %}
-        <button style="margin-left: 10%; border-radius: 40px; padding: 6px 15px" type="submit" onclick="editResource('{{ resource.id }}')">Редагувати</button>
-        <button style="border-radius: 40px; padding: 6px 15px" type="submit" onclick="deleteResource('{{ resource.id }}')">Видалити</button>
+        <button style="margin-left: 10%;" type="submit" class="edit-button" onclick="editResource('{{ resource.id }}')">Редагувати</button>
+        <button class="edit-button" type="submit" onclick="deleteResource('{{ resource.id }}')">Видалити</button>
         {% endif %}
     </li>
     {% endfor %}
@@ -128,8 +128,8 @@
             {% endif %}
         </p>
         {% if is_author %}
-        <button style="border-radius: 40px; padding: 6px 15px" type="submit" onclick="editTask('{{ task.id }}')">Редагувати</button>
-        <button style="border-radius: 40px; padding: 6px 15px" type="submit" onclick="deleteTask('{{ task.id }}')">Видалити</button>
+        <button class="edit-button" type="submit" onclick="editTask('{{ task.id }}')">Редагувати</button>
+        <button class="edit-button" type="submit" onclick="deleteTask('{{ task.id }}')">Видалити</button>
         {% else %}
         <p>Ти можеш розказати, як ви виконали завдання, або надіслати результат його виконання, написавши координатору проєкту. Вкажи, будь ласка, щодо якого конкретно проєкту і завдання ти звертаєшся.</p>
         <form class="form">

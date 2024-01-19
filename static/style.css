@@ -87,6 +87,11 @@ button {
 
 @media (min-width: 1000px) {
 
+    .edit-button {
+        border-radius: 40px;
+        padding: 6px 12px;
+    }
+
     details {
         margin-top: 8px;
         margin-bottom: 8px;
@@ -184,6 +189,10 @@ button {
 }
 
 @media (max-width: 1000px) {
+    .edit-button {
+        border-radius: 40px;
+        padding: 8px 18px;
+    }
 
     header img, footer img {
         width: 80px;
