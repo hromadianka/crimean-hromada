@@ -12,6 +12,8 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
+from django.core.exceptions import PermissionDenied
+
 
 
 
@@ -207,7 +209,7 @@ def project(request, project_id):
 
 @login_required(login_url='login')
 def edit_project(request, project_id):
-    project = get_object_or_404(Project, pk=project_id)
+    project = get_object_or_404(Project, id=project_id)
 
     if request.user != project.author:
         raise PermissionDenied("You do not have permission to edit this project.")
@@ -225,14 +227,11 @@ def edit_project(request, project_id):
     return render(request, 'edit_project.html', {'project': project})
 
 @login_required(login_url='login')
-def delete_project(request, pk):
-    project = get_object_or_404(Project, pk=pk)
+def delete_project(request, project_id):
+    project = get_object_or_404(Project, id=project_id)
 
     if request.user != project.author:
         raise PermissionDenied("You do not have permission to delete this project.")
-
-    if request.user != project.author:
-        return redirect('project', pk=pk)
 
     if request.method == 'POST':
         project.delete()
