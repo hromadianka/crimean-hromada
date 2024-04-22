@@ -78,14 +78,14 @@ WSGI_APPLICATION = 'crimean_hromada.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+DATABASE_URL = os.environ['DATABASE_URL']
 
 
 # Password validation
@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 from django.utils.translation import gettext_lazy as _
 
-LANGUAGE_CODE = 'uk'  # Код мови за замовчуванням
+LANGUAGE_CODE = 'uk'  # ГЉГ®Г¤ Г¬Г®ГўГЁ Г§Г  Г§Г Г¬Г®ГўГ·ГіГўГ Г­Г­ГїГ¬
 
 LANGUAGES = [
     ('uk', _('Ukrainian')),
@@ -127,9 +127,9 @@ LOCALE_PATHS = [
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True  # Включити інтернаціоналізацію
+USE_I18N = True  # Г‚ГЄГ«ГѕГ·ГЁГІГЁ ВіГ­ГІГҐГ°Г­Г Г¶ВіГ®Г­Г Г«ВіГ§Г Г¶ВіГѕ
 
-USE_TZ = True  # Використовувати часовий пояс
+USE_TZ = True  # Г‚ГЁГЄГ®Г°ГЁГ±ГІГ®ГўГіГўГ ГІГЁ Г·Г Г±Г®ГўГЁГ© ГЇГ®ГїГ±
 
 
 
