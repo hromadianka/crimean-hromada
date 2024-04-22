@@ -78,15 +78,21 @@ WSGI_APPLICATION = 'crimean_hromada.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASE_URL = os.environ['DATABASE_URL']
 
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'pirx9gvldet56vw6',  
+        'USER': 'i60way2ab0eyvhr0',  
+        'PASSWORD': 'q1f84u6v807g9db9',  
+        'HOST': 'ao9moanwus0rjiex.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	',  
+        'PORT': '3306',  
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        }  
+    }  
+}  
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
