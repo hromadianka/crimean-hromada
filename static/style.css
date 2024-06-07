@@ -141,8 +141,8 @@ header img, footer img {
     main {
         padding-left: 150px;
         padding-right: 150px;
-        padding-top: 30px;
-        padding-bottom: 30px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     header {
@@ -209,10 +209,6 @@ header img, footer img {
     body {
         padding-left: 5%;
         padding-right: 5%;
-    }
-
-    main {
-        padding-bottom: 35px;
     }
 
 
