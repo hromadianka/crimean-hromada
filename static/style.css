@@ -186,6 +186,10 @@ header img, footer img {
     }
 }
 
+.logo {
+    width: 150px;
+}
+
 @media (max-width: 1000px) {
     .edit-button {
         border-radius: 40px;
@@ -230,12 +234,12 @@ header img, footer img {
         flex-direction: column;
         padding-top: 30px;
         padding-bottom: 30px;
-        gap: 35px;
+        gap: 15px;
     }
 
         footer div {
             display: flex;
-            gap: 30px;
+            gap: 15px;
         }
 
 
@@ -552,7 +556,7 @@ body {
     .form {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 15px;
     }
 }
 
