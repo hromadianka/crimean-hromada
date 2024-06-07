@@ -85,6 +85,15 @@ button {
     cursor: pointer;
 }
 
+header img, footer img {
+    width: 30px;
+}
+
+
+.logo {
+    width: 50px;
+}
+
 @media (min-width: 1000px) {
 
     .edit-button {
@@ -111,14 +120,6 @@ button {
 
     p, a, .filter-group, label, blockquote, details, li {
         font-size: 16px;
-    }
-
-    header img, footer img {
-        width: 30px;
-    }
-
-    .logo {
-        width: 50px;
     }
 
     button, button a {
