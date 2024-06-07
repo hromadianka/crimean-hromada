@@ -203,7 +203,7 @@ header img, footer img {
     }
 
     .logo {
-        width: 110px;
+        width: 50px;
     }
 
     body {
@@ -225,8 +225,7 @@ header img, footer img {
     }
 
     h1 {
-        margin-bottom: 40px;
-        margin-top: 40px;
+        margin-bottom: 20px;
     }
 
 
@@ -491,6 +490,10 @@ body {
 
 @media (max-width: 1000px) {
 
+    .input, .form-button, .textarea {
+        font-size: 17px;
+    }
+
     .project-card, .idea-card {
         display: flex;
         align-items: center;
@@ -553,7 +556,7 @@ body {
     .form {
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 5px;
     }
 }
 
