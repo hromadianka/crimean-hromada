@@ -90,9 +90,6 @@ header img, footer img {
 }
 
 
-.logo {
-    width: 50px;
-}
 
 @media (min-width: 1000px) {
 
@@ -267,10 +264,10 @@ body {
 }
 
 .bar {
-    width: 10vw;
-    height: 7px;
+    width: 50px;
+    height: 3px;
     background-color: #333;
-    margin: 11px 0;
+    margin: 6px 0;
     border-radius: 3px;
 }
 
@@ -291,7 +288,6 @@ body {
         z-index: 1;
         padding: 10px;
         gap: 30px;
-        font-size: 50px;
         padding-left: 5%;
     }
 
