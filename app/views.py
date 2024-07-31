@@ -1,12 +1,4 @@
-﻿from django.shortcuts import render, redirect, get_object_or_404
-import uuid
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User, auth
-from django.contrib import messages
-from .models import Profile, Project, Idea, Task, Resource, News
-from django.contrib.auth.views import LogoutView
-from django.contrib.auth import login
-import random
+﻿
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q

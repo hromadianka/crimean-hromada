@@ -2,6 +2,7 @@ from django.db import models
 import uuid
 from django.contrib.auth.models import User
 from idea.models import Idea
+from news.models import News
 
 
 # Create your models here.
@@ -14,7 +15,7 @@ class Project(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     resources = models.ManyToManyField('Resource', related_name='projects')
     tasks = models.ManyToManyField('Task', related_name='projects')
-    news = models.ManyToManyField('News', related_name='project')
+    news = models.ManyToManyField('news.News', related_name='project')
     ideas = models.ManyToManyField(Idea, related_name='projects')
     likes = models.IntegerField(default=0)
 

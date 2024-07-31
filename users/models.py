@@ -11,6 +11,6 @@ class Profile(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     chat_element = models.URLField()
-    created_projects = models.ManyToManyField('Project', related_name='creators')
-    favorite_projects = models.ManyToManyField('Project', related_name='favorites')
+    created_projects = models.ManyToManyField('project.Project', related_name='creators')
+    favorite_projects = models.ManyToManyField('project.Project', related_name='favorites')
     saved_ideas = models.ManyToManyField(Idea, related_name='savers')
