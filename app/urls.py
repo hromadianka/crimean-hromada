@@ -2,6 +2,7 @@ from . import views
 from django.urls import path, re_path, include
 
 urlpatterns = [
+    path('', views.index, name='home'),
     path('map', views.map, name='map'),
     path('publish', views.publish, name='publish'),
     path('self-government', views.self_government, name='self-government'),
