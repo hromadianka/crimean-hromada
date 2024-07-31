@@ -71,7 +71,6 @@ msgid "Crimean Tatar"
 msgstr "Крымскотатарский"
 
 #: .\app\templates\base.html:135
-#, fuzzy
 msgid "Обрати мову"
 msgstr "Выбрать язык"
 
