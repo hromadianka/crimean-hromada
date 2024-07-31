@@ -6,30 +6,44 @@ from django.contrib.auth.models import User
 from users.models import Profile
 from project.models import Project
 from idea.models import Idea 
+from django.contrib import messages
+
 
 # Create your views here.
 
 def custom_register(request):
     if request.method == 'POST':
+
         username = request.POST.get('username')
         link = request.POST.get('link')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
 
+        # Проверка совпадения паролей
         if password1 != password2:
-            return render(request, 'register.html', {'error': 'Паролі не співпадають'})
+            messages.error(request, 'Паролі не співпадають')
+            return render(request, 'register.html')
 
-        # Використовуємо create_user замість створення користувача та збереження паролю
-        user = User.objects.create_user(username=username, password=password1)
+        # Проверка уникальности имени пользователя
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Ім’я користувача вже зайняте')
+            return render(request, 'register.html')
 
-        # Створення профілю для користувача
-        profile = Profile(user=user, name=username, chat_element=link, description='')
-        profile.save()
+        try:
+            # Создание пользователя
+            user = User.objects.create_user(username=username, password=password1)
 
-        # Автоматичний вхід після реєстрації
-        auth.login(request, user)
+            # Создание профиля для пользователя
+            profile = Profile(user=user, name=username, chat_element=link, description='')
+            profile.save()
 
-        return redirect('/')
+            # Автоматический вход после регистрации
+            login(request, user)
+
+            return redirect('/')
+        except Exception as e:
+            messages.error(request, f'Помилка при реєстрації: {str(e)}')
+            return render(request, 'register.html')
 
     return render(request, 'register.html')
 
@@ -38,10 +52,10 @@ def custom_login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        user = auth.authenticate(request, username=username, password=password)
+        user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            auth.login(request, user)
+            login(request, user)
             return redirect('/')
         else:
             return render(request, 'login.html', {'error': 'Wrong password or username'})
@@ -50,7 +64,7 @@ def custom_login(request):
 
 
 def custom_logout(request):
-    auth.logout(request)
+    logout(request)
     return redirect('/')
 
 @login_required(login_url='login')
