@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Profile, Project, Idea, Task, Resource, News
+from users.models import Profile
+from project.models import Project, Task, Resource
+from idea.models import Idea
+from news.models import News
 
 # Register your models here.
 

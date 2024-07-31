@@ -1,23 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
 import uuid
+from django.contrib.auth.models import User
+from idea.models import Idea
+
 
 # Create your models here.
-
-class Idea(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    chat_element = models.URLField()
-    created_projects = models.ManyToManyField('Project', related_name='creators')
-    favorite_projects = models.ManyToManyField('Project', related_name='favorites')
-    saved_ideas = models.ManyToManyField(Idea, related_name='savers')
 
 class Project(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
@@ -49,9 +36,3 @@ class Task(models.Model):
 
 class Resource(models.Model):
     name = models.CharField(max_length=100)
-
-class News(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    image = models.ImageField(upload_to='news_images/', blank=True, null=True)
