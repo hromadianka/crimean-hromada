@@ -41,7 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    'users',
+    'project',
+    'idea',
+    'news',
+    'wiki',
+    'search'
 ]
 
 MIDDLEWARE = [
@@ -80,7 +86,7 @@ WSGI_APPLICATION = 'crimean_hromada.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASE_URL = os.environ['DATABASE_URL']
+ DATABASE_URL = os.environ['DATABASE_URL']
 
 DATABASES = {  
     'default': {  
