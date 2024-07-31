@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-31 11:23+0300\n"
+"POT-Creation-Date: 2024-07-31 14:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,9 +43,34 @@ msgstr "Viki"
 msgid "Самоврядування"
 msgstr "Özünü idarə etmə"
 
-#: .\app\templates\base.html:65
+#: .\app\templates\base.html:66
 msgid "Від твоєї Громади в Україні"
 msgstr "Sənin Ukraynada ki Cəmiyyətdən"
+
+#: .\app\templates\base.html:73 .\app\templates\base.html:139
+#: .\app\templates\base.html:140 .\crimean_hromada\settings.py:141
+msgid "Ukrainian"
+msgstr "Ukraynaca"
+
+#: .\app\templates\base.html:76 .\app\templates\base.html:143
+#: .\app\templates\base.html:144 .\crimean_hromada\settings.py:142
+msgid "English"
+msgstr "İngiliscə"
+
+#: .\app\templates\base.html:79 .\app\templates\base.html:147
+#: .\app\templates\base.html:148 .\crimean_hromada\settings.py:144
+msgid "Russian"
+msgstr "Rusca"
+
+#: .\app\templates\base.html:82 .\app\templates\base.html:151
+#: .\app\templates\base.html:152 .\crimean_hromada\settings.py:143
+msgid "Crimean Tatar"
+msgstr "Qırım Tatarca"
+
+#: .\app\templates\base.html:135
+#, fuzzy
+msgid "Обрати мову"
+msgstr "Dili seç"
 
 #: .\app\templates\index.html:9
 msgid "Спротиву дуже потрібна підтримка!"
@@ -64,7 +89,8 @@ msgid ""
 "Ми - платформа для організації децентралізованого спротиву на території "
 "Криму."
 msgstr ""
-"Biz - Qırımda mərkəzləşdirilməmiş müqaviməti təşkil etmək üçün bir platformayıq."
+"Biz - Qırımda mərkəzləşdirilməmiş müqaviməti təşkil etmək üçün bir "
+"platformayıq."
 
 #: .\app\templates\index.html:15
 msgid ""
@@ -74,7 +100,8 @@ msgid ""
 msgstr ""
 "Əgər müqavimətə kömək etmək istəyirsinizsə, risq səviyyəsini qəbul etdiyiniz "
 "tapşırıqları götürmək, qırımlı fəalların həyata keçirdiyi layihələr haqqında "
-"öyrənmək və ya ilham üçün bir fikir əldə etmək istəyirsinizsə, tabı istifadə edin"
+"öyrənmək və ya ilham üçün bir fikir əldə etmək istəyirsinizsə, tabı istifadə "
+"edin"
 
 #: .\app\templates\index.html:18
 msgid ""
@@ -90,12 +117,15 @@ msgid ""
 "Ти можеш сам створити на платформі проєкт, знаходити ресурси і людей для "
 "виконання завдань, публікувати новини про нього - для цього натисни"
 msgstr ""
-"Platformada özünüz layihə yarada, tapşırıqları yerinə yetirmək üçün resurslar "
-"və insanları tapa, xəbərləri yayımlaya bilərsiniz - bunun üçün basın"
+"Platformada özünüz layihə yarada, tapşırıqları yerinə yetirmək üçün "
+"resurslar və insanları tapa, xəbərləri yayımlaya bilərsiniz - bunun üçün "
+"basın"
 
 #: .\app\templates\index.html:21
 msgid "Там можна також опублікувати ідею, яку підхопить хтось інший."
-msgstr "Orada həmçinin başqası tərəfindən götürülə biləcək bir fikir yayımlaya bilərsiniz."
+msgstr ""
+"Orada həmçinin başqası tərəfindən götürülə biləcək bir fikir yayımlaya "
+"bilərsiniz."
 
 #: .\app\templates\index.html:24
 msgid "На сторінці"
@@ -107,9 +137,9 @@ msgid ""
 "роботи - а також зможеш взяти участь в кримському самоврядуванні, "
 "ініціювавши створення нової ради або вступивши у вже існуючу."
 msgstr ""
-"Siz Qırımda yaşayış, təhsil və ya iş yerində müstəqil şuralar haqqında məlumat "
-"tapacaq və Qırım özünü idarə etməsində iştirak edə biləcəksiniz, yeni bir şura "
-"yaratmaq və ya mövcud birinə qoşulmaqla."
+"Siz Qırımda yaşayış, təhsil və ya iş yerində müstəqil şuralar haqqında "
+"məlumat tapacaq və Qırım özünü idarə etməsində iştirak edə biləcəksiniz, "
+"yeni bir şura yaratmaq və ya mövcud birinə qoşulmaqla."
 
 #: .\app\templates\publish.html:8
 msgid "Цей проєкт створюється за цією ідеєю:"
@@ -159,25 +189,10 @@ msgid ""
 "роботи чи проживання, або ти хочеш вступити в одну з наявних рад, щоб взяти "
 "участь в управлінні своєю землею, сконтактуй із нами: go-hromada@proton.me"
 msgstr ""
-"Əgər dostlarınızla birlikdə təhsil, iş və ya yaşayış yerinizdə bir şura yaratmaq "
-"istəyirsinizsə və ya mövcud şuralardan birinə qoşulmaq istəyirsinizsə, torpağınızın "
-"idarə edilməsində iştirak etmək üçün bizimlə əlaqə saxlayın: go-hromada@proton.me"
-
-#: .\crimean_hromada\settings.py:140
-msgid "Ukrainian"
-msgstr "Ukraynaca"
-
-#: .\crimean_hromada\settings.py:141
-msgid "English"
-msgstr "İngiliscə"
-
-#: .\crimean_hromada\settings.py:142
-msgid "Crimean Tatar"
-msgstr "Qırım Tatarca"
-
-#: .\crimean_hromada\settings.py:143
-msgid "Russian"
-msgstr "Rusca"
+"Əgər dostlarınızla birlikdə təhsil, iş və ya yaşayış yerinizdə bir şura "
+"yaratmaq istəyirsinizsə və ya mövcud şuralardan birinə qoşulmaq "
+"istəyirsinizsə, torpağınızın idarə edilməsində iştirak etmək üçün bizimlə "
+"əlaqə saxlayın: go-hromada@proton.me"
 
 #: .\idea\templates\idea.html:21
 msgid "Редагувати ідею"
@@ -338,8 +353,8 @@ msgid ""
 "Ти можеш запропонувати свою допомогу проєкту, написавши його координатору. "
 "Вкажи, будь ласка, щодо якого конкретно проєкту і ресурсу ти звертаєшся."
 msgstr ""
-"Layihəyə kömək təklif edə bilərsiniz, koordinatora mesaj yazaraq. "
-"Zəhmət olmasa, hansı spesifik layihə və resurs haqqında müraciət etdiyinizi "
+"Layihəyə kömək təklif edə bilərsiniz, koordinatora mesaj yazaraq. Zəhmət "
+"olmasa, hansı spesifik layihə və resurs haqqında müraciət etdiyinizi "
 "göstərin."
 
 #: .\project\templates\project.html:75
@@ -600,3 +615,22 @@ msgstr "Artıq qeydiyyatdan keçmisiniz?"
 msgid "Вікі: Інструкція учасника Спротиву"
 msgstr "Viki: Müqavimət iştirakçısının təlimatı"
 
+#, fuzzy
+#~| msgid "Ukrainian"
+#~ msgid " Ukrainian"
+#~ msgstr "Ukraynaca"
+
+#, fuzzy
+#~| msgid "English"
+#~ msgid " English"
+#~ msgstr "İngiliscə"
+
+#, fuzzy
+#~| msgid "Russian"
+#~ msgid " Russian"
+#~ msgstr "Rusca"
+
+#, fuzzy
+#~| msgid "Crimean Tatar"
+#~ msgid " Crimean Tatar"
+#~ msgstr "Qırım Tatarca"

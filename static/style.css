@@ -614,26 +614,3 @@ blockquote {
     list-style: none;
 }
 
-.language-switcher select {
-    appearance: none;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 5px 30px 5px 10px;
-    font-size: 14px;
-    line-height: 1.5;
-    cursor: pointer;
-    width: auto;
-}
-
-    .language-switcher select:focus {
-        outline: none;
-        border-color: #007bff;
-    }
-
-.language-switcher .flag-icon {
-    width: 20px;
-    height: 15px;
-    vertical-align: middle;
-    margin-right: 5px;
-}

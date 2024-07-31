@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-31 11:22+0300\n"
+"POT-Creation-Date: 2024-07-31 14:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
 #: .\app\templates\base.html:9
 msgid "Кримська Громада"
 msgstr "Кримська Громада"
@@ -46,9 +47,34 @@ msgstr "Вікі"
 msgid "Самоврядування"
 msgstr "Самоврядування"
 
-#: .\app\templates\base.html:65
+#: .\app\templates\base.html:66
 msgid "Від твоєї Громади в Україні"
 msgstr "Від твоєї Громади в Україні"
+
+#: .\app\templates\base.html:73 .\app\templates\base.html:139
+#: .\app\templates\base.html:140 .\crimean_hromada\settings.py:141
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: .\app\templates\base.html:76 .\app\templates\base.html:143
+#: .\app\templates\base.html:144 .\crimean_hromada\settings.py:142
+msgid "English"
+msgstr "Англійська"
+
+#: .\app\templates\base.html:79 .\app\templates\base.html:147
+#: .\app\templates\base.html:148 .\crimean_hromada\settings.py:144
+msgid "Russian"
+msgstr "Російська"
+
+#: .\app\templates\base.html:82 .\app\templates\base.html:151
+#: .\app\templates\base.html:152 .\crimean_hromada\settings.py:143
+msgid "Crimean Tatar"
+msgstr "Кримськотатарська"
+
+#: .\app\templates\base.html:135
+#, fuzzy
+msgid "Обрати мову"
+msgstr "Обрати мову"
 
 #: .\app\templates\index.html:9
 msgid "Спротиву дуже потрібна підтримка!"
@@ -167,22 +193,6 @@ msgstr ""
 "Якщо ти зі своїми товаришами хочеш створити раду на місці вашого навчання, "
 "роботи чи проживання, або ти хочеш вступити в одну з наявних рад, щоб взяти "
 "участь в управлінні своєю землею, сконтактуй із нами: go-hromada@proton.me"
-
-#: .\crimean_hromada\settings.py:140
-msgid "Ukrainian"
-msgstr "Українська"
-
-#: .\crimean_hromada\settings.py:141
-msgid "English"
-msgstr "Англійська"
-
-#: .\crimean_hromada\settings.py:142
-msgid "Crimean Tatar"
-msgstr "Кримськотатарська"
-
-#: .\crimean_hromada\settings.py:143
-msgid "Russian"
-msgstr "Російська"
 
 #: .\idea\templates\idea.html:21
 msgid "Редагувати ідею"
@@ -603,3 +613,23 @@ msgstr "Вже зареєстровані?"
 #: .\wiki\templates\wiki.html:6
 msgid "Вікі: Інструкція учасника Спротиву"
 msgstr "Вікі: Інструкція учасника Спротиву"
+
+#, fuzzy
+#~| msgid "Ukrainian"
+#~ msgid " Ukrainian"
+#~ msgstr "Українська"
+
+#, fuzzy
+#~| msgid "English"
+#~ msgid " English"
+#~ msgstr "Англійська"
+
+#, fuzzy
+#~| msgid "Russian"
+#~ msgid " Russian"
+#~ msgstr "Російська"
+
+#, fuzzy
+#~| msgid "Crimean Tatar"
+#~ msgid " Crimean Tatar"
+#~ msgstr "Кримськотатарська"

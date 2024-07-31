@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-31 11:23+0300\n"
+"POT-Creation-Date: 2024-07-31 14:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\app\templates\base.html:9
 msgid "Кримська Громада"
 msgstr "Hromada Crimea"
@@ -43,9 +44,34 @@ msgstr "Wiki"
 msgid "Самоврядування"
 msgstr "Self-Government"
 
-#: .\app\templates\base.html:65
+#: .\app\templates\base.html:66
 msgid "Від твоєї Громади в Україні"
 msgstr "From Your Community in Ukraine"
+
+#: .\app\templates\base.html:73 .\app\templates\base.html:139
+#: .\app\templates\base.html:140 .\crimean_hromada\settings.py:141
+msgid "Ukrainian"
+msgstr "Ukrainian"
+
+#: .\app\templates\base.html:76 .\app\templates\base.html:143
+#: .\app\templates\base.html:144 .\crimean_hromada\settings.py:142
+msgid "English"
+msgstr "English"
+
+#: .\app\templates\base.html:79 .\app\templates\base.html:147
+#: .\app\templates\base.html:148 .\crimean_hromada\settings.py:144
+msgid "Russian"
+msgstr "Russian"
+
+#: .\app\templates\base.html:82 .\app\templates\base.html:151
+#: .\app\templates\base.html:152 .\crimean_hromada\settings.py:143
+msgid "Crimean Tatar"
+msgstr "Crimean Tatar"
+
+#: .\app\templates\base.html:135
+#, fuzzy
+msgid "Обрати мову"
+msgstr "Choose a language"
 
 #: .\app\templates\index.html:9
 msgid "Спротиву дуже потрібна підтримка!"
@@ -71,7 +97,9 @@ msgid ""
 "ти готовий піти, почитати про проєкти, які реалізують кримські активісти, "
 "або взяти якусь ідею для натхнення - використовуй вкладку"
 msgstr ""
-"If you want to help the Resistance by taking on tasks with a risk level you are willing to accept, learn about projects implemented by Crimean activists, or get inspired by an idea - use the tab"
+"If you want to help the Resistance by taking on tasks with a risk level you "
+"are willing to accept, learn about projects implemented by Crimean "
+"activists, or get inspired by an idea - use the tab"
 
 #: .\app\templates\index.html:18
 msgid ""
@@ -79,14 +107,16 @@ msgid ""
 "платформа, і про те, як тобі самому чи самій взяти участь у спротиві, - "
 "читай вкладку"
 msgstr ""
-"If you want to learn more about the principles behind our platform and how you can participate in the resistance, read the tab"
+"If you want to learn more about the principles behind our platform and how "
+"you can participate in the resistance, read the tab"
 
 #: .\app\templates\index.html:21
 msgid ""
 "Ти можеш сам створити на платформі проєкт, знаходити ресурси і людей для "
 "виконання завдань, публікувати новини про нього - для цього натисни"
 msgstr ""
-"You can create a project on the platform, find resources and people to complete tasks, publish news about it - for this click on"
+"You can create a project on the platform, find resources and people to "
+"complete tasks, publish news about it - for this click on"
 
 #: .\app\templates\index.html:21
 msgid "Там можна також опублікувати ідею, яку підхопить хтось інший."
@@ -102,7 +132,10 @@ msgid ""
 "роботи - а також зможеш взяти участь в кримському самоврядуванні, "
 "ініціювавши створення нової ради або вступивши у вже існуючу."
 msgstr ""
-"you will find information about independent councils in Crimea based on your residence, education, or work - and you can also participate in Crimean self-government by initiating the creation of a new council or joining an existing one."
+"you will find information about independent councils in Crimea based on your "
+"residence, education, or work - and you can also participate in Crimean self-"
+"government by initiating the creation of a new council or joining an "
+"existing one."
 
 #: .\app\templates\publish.html:8
 msgid "Цей проєкт створюється за цією ідеєю:"
@@ -130,7 +163,9 @@ msgid ""
 "використовувати Element. У будь-якому разі не пиши в цьому чаті жодної "
 "секретної інформації - цей чат буде відкритим. Докладніше читай у нашій"
 msgstr ""
-"Be sure to create a project chat in a private messenger - we recommend using Element. In any case, do not write any secret information in this chat - it will be public. Read more in our"
+"Be sure to create a project chat in a private messenger - we recommend using "
+"Element. In any case, do not write any secret information in this chat - it "
+"will be public. Read more in our"
 
 #: .\app\templates\publish.html:24
 msgid "інструкції"
@@ -150,23 +185,9 @@ msgid ""
 "роботи чи проживання, або ти хочеш вступити в одну з наявних рад, щоб взяти "
 "участь в управлінні своєю землею, сконтактуй із нами: go-hromada@proton.me"
 msgstr ""
-"If you and your companions want to create a council at your place of study, work, or residence, or if you want to join one of the existing councils to participate in managing your area, contact us at: go-hromada@proton.me"
-
-#: .\crimean_hromada\settings.py:140
-msgid "Ukrainian"
-msgstr "Ukrainian"
-
-#: .\crimean_hromada\settings.py:141
-msgid "English"
-msgstr "English"
-
-#: .\crimean_hromada\settings.py:142
-msgid "Crimean Tatar"
-msgstr "Crimean Tatar"
-
-#: .\crimean_hromada\settings.py:143
-msgid "Russian"
-msgstr "Russian"
+"If you and your companions want to create a council at your place of study, "
+"work, or residence, or if you want to join one of the existing councils to "
+"participate in managing your area, contact us at: go-hromada@proton.me"
 
 #: .\idea\templates\idea.html:21
 msgid "Редагувати ідею"
@@ -303,7 +324,8 @@ msgid ""
 "Координатор цього проєкту не зазначав, що він надихався якоюсь із ідей на "
 "платформі."
 msgstr ""
-"The coordinator of this project has not indicated that they were inspired by any of the ideas on the platform."
+"The coordinator of this project has not indicated that they were inspired by "
+"any of the ideas on the platform."
 
 #: .\project\templates\project.html:50
 msgid "Які ресурси потрібні?"
@@ -326,7 +348,8 @@ msgid ""
 "Ти можеш запропонувати свою допомогу проєкту, написавши його координатору. "
 "Вкажи, будь ласка, щодо якого конкретно проєкту і ресурсу ти звертаєшся."
 msgstr ""
-"You can offer your help to the project by writing to its coordinator. Please specify which particular project and resource you are referring to."
+"You can offer your help to the project by writing to its coordinator. Please "
+"specify which particular project and resource you are referring to."
 
 #: .\project\templates\project.html:75
 msgid "Запропонувати допомогу"
@@ -414,7 +437,9 @@ msgid ""
 "виконання, написавши координатору проєкту. Вкажи, будь ласка, щодо якого "
 "конкретно проєкту і завдання ти звертаєшся."
 msgstr ""
-"You can describe how you completed the task or send the result of its completion by writing to the project coordinator. Please specify which particular project and task you are referring to."
+"You can describe how you completed the task or send the result of its "
+"completion by writing to the project coordinator. Please specify which "
+"particular project and task you are referring to."
 
 #: .\project\templates\project.html:145
 msgid "Надіслати результат"
@@ -583,3 +608,23 @@ msgstr "Already registered?"
 #: .\wiki\templates\wiki.html:6
 msgid "Вікі: Інструкція учасника Спротиву"
 msgstr "Wiki: Resistance Participant Guide"
+
+#, fuzzy
+#~| msgid "Ukrainian"
+#~ msgid " Ukrainian"
+#~ msgstr "Ukrainian"
+
+#, fuzzy
+#~| msgid "English"
+#~ msgid " English"
+#~ msgstr "English"
+
+#, fuzzy
+#~| msgid "Russian"
+#~ msgid " Russian"
+#~ msgstr "Russian"
+
+#, fuzzy
+#~| msgid "Crimean Tatar"
+#~ msgid " Crimean Tatar"
+#~ msgstr "Crimean Tatar"

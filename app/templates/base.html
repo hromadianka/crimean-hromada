@@ -56,6 +56,7 @@
         {% block content %}{% endblock %}
     </main>
     <footer>
+
         <a href="/"><img class="logo" src="{% static 'img/logo.svg' %}" alt="" /></a>
         <a href="mailto:go-hromada@proton.me">go-hromada@proton.me</a>
         <div class="footer-div">
@@ -65,26 +66,130 @@
             <p style="margin: 0">{% trans "Від твоєї Громади в Україні" %}</p>
             <img src="{% static 'img/ukraine.png' %}" />
         </div>
-        <form method="post" action="{% url 'set_language' %}" class="language-switcher">
+        <!--<form method="post" action="{% url 'set_language' %}" class="language-switcher">
+        {% csrf_token %}
+        <select name="language" onchange="this.form.submit()">
+            <option value="uk" {% if LANGUAGE_CODE == 'uk' %}selected{% endif %}>
+                {% trans "Ukrainian" %}
+            </option>
+            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>
+                {% trans "English" %}
+            </option>
+            <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>
+                {% trans "Russian" %}
+            </option>
+            <option value="ct" {% if LANGUAGE_CODE == 'ct' %}selected{% endif %}>
+                {% trans "Crimean Tatar" %}
+            </option>
+        </select>
+    </form>-->
+        <style>
+            .custom-select {
+                position: relative;
+                font-family: Arial, sans-serif;
+            }
+
+            .select-selected {
+                padding: 5px 30px 5px 10px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 14px;
+                line-height: 1.5;
+                display: flex;
+                align-items: center;
+            }
+
+            .select-items {
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 5px 30px 5px 10px;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .select-items div {
+                padding: 10px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+            }
+
+                .custom-select div img {
+                    width: 20px;
+                    height: auto;
+                    margin-right: 10px;
+                }
+
+            .select-hide {
+                display: none;
+            }
+
+
+        </style>
+        <form id="language-form" method="post" action="{% url 'set_language' %}" class="language-switcher">
             {% csrf_token %}
-            <select name="language" onchange="this.form.submit()">
-                <option value="uk" {% if LANGUAGE_CODE= ='uk' %}selected{% endif %}>
-                    <img src="{% static 'flags/uk.png' %}" alt="Ukrainian" class="flag-icon"> {% trans "Ukrainian" %}
-                </option>
-                <option value="en" {% if LANGUAGE_CODE= ='en' %}selected{% endif %}>
-                    <img src="{% static 'flags/en.png' %}" alt="English" class="flag-icon"> {% trans "English" %}
-                </option>
-                <option value="ru" {% if LANGUAGE_CODE= ='ru' %}selected{% endif %}>
-                    <img src="{% static 'flags/ru.png' %}" alt="Russian" class="flag-icon"> {% trans "Russian" %}
-                </option>
-                <option value="ct" {% if LANGUAGE_CODE= ='ct' %}selected{% endif %}>
-                    <img src="{% static 'flags/ct.png' %}" alt="Crimean Tatar" class="flag-icon"> {% trans "Crimean Tatar" %}
-                </option>
-            </select>
+            <div class="custom-select">
+                <div class="select-selected">
+                    <img src="{% static 'flags/language.png' %}" alt="">
+                    {% trans "Обрати мову" %}
+                </div>
+                <div class="select-items select-hide">
+                    <div data-value="uk">
+                        <img src="{% static 'flags/uk.png' %}" alt="{% trans "Ukrainian" %}">
+                        {% trans "Ukrainian" %}
+                    </div>
+                    <div data-value="en">
+                        <img src="{% static 'flags/en.png' %}" alt="{% trans "English" %}">
+                        {% trans "English" %}
+                    </div>
+                    <div data-value="ru">
+                        <img src="{% static 'flags/ru.png' %}" alt="{% trans "Russian" %}">
+                        {% trans "Russian" %}
+                    </div>
+                    <div data-value="ct">
+                        <img src="{% static 'flags/ct.png' %}" alt="{% trans "Crimean Tatar" %}">
+                        {% trans "Crimean Tatar" %}
+                    </div>
+                </div>
+            </div>
         </form>
 
 
+
     </footer>
+    <script>
+        document.querySelector('.select-selected').addEventListener('click', function () {
+            this.nextElementSibling.classList.toggle('select-hide');
+        });
+
+        document.querySelectorAll('.select-items div').forEach(function (item) {
+            item.addEventListener('click', function () {
+                const selected = this.parentElement.previousElementSibling;
+                selected.textContent = this.textContent;
+                selected.dataset.value = this.dataset.value;
+                this.parentElement.classList.add('select-hide');
+
+                // Submit the form with the selected language
+                const form = document.getElementById('language-form');
+                const languageInput = document.createElement('input');
+                languageInput.type = 'hidden';
+                languageInput.name = 'language';
+                languageInput.value = this.dataset.value;
+                form.appendChild(languageInput);
+                form.submit();
+            });
+        });
+
+        window.addEventListener('click', function (e) {
+            if (!e.target.matches('.select-selected')) {
+                document.querySelectorAll('.select-items').forEach(function (select) {
+                    select.classList.add('select-hide');
+                });
+            }
+        });
+
+    </script>
     <script>
         // Отримайте поточну URL сторінки
         var currentURL = window.location.href;
