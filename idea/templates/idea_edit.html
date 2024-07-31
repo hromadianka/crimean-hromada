@@ -1,12 +1,14 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %}
-<h1>Редагування ідеї {{idea.name}}</h1>
+<h1>{% trans "Редагування ідеї" %} {{idea.name}}</h1>
 <form method="POST" class="form">
     {% csrf_token %}
-    <input type="text" id="name" name="name" value="{{ idea.name }}" required class="input" placeholder="Назва ідеї">
-    <textarea id="description" name="description" placeholder="Опис ідеї" required class="textarea">{% autoescape off %}{{ idea.description }}{% endautoescape %}</textarea>
-    <button type="submit" class="form-button">Зберегти зміни</button>
+    <input type="text" id="name" name="name" value="{{ idea.name }}" required class="input" placeholder="{% trans "Назва ідеї" %}">
+    <textarea id="description" name="description" placeholder="{% trans "Опис ідеї" %}" required class="textarea">{% autoescape off %}{{ idea.description }}{% endautoescape %}</textarea>
+    <button type="submit" class="form-button">{% trans "Зберегти зміни" %}</button>
 </form>
 
 <script>

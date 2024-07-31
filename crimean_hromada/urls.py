@@ -22,6 +22,9 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+]
+
+urlpatterns += i18n_patterns(
     path('', include('app.urls')),
     path('', include('users.urls')),
     path('', include('project.urls')),
@@ -29,5 +32,4 @@ urlpatterns = [
     path('', include('news.urls')),
     path('', include('wiki.urls')),
     path('', include('search.urls')),
-]
-
+)

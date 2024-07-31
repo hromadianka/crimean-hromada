@@ -1,27 +1,31 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %}
-<h1>Опублікувати</h1>
+<h1>{% trans "Опублікувати" %}</h1>
 {% if idea %}
-<p>Цей проєкт створюється за цією ідеєю: <a href="{% url 'idea_detail' idea.id %}">{{ idea.name }}</a></p>
+<p>{% trans "Цей проєкт створюється за цією ідеєю:" %} <a href="{% url 'idea_detail' idea.id %}">{{ idea.name }}</a></p>
 {% endif %}
 <form method="post" class="form filter-group">
     {% csrf_token %}
     <label for="project-radio">
-        <input type="radio" name="choice" value="project" id="project-radio"> Проєкт
+        <input type="radio" name="choice" value="project" id="project-radio"> {% trans "Проєкт" %}
     </label>
     <label for="idea-radio">
-        <input type="radio" name="choice" value="idea" id="idea-radio"> Ідея
+        <input type="radio" name="choice" value="idea" id="idea-radio"> {% trans "Ідея" %}
     </label>
-    <input type="text" placeholder="Назва" class="input" id="id_name" name="name" style="display: block" required />
-    <textarea placeholder="Опис" class="textarea" id="editor" name="description"></textarea>
+    <input type="text" placeholder="{% trans "Назва" %}" class="input" id="id_name" name="name" style="display: block" required />
+    <textarea placeholder="{% trans "Опис" %}" class="textarea" id="editor" name="description"></textarea>
     {% if idea %}
     <input type="hidden" name="idea_id" value="{{ idea.id }}">
     {% endif %}
-    <p id="project-chat-paragraph" style="display: none">Обов'язково створи чат проєкту в приватному месенджері - ми радимо використовувати Element. У будь-якому разі не пиши в цьому чаті жодної секретної інформації - цей чат буде відкритим. Докладніше читай у нашій <a href="/wiki">інструкції</a> в розділі Безпека.</p>
-    <input type="text" placeholder="Посилання на чат проєкту" class="input" id="chat-element-project" name="chat_element_project" style="display: none" />
+    <p id="project-chat-paragraph" style="display: none">
+        {% trans "Обов'язково створи чат проєкту в приватному месенджері - ми радимо використовувати Element. У будь-якому разі не пиши в цьому чаті жодної секретної інформації - цей чат буде відкритим. Докладніше читай у нашій" %} <a href="/wiki">{% trans "інструкції" %}</a> {% trans "в розділі Безпека." %}
+    </p>
+    <input type="text" placeholder="{% trans "Посилання на чат проєкту" %}" class="input" id="chat-element-project" name="chat_element_project" style="display: none" />
 
-    <button type="submit" class="form-button">Опублікувати</button>
+    <button type="submit" class="form-button">{% trans "Опублікувати" %}</button>
 </form>
 
 <script>

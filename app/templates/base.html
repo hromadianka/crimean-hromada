@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Кримська Громада</title>
+    <title>{% trans "Кримська Громада" %}</title>
     <link rel="stylesheet" href="{% static 'style.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,11 +26,11 @@
                 <div class="bar"></div>
             </div>
             <ul class="menu">
-                <li><a href="{% url 'home' %}">Головна</a></li>
-                <li><a href="{% url 'search' %}">Пошук</a></li>
-                <li><a href="{% url 'publish' %}">Опублікувати</a></li>
-                <li><a href="{% url 'wiki' %}">Вікі</a></li>
-                <li><a href="{% url 'self-government' %}">Самоврядування</a></li>
+                <li><a href="{% url 'home' %}">{% trans "Головна" %}</a></li>
+                <li><a href="{% url 'search' %}">{% trans "Пошук" %}</a></li>
+                <li><a href="{% url 'publish' %}">{% trans "Опублікувати" %}</a></li>
+                <li><a href="{% url 'wiki' %}">{% trans "Вікі" %}</a></li>
+                <li><a href="{% url 'self-government' %}">{% trans "Самоврядування" %}</a></li>
             </ul>
         </div>
         <div class="header-div">
@@ -62,7 +62,7 @@
             <a href="https://quicknote.io/be9ea5e0-3ef2-11ee-a521-91339c8fe0ee"><img src="{% static 'img/links.png' %}" alt="" /></a>
         </div>
         <div style="display: flex; gap: 10px; align-items: center">
-            <p style="margin: 0">Від твоєї Громади в Україні</p>
+            <p style="margin: 0">{% trans "Від твоєї Громади в Україні" %}</p>
             <img src="{% static 'img/ukraine.png' %}" />
         </div>
     </footer>

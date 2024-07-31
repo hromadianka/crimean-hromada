@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-!@#4x5%6*7(q_&7r8_zzyv^t0@1)^g1*p!qj5$8-t_9dz@j0e!'
+#SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -102,6 +103,13 @@ DATABASES = {
     }  
 }  
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -126,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 from django.utils.translation import gettext_lazy as _
 
-LANGUAGE_CODE = 'uk'  # Êîä ìîâè çà çàìîâ÷óâàííÿì
+LANGUAGE_CODE = 'uk'
 
 LANGUAGES = [
     ('uk', _('Ukrainian')),
@@ -141,9 +149,9 @@ LOCALE_PATHS = [
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True  # Âêëþ÷èòè ³íòåðíàö³îíàë³çàö³þ
-
-USE_TZ = True  # Âèêîðèñòîâóâàòè ÷àñîâèé ïîÿñ
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 
 
 

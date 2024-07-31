@@ -1,22 +1,24 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %}
 <h1>{{ profile.user.username }}</h1>
 {% if request.user == user %}
 <form method="POST" action="{% url 'edit_profile' user_id=profile.user.id %}" class="form" enctype="multipart/form-data">
     {% csrf_token %}
-    <textarea placeholder="Додай опис профілю" name="content" class="textarea">{{ profile.description }}</textarea>
-    <input class="input" type="url" placeholder="Посилання на месенджер" name="chat_element" value="{{ profile.chat_element }}">
-    <button type="submit" class="form-button">Змінити профіль</button>
+    <textarea placeholder="{% trans "Додай опис профілю" %}" name="content" class="textarea">{{ profile.description }}</textarea>
+    <input class="input" type="url" placeholder="{% trans "Посилання на месенджер" %}" name="chat_element" value="{{ profile.chat_element }}">
+    <button type="submit" class="form-button">{% trans "Змінити профіль" %}</button>
 </form>
 {% else %}
 <p>{{ profile.description }}</p>
 <form class="form">
-    <button class="form-button"><a href="{{ profile.chat_element }}">Зв'язатися</a></button>
+    <button class="form-button"><a href="{{ profile.chat_element }}">{% trans "Зв'язатися" %}</a></button>
 </form>
 {% endif %}
 
-<h3>Створені проєкти</h3>
+<h3>{% trans "Створені проєкти" %}</h3>
   {% for project in created_projects %}
 <div class="project-card">
     <div class="project-info">
@@ -34,10 +36,10 @@
     </div>
 </div>
   {% empty %}
-<p>Користувач не створив жодного проєкту.</p>
+<p>{% trans "Користувач не створив жодного проєкту." %}</p>
   {% endfor %}
 
-<h3>Створені ідеї</h3>
+<h3>{% trans "Створені ідеї" %}</h3>
   {% for idea in created_ideas %}
 <div class="idea-card">
     <div class="idea-info">
@@ -55,10 +57,10 @@
     </div>
 </div>
   {% empty %}
-<p>Користувач не створив жодної ідеї.</p>
+<p>{% trans "Користувач не створив жодної ідеї." %}</p>
   {% endfor %}
 
-<h3>Проєкти, з якими солідарний</h3>
+<h3>{% trans "Проєкти, з якими солідарний" %}</h3>
 {% for project in profile.favorite_projects.all %}
 <div class="project-card">
     <div class="project-info">
@@ -77,10 +79,10 @@
     </div>
 </div>
 {% empty %}
-<p>Користувач не обрав жодного проєкту.</p>
+<p>{% trans "Користувач не обрав жодного проєкту." %}</p>
 {% endfor %}
 
-<h3>Відкладені ідеї</h3>
+<h3>{% trans "Відкладені ідеї" %}</h3>
 {% for idea in saved_ideas %}
 <div class="idea-card">
     <div class="idea-info">
@@ -97,11 +99,11 @@
     </div>
 </div>
 {% empty %}
-<p>Користувач поки не відклав собі жодної ідеї.</p>
+<p>{% trans "Користувач поки не відклав собі жодної ідеї." %}</p>
 {% endfor %}
 
 {% if request.user == user %}
-<p><a href="{% url 'logout' %}">Вийти з акаунту</a></p>
+<p><a href="{% url 'logout' %}">{% trans "Вийти з акаунту" %}</a></p>
 {% endif %}
 
 {% endblock %}

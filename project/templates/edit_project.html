@@ -1,15 +1,17 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 {% block content %}
 
-<h1>Редагування проєкту {{ project.name }}</h1>
+<h1>{% trans "Редагування проєкту" %} {{ project.name }}</h1>
 
 <form method="POST" action="" class="form">
     {% csrf_token %}
-    <input placeholder="Назва проєкту" type="text" name="name" id="id_name" value="{{ project.name }}" class="input" required>
-    <textarea placeholder="Опис проєкту" name="description" id="id_description" class="textarea">{% autoescape off %}{{ project.description }}{% endautoescape %}</textarea>
-    <input type="text" placeholder="Посилання на чат проєкту" class="input" id="chat-element-project" name="chat_element_project" value="{{ project.chat_element }}" required />
+    <input placeholder="{% trans "Назва проєкту" %}" type="text" name="name" id="id_name" value="{{ project.name }}" class="input" required>
+    <textarea placeholder="{% trans "Опис проєкту" %}" name="description" id="id_description" class="textarea">{% autoescape off %}{{ project.description }}{% endautoescape %}</textarea>
+    <input type="text" placeholder="{% trans "Посилання на чат проєкту" %}" class="input" id="chat-element-project" name="chat_element_project" value="{{ project.chat_element }}" required />
 
-    <button type="submit" class="form-button">Зберегти зміни</button>
+    <button type="submit" class="form-button">{% trans "Зберегти зміни" %}</button>
 </form>
 
 <script>

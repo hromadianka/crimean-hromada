@@ -1,14 +1,16 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %}
-<h1>Результати пошуку</h1>
+<h1>{% trans "Результати пошуку" %}</h1>
 
 {% if no_results %}
-<p>Нічого не знайдено для вибраних критеріїв пошуку.</p>
+<p>{% trans "Нічого не знайдено для вибраних критеріїв пошуку." %}</p>
 {% else %}
 
 {% if projects %}
-<h3>Знайдені проєкти</h3>
+<h3>{% trans "Знайдені проєкти" %}</h3>
 {% endif %}
   {% for project in projects %}
 <div class="project-card">
@@ -29,7 +31,7 @@
   {% endfor %}
 
 {% if ideas %}
-<h3>Знайдені ідеї</h3>
+<h3>{% trans "Знайдені ідеї" %}</h3>
 {% endif %}
   {% for idea in ideas %}
 <div class="idea-card">
@@ -50,7 +52,7 @@
 {% endfor %}
 
 {% if tasks %}
-<h3>Знайдені завдання</h3>
+<h3>{% trans "Знайдені завдання" %}</h3>
 {% endif %}
 <ul>
     {% for task in tasks %}

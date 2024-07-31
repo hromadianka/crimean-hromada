@@ -1,4 +1,6 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %}
 <h1>{{ idea.name }}</h1>
@@ -16,11 +18,11 @@
 
 
 {% if idea.author == user %}
-<p><a href="{% url 'idea_edit' idea_id=idea.id %}">Редагувати ідею</a></p>
-<p><a href="{% url 'idea_delete' idea_id=idea.id %}" style="text-decoration: none; color: red">Видалити ідею</a></p>
+<p><a href="{% url 'idea_edit' idea_id=idea.id %}">{% trans "Редагувати ідею" %}</a></p>
+<p><a href="{% url 'idea_delete' idea_id=idea.id %}" style="text-decoration: none; color: red">{% trans "Видалити ідею" %}</a></p>
   {% endif %}
 
-<h3>Проєкти, створені за допомогою цієї ідеї</h3>
+<h3>{% trans "Проєкти, створені за допомогою цієї ідеї" %}</h3>
 {% for project in projects %}
 <div class="project-card">
     <div class="project-info">
@@ -35,9 +37,9 @@
     </div>
 </div>
 {% empty %}
-<p>За цією ідеєю ніхто поки не створював проєктів. Стань першим!</p>
+<p>{% trans "За цією ідеєю ніхто поки не створював проєктів. Стань першим!" %}</p>
 {% endfor %}
-<button><a href="{% url 'publish_with_idea' idea.id %}">Створити проєкт за цією ідеєю</a></button>
+<button><a href="{% url 'publish_with_idea' idea.id %}">{% trans "Створити проєкт за цією ідеєю" %}</a></button>
 {% endblock %}
 
 

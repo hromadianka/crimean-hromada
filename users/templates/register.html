@@ -1,20 +1,22 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %}
 
-<h1>Реєстрація</h1>
+<h1>{% trans "Реєстрація" %}</h1>
 <form method="post" class="form">
     {% csrf_token %}
     {% if error %}
     <p style="color: red;">{{ error }}</p>
     {% endif %}
-    <input type="text" id="id_username" name="username" placeholder="Ім'я користувача" class="input" value="{{ request.POST.username }}">
-    <input type="text" id="link" name="link" placeholder="Посилання на ваш акаунт у месенджері" class="input" value="{{ request.POST.link }}">
-    <input type="password" id="id_password1" name="password1" placeholder="Пароль" class="input">
-    <input type="password" id="id_password2" name="password2" placeholder="Повторіть пароль" class="input">
-    <button type="submit" class="form-button">Зареєструватися</button>
+    <input type="text" id="id_username" name="username" placeholder="{% trans "Ім'я користувача" %}" class="input" value="{{ request.POST.username }}">
+    <input type="text" id="link" name="link" placeholder="{% trans "Посилання на ваш акаунт у месенджері" %}" class="input" value="{{ request.POST.link }}">
+    <input type="password" id="id_password1" name="password1" placeholder="{% trans "Пароль" %}" class="input">
+    <input type="password" id="id_password2" name="password2" placeholder="{% trans "Повторіть пароль" %}" class="input">
+    <button type="submit" class="form-button">{% trans "Зареєструватися" %}</button>
 </form>
-<p>Вже зареєстровані? <a href="{% url 'login' %}">Увійти</a></p>
+<p>{% trans "Вже зареєстровані?" %} <a href="{% url 'login' %}">{% trans "Увійти" %}</a></p>
 
 
 {% endblock %}

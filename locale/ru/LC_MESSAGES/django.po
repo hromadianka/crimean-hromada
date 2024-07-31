@@ -1,0 +1,606 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-31 11:23+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\app\templates\base.html:9
+msgid "Кримська Громада"
+msgstr "Громада Крым"
+
+#: .\app\templates\base.html:29 .\app\templates\index.html:6
+msgid "Головна"
+msgstr "Главная"
+
+#: .\app\templates\base.html:30 .\app\templates\index.html:15
+#: .\search\templates\search.html:6 .\search\templates\search.html:10
+msgid "Пошук"
+msgstr "Поиск"
+
+#: .\app\templates\base.html:31 .\app\templates\index.html:21
+#: .\app\templates\publish.html:6 .\app\templates\publish.html:28
+msgid "Опублікувати"
+msgstr "Опубликовать"
+
+#: .\app\templates\base.html:32 .\app\templates\index.html:18
+msgid "Вікі"
+msgstr "Вики"
+
+#: .\app\templates\base.html:33 .\app\templates\index.html:24
+#: .\app\templates\self_government.html:6
+msgid "Самоврядування"
+msgstr "Самоуправление"
+
+#: .\app\templates\base.html:65
+msgid "Від твоєї Громади в Україні"
+msgstr "От твоей Громады в Украине"
+
+#: .\app\templates\index.html:9
+msgid "Спротиву дуже потрібна підтримка!"
+msgstr "Сопротивлению очень нужна поддержка!"
+
+#: .\app\templates\index.html:9
+msgid "Тут"
+msgstr "Здесь"
+
+#: .\app\templates\index.html:9
+msgid "ти можеш дізнатися, як нам допомогти."
+msgstr "ты можешь узнать, как нам помочь."
+
+#: .\app\templates\index.html:12
+msgid ""
+"Ми - платформа для організації децентралізованого спротиву на території "
+"Криму."
+msgstr ""
+"Мы - платформа для организации децентрализованного сопротивления на "
+"территории Крыма."
+
+#: .\app\templates\index.html:15
+msgid ""
+"Якщо ти хочеш допомогти Спротиву, взявши завдання з рівнем ризику, на який "
+"ти готовий піти, почитати про проєкти, які реалізують кримські активісти, "
+"або взяти якусь ідею для натхнення - використовуй вкладку"
+msgstr ""
+"Если ты хочешь помочь Сопротивлению, взяв задание с уровнем риска, на "
+"который ты готов пойти, почитать о проектах, которые реализуют крымские "
+"активисты, или взять какую-нибудь идею для вдохновения - используй вкладку"
+
+#: .\app\templates\index.html:18
+msgid ""
+"Якщо ти хочеш дізнатися більше про принципи, за якими функціонує наша "
+"платформа, і про те, як тобі самому чи самій взяти участь у спротиві, - "
+"читай вкладку"
+msgstr ""
+"Если ты хочешь узнать больше о принципах, по которым функционирует наша "
+"платформа, и о том, как тебе самому или самой принять участие в "
+"сопротивлении, - читай вкладку"
+
+#: .\app\templates\index.html:21
+msgid ""
+"Ти можеш сам створити на платформі проєкт, знаходити ресурси і людей для "
+"виконання завдань, публікувати новини про нього - для цього натисни"
+msgstr ""
+"Ты можешь сам создать на платформе проект, находить ресурсы и людей для "
+"выполнения задач, публиковать новости о нем - для этого нажми"
+
+#: .\app\templates\index.html:21
+msgid "Там можна також опублікувати ідею, яку підхопить хтось інший."
+msgstr "Там можно также опубликовать идею, которую подхватит кто-то другой."
+
+#: .\app\templates\index.html:24
+msgid "На сторінці"
+msgstr "На странице"
+
+#: .\app\templates\index.html:24
+msgid ""
+"ти знайдеш дані про незалежні ради в Криму на місці проживання, навчання чи "
+"роботи - а також зможеш взяти участь в кримському самоврядуванні, "
+"ініціювавши створення нової ради або вступивши у вже існуючу."
+msgstr ""
+"ты найдешь данные о независимых советах в Крыму на месте проживания, учебы "
+"или работы - а также сможешь принять участие в крымском самоуправлении, "
+"инициировав создание нового совета или вступив в уже существующий."
+
+#: .\app\templates\publish.html:8
+msgid "Цей проєкт створюється за цією ідеєю:"
+msgstr "Этот проект создается по этой идее:"
+
+#: .\app\templates\publish.html:13 .\search\templates\search.html:18
+msgid "Проєкт"
+msgstr "Проект"
+
+#: .\app\templates\publish.html:16 .\search\templates\search.html:26
+msgid "Ідея"
+msgstr "Идея"
+
+#: .\app\templates\publish.html:18
+msgid "Назва"
+msgstr "Название"
+
+#: .\app\templates\publish.html:19
+msgid "Опис"
+msgstr "Описание"
+
+#: .\app\templates\publish.html:24
+msgid ""
+"Обов'язково створи чат проєкту в приватному месенджері - ми радимо "
+"використовувати Element. У будь-якому разі не пиши в цьому чаті жодної "
+"секретної інформації - цей чат буде відкритим. Докладніше читай у нашій"
+msgstr ""
+"Обязательно создай чат проекта в приватном мессенджере - мы рекомендуем "
+"использовать Element. В любом случае не пиши в этом чате никакой секретной "
+"информации - этот чат будет открытым. Подробнее читай в нашей"
+
+#: .\app\templates\publish.html:24
+msgid "інструкції"
+msgstr "инструкции"
+
+#: .\app\templates\publish.html:24
+msgid "в розділі Безпека."
+msgstr "в разделе Безопасность."
+
+#: .\app\templates\publish.html:26 .\project\templates\edit_project.html:12
+msgid "Посилання на чат проєкту"
+msgstr "Ссылка на чат проекта"
+
+#: .\app\templates\self_government.html:8
+msgid ""
+"Якщо ти зі своїми товаришами хочеш створити раду на місці вашого навчання, "
+"роботи чи проживання, або ти хочеш вступити в одну з наявних рад, щоб взяти "
+"участь в управлінні своєю землею, сконтактуй із нами: go-hromada@proton.me"
+msgstr ""
+"Если ты со своими товарищами хочешь создать совет на месте вашего обучения, "
+"работы или проживания, или ты хочешь вступить в один из существующих "
+"советов, чтобы принять участие в управлении своей землей, свяжись с нами: "
+"go-hromada@proton.me"
+
+#: .\crimean_hromada\settings.py:140
+msgid "Ukrainian"
+msgstr "Украинский"
+
+#: .\crimean_hromada\settings.py:141
+msgid "English"
+msgstr "Английский"
+
+#: .\crimean_hromada\settings.py:142
+msgid "Crimean Tatar"
+msgstr "Крымскотатарский"
+
+#: .\crimean_hromada\settings.py:143
+msgid "Russian"
+msgstr "Русский"
+
+#: .\idea\templates\idea.html:21
+msgid "Редагувати ідею"
+msgstr "Редактировать идею"
+
+#: .\idea\templates\idea.html:22
+msgid "Видалити ідею"
+msgstr "Удалить идею"
+
+#: .\idea\templates\idea.html:25
+msgid "Проєкти, створені за допомогою цієї ідеї"
+msgstr "Проекты, созданные с помощью этой идеи"
+
+
+#: .\idea\templates\idea.html:40
+msgid "За цією ідеєю ніхто поки не створював проєктів. Стань першим!"
+msgstr "По этой идее пока никто не создал проектов. Стань первым!"
+
+#: .\idea\templates\idea.html:42
+msgid "Створити проєкт за цією ідеєю"
+msgstr "Создать проект по этой идее"
+
+#: .\idea\templates\idea_delete.html:6
+msgid "Видалення ідеї"
+msgstr "Удаление идеи"
+
+#: .\idea\templates\idea_delete.html:7
+msgid "Ти точно хочеш видалити ідею:"
+msgstr "Ты точно хочешь удалить идею:"
+
+#: .\idea\templates\idea_delete.html:10 .\news\templates\delete_news.html:12
+#: .\project\templates\delete_project.html:12
+#: .\project\templates\project.html:65 .\project\templates\project.html:139
+msgid "Видалити"
+msgstr "Удалить"
+
+#: .\idea\templates\idea_delete.html:12 .\news\templates\add_news.html:20
+#: .\news\templates\delete_news.html:15
+#: .\project\templates\delete_project.html:15
+msgid "Скасувати"
+msgstr "Отменить"
+
+#: .\idea\templates\idea_edit.html:6
+msgid "Редагування ідеї"
+msgstr "Редактирование идеи"
+
+#: .\idea\templates\idea_edit.html:9
+msgid "Назва ідеї"
+msgstr "Название идеи"
+
+#: .\idea\templates\idea_edit.html:10
+msgid "Опис ідеї"
+msgstr "Описание идеи"
+
+#: .\idea\templates\idea_edit.html:11 .\news\templates\edit_news.html:19
+#: .\project\templates\edit_project.html:14
+msgid "Зберегти зміни"
+msgstr "Сохранить изменения"
+
+#: .\news\templates\add_news.html:7 .\news\templates\add_news.html:17
+#: .\project\templates\project.html:157
+msgid "Додати новину"
+msgstr "Добавить новость"
+
+#: .\news\templates\add_news.html:11 .\news\templates\edit_news.html:10
+msgid "Заголовок новини"
+msgstr "Заголовок новости"
+
+#: .\news\templates\delete_news.html:6
+msgid "Видалення новини"
+msgstr "Удаление новости"
+
+#: .\news\templates\delete_news.html:8
+msgid "Ти точно хочеш видалити новину:"
+msgstr "Ты точно хочешь удалить новость:"
+
+#: .\news\templates\edit_news.html:6
+msgid "Редагування новини"
+msgstr "Редактирование новости"
+
+#: .\news\templates\edit_news.html:11
+msgid "Зміст новини"
+msgstr "Содержание новости"
+
+#: .\news\templates\news_detail.html:6
+msgid "Пов'язаний проєкт"
+msgstr "Связанный проект"
+
+#: .\news\templates\news_detail.html:14 .\project\templates\project.html:170
+msgid "Редагувати новину"
+msgstr "Редактировать новость"
+
+#: .\news\templates\news_detail.html:15 .\project\templates\project.html:171
+msgid "Видалити новину"
+msgstr "Удалить новость"
+
+#: .\project\templates\delete_project.html:6
+msgid "Видалення проєкту"
+msgstr "Удаление проекта"
+
+#: .\project\templates\delete_project.html:8
+msgid "Ти точно хочеш видалити проєкт:"
+msgstr "Ты точно хочешь удалить проект:"
+
+#: .\project\templates\edit_project.html:6
+msgid "Редагування проєкту"
+msgstr "Редактирование проекта"
+
+#: .\project\templates\edit_project.html:10
+msgid "Назва проєкту"
+msgstr "Название проекта"
+
+#: .\project\templates\edit_project.html:11
+msgid "Опис проєкту"
+msgstr "Описание проекта"
+
+#: .\project\templates\project.html:7
+msgid "Посилання на відкритий чат проєкту"
+msgstr "Ссылка на открытый чат проекта"
+
+#: .\project\templates\project.html:23
+msgid "Редагувати проєкт"
+msgstr "Редактировать проект"
+
+#: .\project\templates\project.html:24
+msgid "Видалити проєкт"
+msgstr "Удалить проект"
+
+#: .\project\templates\project.html:27
+msgid "Пов'язані ідеї"
+msgstr "Связанные идеи"
+
+#: .\project\templates\project.html:45
+msgid ""
+"Координатор цього проєкту не зазначав, що він надихався якоюсь із ідей на "
+"платформі."
+msgstr ""
+"Координатор этого проекта не указывал, что он вдохновлялся какой-либо из "
+"идей на платформе."
+
+#: .\project\templates\project.html:50
+msgid "Які ресурси потрібні?"
+msgstr "Какие ресурсы нужны?"
+
+#: .\project\templates\project.html:55
+msgid "Введи назву ресурсу"
+msgstr "Введите название ресурса"
+
+#: .\project\templates\project.html:56
+msgid "Додати ресурс"
+msgstr "Добавить ресурс"
+
+#: .\project\templates\project.html:64 .\project\templates\project.html:138
+msgid "Редагувати"
+msgstr "Редактировать"
+
+#: .\project\templates\project.html:72
+msgid ""
+"Ти можеш запропонувати свою допомогу проєкту, написавши його координатору. "
+"Вкажи, будь ласка, щодо якого конкретно проєкту і ресурсу ти звертаєшся."
+msgstr ""
+"Ты можешь предложить свою помощь проекту, написав его координатору. Укажи, "
+"пожалуйста, по какому конкретно проекту и ресурсу ты обращаешься."
+
+#: .\project\templates\project.html:75
+msgid "Запропонувати допомогу"
+msgstr "Предложить помощь"
+
+#: .\project\templates\project.html:78 .\search\templates\search.html:22
+msgid "Завдання"
+msgstr "Задача"
+
+#: .\project\templates\project.html:82
+msgid "Введи текст завдання"
+msgstr "Введите текст задачи"
+
+#: .\project\templates\project.html:83
+msgid "Рівень ризику"
+msgstr "Уровень риска"
+
+#: .\project\templates\project.html:85 .\project\templates\project.html:110
+msgid "Мінімальний"
+msgstr "Минимальный"
+
+#: .\project\templates\project.html:86 .\project\templates\project.html:112
+msgid "Другий"
+msgstr "Второй"
+
+#: .\project\templates\project.html:87 .\project\templates\project.html:114
+msgid "Третій"
+msgstr "Третий"
+
+#: .\project\templates\project.html:88 .\project\templates\project.html:116
+msgid "Четвертий"
+msgstr "Четвертый"
+
+#: .\project\templates\project.html:89 .\project\templates\project.html:118
+msgid "П'ятий'"
+msgstr "Пятый"
+
+#: .\project\templates\project.html:91
+msgid "Сфера діяльності"
+msgstr "Сфера деятельности"
+
+#: .\project\templates\project.html:93 .\project\templates\project.html:128
+#: .\search\templates\search.html:56
+msgid "Дизайн"
+msgstr "Дизайн"
+
+#: .\project\templates\project.html:94 .\project\templates\project.html:126
+#: .\search\templates\search.html:60
+msgid "Розробка"
+msgstr "Разработка"
+
+#: .\project\templates\project.html:95 .\project\templates\project.html:130
+#: .\search\templates\search.html:64
+msgid "Агітація"
+msgstr "Агитация"
+
+#: .\project\templates\project.html:96 .\project\templates\project.html:132
+#: .\search\templates\search.html:68
+msgid "Пряма дія"
+msgstr "Прямое действие"
+
+#: .\project\templates\project.html:97 .\project\templates\project.html:134
+msgid "Інше"
+msgstr "Прочее"
+
+#: .\project\templates\project.html:99
+msgid "Додати нове завдання"
+msgstr "Добавить новую задачу"
+
+#: .\project\templates\project.html:108
+msgid "Рівень ризику:"
+msgstr "Уровень риска:"
+
+#: .\project\templates\project.html:120
+msgid "Невідомий рівень ризику"
+msgstr "Неизвестный уровень риска"
+
+#: .\project\templates\project.html:124
+msgid "Сфера діяльності:"
+msgstr "Сфера деятельности:"
+
+#: .\project\templates\project.html:142
+msgid ""
+"Ти можеш розказати, як ви виконали завдання, або надіслати результат його "
+"виконання, написавши координатору проєкту. Вкажи, будь ласка, щодо якого "
+"конкретно проєкту і завдання ти звертаєшся."
+msgstr ""
+"Ты можешь рассказать, как вы выполнили задачу, или отправить результат ее "
+"выполнения, написав координатору проекта. Укажи, пожалуйста, по какому "
+"конкретно проекту и задаче ты обращаешься."
+
+#: .\project\templates\project.html:145
+msgid "Надіслати результат"
+msgstr "Отправить результат"
+
+#: .\project\templates\project.html:154
+msgid "Новини проєкту"
+msgstr "Новости проекта"
+
+#: .\project\templates\project.html:175
+msgid "Новин про проєкт поки не публікували."
+msgstr "Новостей о проекте пока не публиковалось."
+
+#: .\project\templates\project.html:225
+msgid "Введи нове ім\\'я ресурсу:"
+msgstr "Введите новое имя ресурса:"
+
+#: .\project\templates\project.html:244
+msgid "Ти впевнений, що хочеш видалити цей ресурс з переліку?"
+msgstr "Ты уверен, что хочешь удалить этот ресурс из списка?"
+
+#: .\project\templates\project.html:265
+msgid "Введи нову назву завдання:"
+msgstr "Введите новое название задачи:"
+
+#: .\project\templates\project.html:286
+msgid "Ти впевнений, що хочеш видалити це завдання з переліку?"
+msgstr "Ты уверен, что хочешь удалить эту задачу из списка?"
+
+#: .\search\templates\results.html:6
+msgid "Результати пошуку"
+msgstr "Результаты поиска"
+
+#: .\search\templates\results.html:9
+msgid "Нічого не знайдено для вибраних критеріїв пошуку."
+msgstr "Ничего не найдено по выбранным критериям поиска."
+
+#: .\search\templates\results.html:13
+msgid "Знайдені проєкти"
+msgstr "Найденные проекты"
+
+#: .\search\templates\results.html:34
+msgid "Знайдені ідеї"
+msgstr "Найденные идеи"
+
+#: .\search\templates\results.html:55
+msgid "Знайдені завдання"
+msgstr "Найденные задачи"
+
+#: .\search\templates\search.html:33
+msgid "Мінімальний рівень ризику"
+msgstr "Минимальный уровень риска"
+
+#: .\search\templates\search.html:37
+msgid "Другий рівень ризику"
+msgstr "Второй уровень риска"
+
+#: .\search\templates\search.html:41
+msgid "Третій рівень ризику"
+msgstr "Третий уровень риска"
+
+#: .\search\templates\search.html:45
+msgid "Четвертий рівень ризику"
+msgstr "Четвертый уровень риска"
+
+#: .\search\templates\search.html:49
+msgid "П'ятий рівень ризику"
+msgstr "Пятый уровень риска"
+
+#: .\users\templates\account.html:10
+msgid "Додай опис профілю"
+msgstr "Добавь описание профиля"
+
+#: .\users\templates\account.html:11
+msgid "Посилання на месенджер"
+msgstr "Ссылка на мессенджер"
+
+#: .\users\templates\account.html:12
+msgid "Змінити профіль"
+msgstr "Изменить профиль"
+
+#: .\users\templates\account.html:17
+msgid "Зв'язатися"
+msgstr "Связаться"
+
+#: .\users\templates\account.html:21
+msgid "Створені проєкти"
+msgstr "Созданные проекты"
+
+#: .\users\templates\account.html:39
+msgid "Користувач не створив жодного проєкту."
+msgstr "Пользователь не создал ни одного проекта."
+
+#: .\users\templates\account.html:42
+msgid "Створені ідеї"
+msgstr "Созданные идеи"
+
+#: .\users\templates\account.html:60
+msgid "Користувач не створив жодної ідеї."
+msgstr "Пользователь не создал ни одной идеи."
+
+#: .\users\templates\account.html:63
+msgid "Проєкти, з якими солідарний"
+msgstr "Проекты, с которыми солидарен"
+
+#: .\users\templates\account.html:82
+msgid "Користувач не обрав жодного проєкту."
+msgstr "Пользователь не выбрал ни одного проекта."
+
+#: .\users\templates\account.html:85
+msgid "Відкладені ідеї"
+msgstr "Отложенные идеи"
+
+#: .\users\templates\account.html:102
+msgid "Користувач поки не відклав собі жодної ідеї."
+msgstr "Пользователь пока не отложил ни одной идеи."
+
+#: .\users\templates\account.html:106
+msgid "Вийти з акаунту"
+msgstr "Выйти из аккаунта"
+
+#: .\users\templates\login.html:7
+msgid "Вхід"
+msgstr "Вход"
+
+#: .\users\templates\login.html:13 .\users\templates\register.html:13
+msgid "Ім'я користувача"
+msgstr "Имя пользователя"
+
+#: .\users\templates\login.html:14 .\users\templates\register.html:15
+msgid "Пароль"
+msgstr "Пароль"
+
+#: .\users\templates\login.html:15 .\users\templates\register.html:19
+msgid "Увійти"
+msgstr "Войти"
+
+#: .\users\templates\login.html:17
+msgid "Ще не зареєстровані?"
+msgstr "Еще не зарегистрированы?"
+
+#: .\users\templates\login.html:17
+msgid "Зареєструватись"
+msgstr "Зарегистрироваться"
+
+#: .\users\templates\register.html:7
+msgid "Реєстрація"
+msgstr "Регистрация"
+
+#: .\users\templates\register.html:14
+msgid "Посилання на ваш акаунт у месенджері"
+msgstr "Ссылка на ваш аккаунт в мессенджере"
+
+#: .\users\templates\register.html:16
+msgid "Повторіть пароль"
+msgstr "Повторите пароль"
+
+#: .\users\templates\register.html:17
+msgid "Зареєструватися"
+msgstr "Зарегистрироваться"
+
+#: .\users\templates\register.html:19
+msgid "Вже зареєстровані?"
+msgstr "Уже зарегистрированы?"
+
+#: .\wiki\templates\wiki.html:6
+msgid "Вікі: Інструкція учасника Спротиву"
+msgstr "Вики: Инструкция участника Сопротивления"

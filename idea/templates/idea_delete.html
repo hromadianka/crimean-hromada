@@ -1,11 +1,13 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %}
-<h1>Видалення ідеї {{ idea.name }}?</h1>
-<p>Ти точно хочеш видалити ідею: {{ idea.name }}?</p>
+<h1>{% trans "Видалення ідеї" %} {{ idea.name }}?</h1>
+<p>{% trans "Ти точно хочеш видалити ідею:" %} {{ idea.name }}?</p>
 <form method="POST" class="form">
     {% csrf_token %}
-    <button type="submit" class="form-button">Видалити</button>
+    <button type="submit" class="form-button">{% trans "Видалити" %}</button>
 </form>
-<a href="{% url 'idea_detail' idea.id %}">Скасувати</a>
+<a href="{% url 'idea_detail' idea.id %}">{% trans "Скасувати" %}</a>
 {% endblock %}

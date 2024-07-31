@@ -1,8 +1,10 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %}
 <h1>{{ project.name }}</h1>
-<p><a href="{{ project.chat_element }}">Посилання на відкритий чат проєкту</a></p>
+<p><a href="{{ project.chat_element }}">{% trans "Посилання на відкритий чат проєкту" %}</a></p>
 
 
 <form id="saveProjectForm" method="post" action="{% url 'save_project' project_id=project.id %}" data-project-id="{{ project.id }}">
@@ -18,10 +20,11 @@
 
 
 {% if is_author %}
-<p><a href="{% url 'edit_project' project.id %}">Редагувати проєкт</a></p>
-<p><a href="{% url 'delete_project' project.id %}" style="text-decoration: none; color: red">Видалити проєкт</a></p>
+<p><a href="{% url 'edit_project' project.id %}">{% trans "Редагувати проєкт" %}</a></p>
+<p><a href="{% url 'delete_project' project.id %}" style="text-decoration: none; color: red">{% trans "Видалити проєкт" %}</a></p>
 {% endif %}
-<h3>Пов'язані ідеї</h3>
+
+<h3>{% trans "Пов'язані ідеї" %}</h3>
 {% for idea in related_ideas %}
 <div class="idea-card">
     <div class="idea-info">
@@ -39,16 +42,18 @@
     </div>
 </div>
 {% empty %}
-<p>Координатор цього проєкту не зазначав, що він надихався якоюсь із ідей на платформі.</p>
+<p>{% trans "Координатор цього проєкту не зазначав, що він надихався якоюсь із ідей на платформі." %}</p>
 {% endfor %}
 
 
-<h3>Які ресурси потрібні?</h3>
+<h3>
+    {% trans "Які ресурси потрібні?" %}
+</h3>
 {% if is_author %}
 <form method="POST" id="resourceForm" class="form">
     {% csrf_token %}
-    <input type="text" id="resource_name" name="resource_name" class="input" placeholder="Введи назву ресурсу" required>
-    <button class="form-button" type="submit" onclick="addResource()">Додати ресурс</button>
+    <input type="text" id="resource_name" name="resource_name" class="input" placeholder="{% trans "Введи назву ресурсу" %}" required>
+    <button class="form-button" type="submit" onclick="addResource()">{% trans "Додати ресурс" %}</button>
 </form>
 {% endif %}
 <ul id="resourceList">
@@ -56,40 +61,42 @@
     <li>
         <span class="resource-name">{{ resource.name }}</span>
         {% if is_author %}
-        <button style="margin-left: 10%;" type="submit" class="edit-button" onclick="editResource('{{ resource.id }}')">Редагувати</button>
-        <button class="edit-button" type="submit" onclick="deleteResource('{{ resource.id }}')">Видалити</button>
+        <button style="margin-left: 10%;" type="submit" class="edit-button" onclick="editResource('{{ resource.id }}')">{% trans "Редагувати" %}</button>
+        <button class="edit-button" type="submit" onclick="deleteResource('{{ resource.id }}')">{% trans "Видалити" %}</button>
         {% endif %}
     </li>
     {% endfor %}
 </ul>
 {% if is_author == False %}
-<p>Ти можеш запропонувати свою допомогу проєкту, написавши його координатору. Вкажи, будь ласка, щодо якого конкретно проєкту і ресурсу ти звертаєшся.</p>
+<p>
+    {% trans "Ти можеш запропонувати свою допомогу проєкту, написавши його координатору. Вкажи, будь ласка, щодо якого конкретно проєкту і ресурсу ти звертаєшся." %}
+</p>
 <form class="form">
-    <button class="form-button"><a href="{{ project.author.profile.chat_element }}">Запропонувати допомогу</a></button>
+    <button class="form-button"><a href="{{ project.author.profile.chat_element }}">{% trans "Запропонувати допомогу" %}</a></button>
 </form>
 {% endif %}
-<h3>Завдання</h3>
+<h3>{% trans "Завдання" %}</h3>
 {% if is_author %}
 <form method="POST" id="taskForm" class="form">
     {% csrf_token %}
-    <input class="input" name="task_name" id="task_name" placeholder="Введи текст завдання" required />
-    <label for="task_risk_level">Рівень ризику</label>
+    <input class="input" name="task_name" id="task_name" placeholder="{% trans "Введи текст завдання" %}" required />
+    <label for="task_risk_level">{% trans "Рівень ризику" %}</label>
     <select class="input" name="task_risk_level" id="task_risk_level" required>
-        <option value="1">Мінімальний</option>
-        <option value="2">Другий</option>
-        <option value="3">Третій</option>
-        <option value="4">Четвертий</option>
-        <option value="5">П'ятий</option>
+        <option value="1">{% trans "Мінімальний" %}</option>
+        <option value="2">{% trans "Другий" %}</option>
+        <option value="3">{% trans "Третій" %}</option>
+        <option value="4">{% trans "Четвертий" %}</option>
+        <option value="5">{% trans "П'ятий'" %}</option>
     </select>
-    <label for="task_activity_sphere">Сфера діяльності</label>
+    <label for="task_activity_sphere">{% trans "Сфера діяльності" %}</label>
     <select class="input" name="task_activity_sphere" id="task_activity_sphere" required>
-        <option value="design">Дизайн</option>
-        <option value="dev">Розробка</option>
-        <option value="agitation">Агітація</option>
-        <option value="direct-action">Пряма дія</option>
-        <option value="other">Інше</option>
+        <option value="design">{% trans "Дизайн" %}</option>
+        <option value="dev">{% trans "Розробка" %}</option>
+        <option value="agitation">{% trans "Агітація" %}</option>
+        <option value="direct-action">{% trans "Пряма дія" %}</option>
+        <option value="other">{% trans "Інше" %}</option>
     </select>
-    <button class="form-button" type="submit" onclick="addTask()">Додати нове завдання</button>
+    <button class="form-button" type="submit" onclick="addTask()">{% trans "Додати нове завдання" %}</button>
 </form>
 {% endif %}
 <ul id="taskList" style="padding-left: 0;">
@@ -98,42 +105,44 @@
         <p class="task-id" style="display: none;">{{ task.id }}</p>
         <p class="task-name"><b>{{ task.name }}</b></p>
         <p class="task-risk-level">
-            <b>Рівень ризику:</b>
+            <b>{% trans "Рівень ризику:" %}</b>
             {% if task.risk_level == "1" %}
-            Мінімальний
+            {% trans "Мінімальний" %}
             {% elif task.risk_level == "2" %}
-            Другий
+            {% trans "Другий" %}
             {% elif task.risk_level == "3" %}
-            Третій
+            {% trans "Третій" %}
             {% elif task.risk_level == "4" %}
-            Четвертий
+            {% trans "Четвертий" %}
             {% elif task.risk_level == "5" %}
-            П'ятий
+            {% trans "П'ятий'" %}
             {% else %}
-            Невідомий рівень ризику
+            {% trans "Невідомий рівень ризику" %}
             {% endif %}
         </p>
         <p class="task-activity-sphere">
-            <b>Сфера діяльності:</b>
+            <b>{% trans "Сфера діяльності:" %}</b>
             {% if task.activity_sphere == "dev" %}
-            Розробка
+            {% trans "Розробка" %}
             {% elif task.activity_sphere == "design" %}
-            Дизайн
+            {% trans "Дизайн" %}
             {% elif task.activity_sphere == "agitation" %}
-            Агітація
+            {% trans "Агітація" %}
             {% elif task.activity_sphere == "direct-action" %}
-            Пряма дія
+            {% trans "Пряма дія" %}
             {% elif task.activity_sphere == "other" %}
-            Інше
+            {% trans "Інше" %}
             {% endif %}
         </p>
         {% if is_author %}
-        <button class="edit-button" type="submit" onclick="editTask('{{ task.id }}')">Редагувати</button>
-        <button class="edit-button" type="submit" onclick="deleteTask('{{ task.id }}')">Видалити</button>
+        <button class="edit-button" type="submit" onclick="editTask('{{ task.id }}')">{% trans "Редагувати" %}</button>
+        <button class="edit-button" type="submit" onclick="deleteTask('{{ task.id }}')">{% trans "Видалити" %}</button>
         {% else %}
-        <p>Ти можеш розказати, як ви виконали завдання, або надіслати результат його виконання, написавши координатору проєкту. Вкажи, будь ласка, щодо якого конкретно проєкту і завдання ти звертаєшся.</p>
+        <p>
+            {% trans "Ти можеш розказати, як ви виконали завдання, або надіслати результат його виконання, написавши координатору проєкту. Вкажи, будь ласка, щодо якого конкретно проєкту і завдання ти звертаєшся." %}
+        </p>
         <form class="form">
-            <button class="form-button"><a href="{{ project.author.profile.chat_element }}">Надіслати результат</a></button>
+            <button class="form-button"><a href="{{ project.author.profile.chat_element }}">{% trans "Надіслати результат" %}</a></button>
         </form>
         {% endif %}
     </li>
@@ -142,10 +151,10 @@
 
 
 
-<h3>Новини проєкту</h3>
+<h3>{% trans "Новини проєкту" %}</h3>
 {% if is_author %}
 <form action="" class="form">
-    <button type="submit" class="form-button"><a href="{% url 'add_news' project_id=project.id %}" style="text-decoration: none">Додати новину</a></button>
+    <button type="submit" class="form-button"><a href="{% url 'add_news' project_id=project.id %}" style="text-decoration: none">{% trans "Додати новину" %}</a></button>
 </form>
 {% endif %}
 {% for news in project.news.all %}
@@ -158,12 +167,12 @@
     <p>{{ news.content }}</p>
     {% endautoescape %}
     {% if is_author %}
-    <p><a href="{% url 'edit_news' project_id=project.id news_id=news.id %}">Редагувати новину</a></p>
-    <p style="margin: 0"><a href="{% url 'delete_news' project_id=project.id news_id=news.id %}" style="text-decoration: none; color: red">Видалити новину</a></p>
+    <p><a href="{% url 'edit_news' project_id=project.id news_id=news.id %}">{% trans "Редагувати новину" %}</a></p>
+    <p style="margin: 0"><a href="{% url 'delete_news' project_id=project.id news_id=news.id %}" style="text-decoration: none; color: red">{% trans "Видалити новину" %}</a></p>
     {% endif %}
 </div>
 {% empty %}
-    <p>Новин про проєкт поки не публікували.</p>
+<p>{% trans "Новин про проєкт поки не публікували." %}</p>
 {% endfor %}
 
 
@@ -213,7 +222,7 @@
 
 
     function editResource(resourceId) {
-        var newName = prompt('Введи нове ім\'я ресурсу:');
+        var newName = prompt('{% trans "Введи нове ім\'я ресурсу:" %}');
         if (newName !== null) {
             $.ajax({
                 type: 'POST',
@@ -232,7 +241,7 @@
     }
 
     function deleteResource(resourceId) {
-        var confirmation = confirm('Ти впевнений, що хочеш видалити цей ресурс з переліку?');
+        var confirmation = confirm('{% trans "Ти впевнений, що хочеш видалити цей ресурс з переліку?" %}');
         if (confirmation) {
             $.ajax({
                 type: 'POST',
@@ -253,7 +262,7 @@
 
 
     function editTask(taskId) {
-        var newName = prompt('Введіть нову назву завдання:');
+        var newName = prompt('{% trans "Введи нову назву завдання:" %}');
 
         if (newName !== null) {
             $.ajax({
@@ -274,7 +283,7 @@
 
 
     function deleteTask(taskId) {
-        var confirmation = confirm('Ти впевнений, що хочеш видалити це завдання з переліку?');
+        var confirmation = confirm('{% trans "Ти впевнений, що хочеш видалити це завдання з переліку?" %}');
         if (confirmation) {
             $.ajax({
                 type: 'POST',

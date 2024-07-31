@@ -1,16 +1,18 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 {% block content %}
 
-<h1>Видалення проєкту {{ project.name }}</h1>
+<h1>{% trans "Видалення проєкту" %} {{ project.name }}</h1>
 
-<p>Ти точно хочеш видалити проєкт: "{{ project.name }}"?</p>
+<p>{% trans "Ти точно хочеш видалити проєкт:" %} "{{ project.name }}"?</p>
 
 <form method="POST" action="" class="form">
     {% csrf_token %}
-    <button type="submit" class="form-button">Видалити</button>
+    <button type="submit" class="form-button">{% trans "Видалити" %}</button>
 </form>
 
-<a href="{% url 'project' project.id %}">Скасувати</a>
+<a href="{% url 'project' project.id %}">{% trans "Скасувати" %}</a>
 
 
 {% endblock %}

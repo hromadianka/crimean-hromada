@@ -1,21 +1,23 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
+
 
 {% block content %}
 
-<h1>Додати новину</h1>
+<h1>{% trans "Додати новину" %}</h1>
 
 <form method="post" action="{% url 'add_news' project_id=project.id %}" class="form" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="text" name="title" class="input" placeholder="Заголовок новини" required>
+    <input type="text" name="title" class="input" placeholder="{% trans "Заголовок новини" %}" required>
     <textarea name="content" class="textarea" id="editor"></textarea>
     <!--
     <input type="file" name="image" accept="image/*" id="imageInput">
     <label for="imageInput" class="file-input-label">Виберіть файл</label>
     -->
-    <button type="submit" class="form-button">Додати новину</button>
+    <button type="submit" class="form-button">{% trans "Додати новину" %}</button>
 </form>
 
-<p><a href="{% url 'project' project_id=project.id %}">Скасувати</a></p>
+<p><a href="{% url 'project' project_id=project.id %}">{% trans "Скасувати" %}</a></p>
 
 <script>
     ClassicEditor
